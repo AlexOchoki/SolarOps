@@ -1,0 +1,186 @@
+table fact_sales_orders
+	lineageTag: 670acc1e-fa32-49d1-8a69-c2dc3d1e1ddb
+
+	column order_id
+		dataType: string
+		lineageTag: 8036d2f9-356f-4c43-a298-134ea23dca9a
+		summarizeBy: none
+		sourceColumn: order_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column order_date_key
+		dataType: int64
+		formatString: 0
+		lineageTag: 363a15a9-0a1c-486d-89c3-e7261b3227a0
+		summarizeBy: sum
+		sourceColumn: order_date_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column customer_sk
+		dataType: int64
+		formatString: 0
+		lineageTag: a686300d-93c9-4ede-b9c1-29dfc4633542
+		summarizeBy: none
+		sourceColumn: customer_sk
+
+		annotation SummarizationSetBy = Automatic
+
+	column product_sk
+		dataType: int64
+		formatString: 0
+		lineageTag: 468d9653-941a-41c4-8480-4baeee9299f4
+		summarizeBy: none
+		sourceColumn: product_sk
+
+		annotation SummarizationSetBy = Automatic
+
+	column agent_sk
+		dataType: int64
+		formatString: 0
+		lineageTag: c9dc0537-afc4-4ba2-a605-708155701a12
+		summarizeBy: sum
+		sourceColumn: agent_sk
+
+		annotation SummarizationSetBy = Automatic
+
+	column plan_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 474912b1-30d8-4ba9-8a92-6eb544a7be79
+		summarizeBy: none
+		sourceColumn: plan_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column geo_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 0b9eaa4b-5e56-4e2e-b7b4-5ab415bb8e7a
+		summarizeBy: sum
+		sourceColumn: geo_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column order_status
+		dataType: string
+		lineageTag: 4f27e715-b6ed-41f3-b11e-9bbffab4b928
+		summarizeBy: none
+		sourceColumn: order_status
+
+		annotation SummarizationSetBy = Automatic
+
+	column list_price_kes
+		dataType: int64
+		formatString: 0
+		lineageTag: 2b3d22bc-6c18-4346-be0b-92dce92a099c
+		summarizeBy: sum
+		sourceColumn: list_price_kes
+
+		annotation SummarizationSetBy = Automatic
+
+	column discount_kes
+		dataType: int64
+		formatString: 0
+		lineageTag: c51bcc7b-a218-472d-9035-298ab991aa1d
+		summarizeBy: sum
+		sourceColumn: discount_kes
+
+		annotation SummarizationSetBy = Automatic
+
+	column net_price_kes
+		dataType: int64
+		formatString: 0
+		lineageTag: 3b8bda32-6b0e-4da2-807e-4f9fbaf06a76
+		summarizeBy: sum
+		sourceColumn: net_price_kes
+
+		annotation SummarizationSetBy = Automatic
+
+	column deposit_required_kes
+		dataType: int64
+		formatString: 0
+		lineageTag: c4cb2a31-23fa-4473-8eca-2c6921a2b1cc
+		summarizeBy: sum
+		sourceColumn: deposit_required_kes
+
+		annotation SummarizationSetBy = Automatic
+
+	column deposit_paid_kes
+		dataType: int64
+		formatString: 0
+		lineageTag: c606465c-4637-4ffa-9d58-15fe4ac4a339
+		summarizeBy: sum
+		sourceColumn: deposit_paid_kes
+
+		annotation SummarizationSetBy = Automatic
+
+	column deposit_paid_flag
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: df74f5fe-0d7e-496b-afa1-ce9d8bf3cf74
+		summarizeBy: none
+		sourceColumn: deposit_paid_flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column monthly_installment_kes
+		dataType: int64
+		formatString: 0
+		lineageTag: 3f82f5a7-d0be-4c49-bfa4-b07bca43583f
+		summarizeBy: sum
+		sourceColumn: monthly_installment_kes
+
+		annotation SummarizationSetBy = Automatic
+
+	column expected_total_repayment_kes
+		dataType: int64
+		formatString: 0
+		lineageTag: 24c06fb9-ebc5-43ea-86d1-124597951557
+		summarizeBy: sum
+		sourceColumn: expected_total_repayment_kes
+
+		annotation SummarizationSetBy = Automatic
+
+	column payment_day_of_month
+		dataType: int64
+		formatString: 0
+		lineageTag: 27b1f786-a2b4-4a8d-b6ea-f3ec1d1c1e05
+		summarizeBy: sum
+		sourceColumn: payment_day_of_month
+
+		annotation SummarizationSetBy = Automatic
+
+	column activation_flag
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 7c9c83f8-d833-4542-87b5-b3f8adef83df
+		summarizeBy: none
+		sourceColumn: activation_flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column activation_date_key
+		dataType: int64
+		formatString: 0
+		lineageTag: de4b4cbd-90de-4ea2-a1db-f7ed44ffd148
+		summarizeBy: sum
+		sourceColumn: activation_date_key
+
+		annotation SummarizationSetBy = Automatic
+
+	partition fact_sales_orders = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("C:\Users\AlexOchokiMogengo\Projects\SC\data\fact_sales_orders.csv"),[Delimiter=",", Columns=19, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"order_id", type text}, {"order_date_key", Int64.Type}, {"customer_sk", Int64.Type}, {"product_sk", Int64.Type}, {"agent_sk", Int64.Type}, {"plan_id", Int64.Type}, {"geo_id", Int64.Type}, {"order_status", type text}, {"list_price_kes", Int64.Type}, {"discount_kes", Int64.Type}, {"net_price_kes", Int64.Type}, {"deposit_required_kes", Int64.Type}, {"deposit_paid_kes", Int64.Type}, {"deposit_paid_flag", type logical}, {"monthly_installment_kes", Int64.Type}, {"expected_total_repayment_kes", Int64.Type}, {"payment_day_of_month", Int64.Type}, {"activation_flag", type logical}, {"activation_date_key", Int64.Type}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

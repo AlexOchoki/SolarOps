@@ -1,0 +1,182 @@
+relationship b6c90047-4fc4-407f-a3f2-40749984e330
+	joinOnDateBehavior: datePartOnly
+	fromColumn: dim_asset.warranty_start_date
+	toColumn: LocalDateTable_fb9ad7be-1ba1-41d9-9874-bf5da614ad86.Date
+
+relationship 2ca921d5-b7c2-48d2-9122-663d0f18446e
+	joinOnDateBehavior: datePartOnly
+	fromColumn: dim_asset.warranty_end_date
+	toColumn: LocalDateTable_f7356953-636d-4938-a070-f5fe0938f934.Date
+
+relationship 5e1b5dc8-e971-4617-981c-f96f4bb30210
+	joinOnDateBehavior: datePartOnly
+	fromColumn: dim_customer.date_of_birth
+	toColumn: LocalDateTable_659239c4-bc7c-4926-8aa9-9db846f65d67.Date
+
+relationship 7a2ef7f7-373c-42ce-9687-42a4afbe7042
+	joinOnDateBehavior: datePartOnly
+	fromColumn: dim_customer.date_of_signup
+	toColumn: LocalDateTable_1d549c32-a43a-4d1b-989f-05d60b9fb8dc.Date
+
+relationship f22edce3-54fd-48c8-a893-84acfccab318
+	joinOnDateBehavior: datePartOnly
+	fromColumn: dim_sales_agent.hire_date
+	toColumn: LocalDateTable_bc039c21-d3ac-4a8e-9803-e6fd07228dbf.Date
+
+relationship AutoDetected_e8d4e16b-f1a9-4d84-b214-b7065386b5be
+	fromColumn: fact_asset_usage_daily.asset_sk
+	toColumn: dim_asset.asset_sk
+
+relationship AutoDetected_66f5d9a3-d376-4383-882d-6f1f98fed71a
+	fromColumn: fact_service_tickets.asset_sk
+	toColumn: dim_asset.asset_sk
+
+relationship AutoDetected_dc638e6b-21bf-40bb-bbf6-3c7d7d4a486d
+	fromColumn: dim_asset.product_sk
+	toColumn: dim_product.product_sk
+
+relationship AutoDetected_379b873d-d848-4d18-8a7d-34c1b9220e78
+	isActive: false
+	fromColumn: fact_asset_usage_daily.product_sk
+	toColumn: dim_product.product_sk
+
+relationship AutoDetected_c9118536-9536-4d96-8aff-f4f397679bf3
+	fromColumn: fact_installations.product_sk
+	toColumn: dim_product.product_sk
+
+relationship AutoDetected_a8b60ba9-d004-4f74-bdc5-99b56e149e1b
+	fromColumn: fact_loan_snapshot_monthly.product_sk
+	toColumn: dim_product.product_sk
+
+relationship AutoDetected_794525f9-603b-4100-8f3a-901164625135
+	fromColumn: fact_sales_orders.product_sk
+	toColumn: dim_product.product_sk
+
+relationship AutoDetected_219ad6e8-1dc2-40c2-9a09-eadae57127df
+	isActive: false
+	fromColumn: fact_service_tickets.product_sk
+	toColumn: dim_product.product_sk
+
+relationship AutoDetected_aa4dca89-08e8-4d11-a2b0-916138b00f12
+	fromColumn: fact_asset_usage_daily.customer_sk
+	toColumn: dim_customer.customer_sk
+
+relationship AutoDetected_4cf8bc04-7fef-4f5c-b1c2-aec89a47a447
+	fromColumn: fact_installations.customer_sk
+	toColumn: dim_customer.customer_sk
+
+relationship AutoDetected_1d417d0d-641d-4671-bd14-cf44782e77ef
+	fromColumn: fact_loan_snapshot_monthly.customer_sk
+	toColumn: dim_customer.customer_sk
+
+relationship AutoDetected_5f90bc18-32f0-4ca7-8156-a7c2bceec950
+	fromColumn: fact_payments.customer_sk
+	toColumn: dim_customer.customer_sk
+
+relationship AutoDetected_d80264db-9fa8-4e98-a6ba-6536636aeafe
+	fromColumn: fact_sales_orders.customer_sk
+	toColumn: dim_customer.customer_sk
+
+relationship AutoDetected_ecce35ad-f416-4b01-a37d-dd98e23b8310
+	fromColumn: fact_service_tickets.customer_sk
+	toColumn: dim_customer.customer_sk
+
+relationship AutoDetected_5ea0938f-1366-475e-9897-c224150556ab
+	fromColumn: dim_customer.geo_id
+	toColumn: dim_geography.geo_id
+
+relationship AutoDetected_93d70293-1107-4163-a0ec-293600a429d3
+	fromColumn: dim_installer_team.geo_id
+	toColumn: dim_geography.geo_id
+
+relationship AutoDetected_a22b1ca7-7a2e-4718-b328-542dc6fb9b84
+	fromColumn: dim_sales_agent.geo_id
+	toColumn: dim_geography.geo_id
+
+relationship AutoDetected_39fde100-f494-451e-b383-5853bc09f6c7
+	isActive: false
+	fromColumn: fact_asset_usage_daily.geo_id
+	toColumn: dim_geography.geo_id
+
+relationship AutoDetected_c2d1f8e6-acbb-425f-a872-9848b0c875e8
+	isActive: false
+	fromColumn: fact_installations.geo_id
+	toColumn: dim_geography.geo_id
+
+relationship AutoDetected_8791cf5f-e497-4936-9a6b-811c134311f4
+	fromColumn: fact_leads.geo_id
+	toColumn: dim_geography.geo_id
+
+relationship AutoDetected_3f20f687-a3c1-40f4-b72e-9306315c06cd
+	isActive: false
+	fromColumn: fact_loan_snapshot_monthly.geo_id
+	toColumn: dim_geography.geo_id
+
+relationship AutoDetected_d15fc59a-c3ec-4952-8c2f-9600c800fc55
+	isActive: false
+	fromColumn: fact_payments.geo_id
+	toColumn: dim_geography.geo_id
+
+relationship AutoDetected_429de81e-f993-4a6e-9e18-4f22d0655a8e
+	isActive: false
+	fromColumn: fact_sales_orders.geo_id
+	toColumn: dim_geography.geo_id
+
+relationship AutoDetected_0ba21bbb-415e-4494-9089-ac7936c5437a
+	isActive: false
+	fromColumn: fact_service_tickets.geo_id
+	toColumn: dim_geography.geo_id
+
+relationship AutoDetected_520a6453-90cf-4406-ae73-81b882e92a15
+	fromColumn: fact_payments.plan_id
+	toColumn: dim_financing_plan.plan_id
+
+relationship AutoDetected_31cf4785-e9a9-4585-a3a6-8b02ba5db7c8
+	fromColumn: fact_sales_orders.plan_id
+	toColumn: dim_financing_plan.plan_id
+
+relationship AutoDetected_12c9f755-b6d2-4495-816d-9bcea11563d8
+	isActive: false
+	fromColumn: fact_installations.installer_team_sk
+	toColumn: dim_installer_team.installer_team_sk
+
+relationship AutoDetected_282a0d19-831c-4fc0-b348-061175300993
+	fromColumn: fact_payments.payment_channel_id
+	toColumn: dim_payment_channel.payment_channel_id
+
+relationship AutoDetected_30ac8001-b4da-4463-a39a-1df864cfe800
+	isActive: false
+	fromColumn: fact_leads.agent_sk
+	toColumn: dim_sales_agent.agent_sk
+
+relationship AutoDetected_ddc874b5-96fa-4f86-9f85-5f59a204ba5c
+	isActive: false
+	fromColumn: fact_loan_snapshot_monthly.agent_sk
+	toColumn: dim_sales_agent.agent_sk
+
+relationship AutoDetected_f3b4f9e7-411d-418b-94d4-8efb259fe896
+	isActive: false
+	fromColumn: fact_sales_orders.agent_sk
+	toColumn: dim_sales_agent.agent_sk
+
+relationship AutoDetected_e18b9bf1-deca-4fe3-a3f2-6056c147c3aa
+	fromColumn: fact_service_tickets.service_category_id
+	toColumn: dim_service_category.service_category_id
+
+relationship AutoDetected_b55abaf8-b3b4-4c6e-875a-ecb1effab3d2
+	isActive: false
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: fact_installations.order_id
+	toColumn: fact_sales_orders.order_id
+
+relationship AutoDetected_25e35845-5926-4731-937e-25870811fcc5
+	isActive: false
+	fromColumn: fact_loan_snapshot_monthly.order_id
+	toColumn: fact_sales_orders.order_id
+
+relationship AutoDetected_e9c63b50-8705-4df1-a2f8-303794ceca6a
+	isActive: false
+	fromColumn: fact_payments.order_id
+	toColumn: fact_sales_orders.order_id
+

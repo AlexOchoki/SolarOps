@@ -1,0 +1,39 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-KE
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_QueryOrder = ["dim_asset","dim_customer","dim_financing_plan","dim_geography","dim_installer_team","dim_payment_channel","dim_product","dim_sales_agent","dim_service_category","fact_asset_usage_daily","fact_installations","fact_leads","fact_loan_snapshot_monthly","fact_payments","fact_sales_orders","fact_service_tickets"]
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table dim_asset
+ref table DateTableTemplate_3c8fa166-2992-4fad-b489-59472bbad77e
+ref table LocalDateTable_fb9ad7be-1ba1-41d9-9874-bf5da614ad86
+ref table LocalDateTable_f7356953-636d-4938-a070-f5fe0938f934
+ref table dim_customer
+ref table LocalDateTable_659239c4-bc7c-4926-8aa9-9db846f65d67
+ref table LocalDateTable_1d549c32-a43a-4d1b-989f-05d60b9fb8dc
+ref table dim_financing_plan
+ref table dim_geography
+ref table dim_installer_team
+ref table dim_payment_channel
+ref table dim_product
+ref table dim_sales_agent
+ref table LocalDateTable_bc039c21-d3ac-4a8e-9803-e6fd07228dbf
+ref table dim_service_category
+ref table fact_asset_usage_daily
+ref table fact_installations
+ref table fact_leads
+ref table fact_loan_snapshot_monthly
+ref table fact_payments
+ref table fact_sales_orders
+ref table fact_service_tickets
+
+ref cultureInfo en-US
+

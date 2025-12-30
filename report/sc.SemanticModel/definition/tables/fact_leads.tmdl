@@ -1,0 +1,120 @@
+table fact_leads
+	lineageTag: 1e4af527-0aa5-4c3e-a217-29806bca4174
+
+	column lead_id
+		dataType: string
+		lineageTag: 10a41604-48a8-4fce-a8ee-5ff664509ae4
+		summarizeBy: none
+		sourceColumn: lead_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column lead_date_key
+		dataType: int64
+		formatString: 0
+		lineageTag: 8ec2e9b2-5fdb-4512-98a3-cd598c73bddd
+		summarizeBy: sum
+		sourceColumn: lead_date_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column geo_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 0ddd84ac-5299-4c3a-854f-dbc00dc8f430
+		summarizeBy: none
+		sourceColumn: geo_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column agent_sk
+		dataType: int64
+		formatString: 0
+		lineageTag: ed1b3cdf-28c3-441d-9483-4200a6d02c61
+		summarizeBy: sum
+		sourceColumn: agent_sk
+
+		annotation SummarizationSetBy = Automatic
+
+	column lead_source
+		dataType: string
+		lineageTag: de0f522d-220d-4612-a9e9-c9c8a224e5b3
+		summarizeBy: none
+		sourceColumn: lead_source
+
+		annotation SummarizationSetBy = Automatic
+
+	column lead_status
+		dataType: string
+		lineageTag: baa44b63-577f-4aae-b7b4-27644a80dc93
+		summarizeBy: none
+		sourceColumn: lead_status
+
+		annotation SummarizationSetBy = Automatic
+
+	column stage_current
+		dataType: string
+		lineageTag: 198943a9-58e5-49fd-bed8-6dd67dc15797
+		summarizeBy: none
+		sourceColumn: stage_current
+
+		annotation SummarizationSetBy = Automatic
+
+	column stage_entered_date_key
+		dataType: int64
+		formatString: 0
+		lineageTag: bfdbb1f2-ef43-44a5-9c22-2ee56c467cbe
+		summarizeBy: sum
+		sourceColumn: stage_entered_date_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column stage_age_days
+		dataType: int64
+		formatString: 0
+		lineageTag: d8f7f756-8474-45f2-bdbe-3fcf8b829ec7
+		summarizeBy: sum
+		sourceColumn: stage_age_days
+
+		annotation SummarizationSetBy = Automatic
+
+	column converted_flag
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 1eda8114-aa02-4e1c-a4c0-87cdb2a83550
+		summarizeBy: none
+		sourceColumn: converted_flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column converted_date_key
+		dataType: int64
+		formatString: 0
+		lineageTag: 0d426528-5d2b-4292-8c6a-2316af266ecb
+		summarizeBy: sum
+		sourceColumn: converted_date_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column lost_reason
+		dataType: string
+		lineageTag: 6b91554a-e305-43f2-a3bb-b4afebc0e102
+		summarizeBy: none
+		sourceColumn: lost_reason
+
+		annotation SummarizationSetBy = Automatic
+
+	partition fact_leads = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("C:\Users\AlexOchokiMogengo\Projects\SC\data\fact_leads.csv"),[Delimiter=",", Columns=12, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"lead_id", type text}, {"lead_date_key", Int64.Type}, {"geo_id", Int64.Type}, {"agent_sk", Int64.Type}, {"lead_source", type text}, {"lead_status", type text}, {"stage_current", type text}, {"stage_entered_date_key", Int64.Type}, {"stage_age_days", Int64.Type}, {"converted_flag", type logical}, {"converted_date_key", Int64.Type}, {"lost_reason", type text}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

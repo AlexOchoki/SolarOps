@@ -1,0 +1,92 @@
+table dim_sales_agent
+	lineageTag: 2b3c1f44-4baf-495a-b947-cff2db574f05
+
+	column agent_sk
+		dataType: int64
+		formatString: 0
+		lineageTag: 975950d0-886b-4be1-974c-6511bafbb0ff
+		summarizeBy: sum
+		sourceColumn: agent_sk
+
+		annotation SummarizationSetBy = Automatic
+
+	column agent_id
+		dataType: string
+		lineageTag: 4a56aa5f-a74f-45fa-8aed-99758a7c3d25
+		summarizeBy: none
+		sourceColumn: agent_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column agent_name
+		dataType: string
+		lineageTag: 4d5e48ce-1dfc-4d91-b451-e4aa21de7a9d
+		summarizeBy: none
+		sourceColumn: agent_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column geo_id
+		dataType: int64
+		formatString: 0
+		lineageTag: b26442aa-fd45-4b72-8839-15957a09c1e2
+		summarizeBy: none
+		sourceColumn: geo_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column hire_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 344620c3-05f8-45f3-9625-1d9856d8f7a8
+		summarizeBy: none
+		sourceColumn: hire_date
+
+		variation Variation
+			isDefault
+			relationship: f22edce3-54fd-48c8-a893-84acfccab318
+			defaultHierarchy: LocalDateTable_bc039c21-d3ac-4a8e-9803-e6fd07228dbf.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column team_lead_id
+		dataType: string
+		lineageTag: 7a2036c9-3a24-4f5f-8d74-0546eb1af8dc
+		summarizeBy: none
+		sourceColumn: team_lead_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column channel
+		dataType: string
+		lineageTag: f39a47f1-01bc-40b7-bcc6-47cc53f903ab
+		summarizeBy: none
+		sourceColumn: channel
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_active
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: c4dde755-9770-445c-a71f-f94b5e493422
+		summarizeBy: none
+		sourceColumn: is_active
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_sales_agent = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("C:\Users\AlexOchokiMogengo\Projects\SC\data\dim_sales_agent.csv"),[Delimiter=",", Columns=8, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"agent_sk", Int64.Type}, {"agent_id", type text}, {"agent_name", type text}, {"geo_id", Int64.Type}, {"hire_date", type date}, {"team_lead_id", type text}, {"channel", type text}, {"is_active", type logical}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

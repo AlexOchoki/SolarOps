@@ -1,0 +1,142 @@
+table fact_loan_snapshot_monthly
+	lineageTag: cccb9179-3c61-4935-8758-0065251e4c5d
+
+	column snapshot_month_end_date_key
+		dataType: int64
+		formatString: 0
+		lineageTag: 0c6a5ff6-38fe-4e9e-ae02-a2775024add1
+		summarizeBy: sum
+		sourceColumn: snapshot_month_end_date_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column order_id
+		dataType: string
+		lineageTag: 1b59de1d-4678-47ec-9f51-6ec8a678bdd7
+		summarizeBy: none
+		sourceColumn: order_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column customer_sk
+		dataType: int64
+		formatString: 0
+		lineageTag: 49487b90-2890-4825-93b5-d744d1060db4
+		summarizeBy: none
+		sourceColumn: customer_sk
+
+		annotation SummarizationSetBy = Automatic
+
+	column product_sk
+		dataType: int64
+		formatString: 0
+		lineageTag: f2b06389-2abc-48aa-896e-7733a8078ec3
+		summarizeBy: none
+		sourceColumn: product_sk
+
+		annotation SummarizationSetBy = Automatic
+
+	column geo_id
+		dataType: int64
+		formatString: 0
+		lineageTag: d9b68935-e237-4d92-bd4b-886ea22d7f0d
+		summarizeBy: sum
+		sourceColumn: geo_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column agent_sk
+		dataType: int64
+		formatString: 0
+		lineageTag: 09740533-6f66-4881-bf18-afa7d7a2dd21
+		summarizeBy: sum
+		sourceColumn: agent_sk
+
+		annotation SummarizationSetBy = Automatic
+
+	column outstanding_principal_kes
+		dataType: int64
+		formatString: 0
+		lineageTag: c9bf4729-2f3e-4d5f-a63b-e07e435875a3
+		summarizeBy: sum
+		sourceColumn: outstanding_principal_kes
+
+		annotation SummarizationSetBy = Automatic
+
+	column arrears_amount_kes
+		dataType: int64
+		formatString: 0
+		lineageTag: 64d892f7-c022-42b2-8c54-ea3a96a6412f
+		summarizeBy: sum
+		sourceColumn: arrears_amount_kes
+
+		annotation SummarizationSetBy = Automatic
+
+	column dpd
+		dataType: int64
+		formatString: 0
+		lineageTag: 3a6b5b64-f2e8-40cb-9c09-879bdfa1ef75
+		summarizeBy: sum
+		sourceColumn: dpd
+
+		annotation SummarizationSetBy = Automatic
+
+	column par_bucket
+		dataType: string
+		lineageTag: bfe1e13b-75ad-4274-9470-81f6ee644a6c
+		summarizeBy: none
+		sourceColumn: par_bucket
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_npl_flag
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: e3cda214-41cb-468d-b507-655db11f287c
+		summarizeBy: none
+		sourceColumn: is_npl_flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column paid_to_date_kes
+		dataType: int64
+		formatString: 0
+		lineageTag: 23522d37-0b4c-4ef3-9c7e-db43bd428156
+		summarizeBy: sum
+		sourceColumn: paid_to_date_kes
+
+		annotation SummarizationSetBy = Automatic
+
+	column expected_to_date_kes
+		dataType: int64
+		formatString: 0
+		lineageTag: d76cc1cb-517f-4a84-b144-30c1193e797c
+		summarizeBy: sum
+		sourceColumn: expected_to_date_kes
+
+		annotation SummarizationSetBy = Automatic
+
+	column repayment_adherence_pct
+		dataType: double
+		lineageTag: dbeae67e-7f06-4263-ad72-96d8472436d9
+		summarizeBy: sum
+		sourceColumn: repayment_adherence_pct
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition fact_loan_snapshot_monthly = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("C:\Users\AlexOchokiMogengo\Projects\SC\data\fact_loan_snapshot_monthly.csv"),[Delimiter=",", Columns=14, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"snapshot_month_end_date_key", Int64.Type}, {"order_id", type text}, {"customer_sk", Int64.Type}, {"product_sk", Int64.Type}, {"geo_id", Int64.Type}, {"agent_sk", Int64.Type}, {"outstanding_principal_kes", Int64.Type}, {"arrears_amount_kes", Int64.Type}, {"dpd", Int64.Type}, {"par_bucket", type text}, {"is_npl_flag", type logical}, {"paid_to_date_kes", Int64.Type}, {"expected_to_date_kes", Int64.Type}, {"repayment_adherence_pct", type number}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,132 @@
+table dim_product
+	lineageTag: 2ab91bf5-d411-4dca-99f4-daf5e746d856
+
+	column product_sk
+		dataType: int64
+		formatString: 0
+		lineageTag: 2b9955ad-8eb8-483b-baa2-a60e0b9b13fd
+		summarizeBy: none
+		sourceColumn: product_sk
+
+		annotation SummarizationSetBy = Automatic
+
+	column product_id
+		dataType: string
+		lineageTag: 1f9a95e1-385c-46cd-873c-74f924b4c3a2
+		summarizeBy: none
+		sourceColumn: product_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column product_name
+		dataType: string
+		lineageTag: 593101d3-07b3-41d0-8a09-390a241dfc17
+		summarizeBy: none
+		sourceColumn: product_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column product_family
+		dataType: string
+		lineageTag: eecb9e32-f755-4c6b-92bd-0b0aee916a40
+		summarizeBy: none
+		sourceColumn: product_family
+
+		annotation SummarizationSetBy = Automatic
+
+	column pump_type
+		dataType: string
+		lineageTag: 5266f160-7a05-4903-ba97-cd331cd1eb4b
+		summarizeBy: none
+		sourceColumn: pump_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column max_head_meters
+		dataType: int64
+		formatString: 0
+		lineageTag: 02f7e7a0-7d28-4807-a729-67040bb26b83
+		summarizeBy: sum
+		sourceColumn: max_head_meters
+
+		annotation SummarizationSetBy = Automatic
+
+	column max_flow_rate_lph
+		dataType: int64
+		formatString: 0
+		lineageTag: ec546322-8e03-4f5b-b1f6-c7af3fc583d2
+		summarizeBy: sum
+		sourceColumn: max_flow_rate_lph
+
+		annotation SummarizationSetBy = Automatic
+
+	column panel_wattage_total
+		dataType: int64
+		formatString: 0
+		lineageTag: 8388c5ff-e2fb-4be5-92d3-6f5652216396
+		summarizeBy: sum
+		sourceColumn: panel_wattage_total
+
+		annotation SummarizationSetBy = Automatic
+
+	column battery_capacity_wh
+		dataType: int64
+		formatString: 0
+		lineageTag: c17dd4ed-38b0-47a5-bf3e-bb5f44393ff8
+		summarizeBy: sum
+		sourceColumn: battery_capacity_wh
+
+		annotation SummarizationSetBy = Automatic
+
+	column recommended_farm_size_min_acres
+		dataType: double
+		lineageTag: 7d85bba8-5cbe-402c-9cad-d30ea56d2331
+		summarizeBy: sum
+		sourceColumn: recommended_farm_size_min_acres
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column recommended_farm_size_max_acres
+		dataType: double
+		lineageTag: 55276a1c-8ae6-42e5-99fd-e6c51ef99aa9
+		summarizeBy: sum
+		sourceColumn: recommended_farm_size_max_acres
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column warranty_months
+		dataType: int64
+		formatString: 0
+		lineageTag: 0e3ae511-bebf-461e-b063-37cfe8b22b76
+		summarizeBy: sum
+		sourceColumn: warranty_months
+
+		annotation SummarizationSetBy = Automatic
+
+	column expected_lifespan_years
+		dataType: int64
+		formatString: 0
+		lineageTag: 5158446c-f024-4da5-bd03-659d99b46b46
+		summarizeBy: sum
+		sourceColumn: expected_lifespan_years
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_product = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("C:\Users\AlexOchokiMogengo\Projects\SC\data\dim_product.csv"),[Delimiter=",", Columns=13, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"product_sk", Int64.Type}, {"product_id", type text}, {"product_name", type text}, {"product_family", type text}, {"pump_type", type text}, {"max_head_meters", Int64.Type}, {"max_flow_rate_lph", Int64.Type}, {"panel_wattage_total", Int64.Type}, {"battery_capacity_wh", Int64.Type}, {"recommended_farm_size_min_acres", type number}, {"recommended_farm_size_max_acres", type number}, {"warranty_months", Int64.Type}, {"expected_lifespan_years", Int64.Type}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

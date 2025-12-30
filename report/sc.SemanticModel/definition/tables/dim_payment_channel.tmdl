@@ -1,0 +1,52 @@
+table dim_payment_channel
+	lineageTag: a08cb45f-22bb-4605-b1de-f0d7d4c137a3
+
+	column payment_channel_id
+		dataType: int64
+		formatString: 0
+		lineageTag: e1427540-32d6-4880-ad79-ebb48cf70676
+		summarizeBy: none
+		sourceColumn: payment_channel_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column payment_channel_name
+		dataType: string
+		lineageTag: 52e75401-d0d3-4e44-bd2a-cda46d6c916a
+		summarizeBy: none
+		sourceColumn: payment_channel_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column channel_type
+		dataType: string
+		lineageTag: ebceeb16-f650-4993-bde8-02ef7b2eee7b
+		summarizeBy: none
+		sourceColumn: channel_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column fees_pct
+		dataType: double
+		lineageTag: d1d5b185-6876-496a-871d-6382c08ff41e
+		summarizeBy: none
+		sourceColumn: fees_pct
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition dim_payment_channel = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("C:\Users\AlexOchokiMogengo\Projects\SC\data\dim_payment_channel.csv"),[Delimiter=",", Columns=4, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"payment_channel_id", Int64.Type}, {"payment_channel_name", type text}, {"channel_type", type text}, {"fees_pct", type number}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

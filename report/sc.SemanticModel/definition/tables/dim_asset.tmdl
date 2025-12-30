@@ -1,0 +1,99 @@
+table dim_asset
+	lineageTag: 9193b0c7-1ed9-40c3-bede-072fdcb3b64c
+
+	column asset_sk
+		dataType: int64
+		formatString: 0
+		lineageTag: f28c1427-d2ed-47cb-ab3a-8ab3bc8b9dc9
+		summarizeBy: none
+		sourceColumn: asset_sk
+
+		annotation SummarizationSetBy = Automatic
+
+	column asset_id
+		dataType: string
+		lineageTag: 7e14c70f-159f-490a-9815-b57b8ae87835
+		summarizeBy: none
+		sourceColumn: asset_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column product_sk
+		dataType: int64
+		formatString: 0
+		lineageTag: 44272e39-9572-481b-bcfd-a745ae07d04b
+		summarizeBy: none
+		sourceColumn: product_sk
+
+		annotation SummarizationSetBy = Automatic
+
+	column serial_no
+		dataType: string
+		lineageTag: 4f1b3c42-e851-4a4e-b609-e44d2d36f1da
+		summarizeBy: none
+		sourceColumn: serial_no
+
+		annotation SummarizationSetBy = Automatic
+
+	column manufacture_batch
+		dataType: string
+		lineageTag: aeb0a0c6-b99c-43b1-9dcc-c2c3b0c80a1f
+		summarizeBy: none
+		sourceColumn: manufacture_batch
+
+		annotation SummarizationSetBy = Automatic
+
+	column warranty_start_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 7a6561ff-a94a-43ce-824d-0a029bf6d5ea
+		summarizeBy: none
+		sourceColumn: warranty_start_date
+
+		variation Variation
+			isDefault
+			relationship: b6c90047-4fc4-407f-a3f2-40749984e330
+			defaultHierarchy: LocalDateTable_fb9ad7be-1ba1-41d9-9874-bf5da614ad86.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column warranty_end_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 73ddeb7a-b079-42ad-8dc3-9d2b9619f90d
+		summarizeBy: none
+		sourceColumn: warranty_end_date
+
+		variation Variation
+			isDefault
+			relationship: 2ca921d5-b7c2-48d2-9122-663d0f18446e
+			defaultHierarchy: LocalDateTable_f7356953-636d-4938-a070-f5fe0938f934.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column status
+		dataType: string
+		lineageTag: 386c3e7c-d4ad-4281-b607-811570fb0f89
+		summarizeBy: none
+		sourceColumn: status
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_asset = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("C:\Users\AlexOchokiMogengo\Projects\SC\data\dim_asset.csv"),[Delimiter=",", Columns=8, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"asset_sk", Int64.Type}, {"asset_id", type text}, {"product_sk", Int64.Type}, {"serial_no", type text}, {"manufacture_batch", type text}, {"warranty_start_date", type date}, {"warranty_end_date", type date}, {"status", type text}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
