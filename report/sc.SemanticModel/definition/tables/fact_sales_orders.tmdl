@@ -13,7 +13,7 @@ table fact_sales_orders
 		dataType: int64
 		formatString: 0
 		lineageTag: 363a15a9-0a1c-486d-89c3-e7261b3227a0
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: order_date_key
 
 		annotation SummarizationSetBy = Automatic

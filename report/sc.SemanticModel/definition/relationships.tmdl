@@ -180,3 +180,23 @@ relationship AutoDetected_e9c63b50-8705-4df1-a2f8-303794ceca6a
 	fromColumn: fact_payments.order_id
 	toColumn: fact_sales_orders.order_id
 
+relationship 3c440db4-05d0-285c-157f-50c27ad75984
+	fromColumn: fact_payments.payment_date_key
+	toColumn: dim_date.date_key
+
+relationship d0c04698-2173-659c-0a7b-1ca67a670ce6
+	fromColumn: fact_sales_orders.order_date_key
+	toColumn: dim_date.date_key
+
+relationship cb23012f-5b63-3279-d530-bdd44bca7b5b
+	fromColumn: fact_installations.actual_install_date_key
+	toColumn: dim_date.date_key
+
+relationship b760cc60-069d-fc42-0640-275fa2bc17af
+	fromColumn: fact_loan_snapshot_monthly.snapshot_month_end_date_key
+	toColumn: dim_date.date_key
+
+relationship 1dd4b896-f838-0444-687d-ff352257950c
+	fromColumn: fact_asset_usage_daily.usage_date_key
+	toColumn: dim_date.date_key
+

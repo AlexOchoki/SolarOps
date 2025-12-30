@@ -13,7 +13,7 @@ table fact_payments
 		dataType: int64
 		formatString: 0
 		lineageTag: 9fa1b867-9267-4be8-b98d-2b17d71d455f
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: payment_date_key
 
 		annotation SummarizationSetBy = Automatic
