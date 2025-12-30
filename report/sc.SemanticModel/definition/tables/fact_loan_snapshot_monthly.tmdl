@@ -5,7 +5,7 @@ table fact_loan_snapshot_monthly
 		dataType: int64
 		formatString: 0
 		lineageTag: 0c6a5ff6-38fe-4e9e-ae02-a2775024add1
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: snapshot_month_end_date_key
 
 		annotation SummarizationSetBy = Automatic

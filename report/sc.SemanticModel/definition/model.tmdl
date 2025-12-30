@@ -34,6 +34,7 @@ ref table fact_loan_snapshot_monthly
 ref table fact_payments
 ref table fact_sales_orders
 ref table fact_service_tickets
+ref table dim_date
 
 ref cultureInfo en-US
 

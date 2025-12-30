@@ -5,7 +5,7 @@ table fact_asset_usage_daily
 		dataType: int64
 		formatString: 0
 		lineageTag: 24211c13-d172-4392-8fdd-b9e2e08f1b1c
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: usage_date_key
 
 		annotation SummarizationSetBy = Automatic
