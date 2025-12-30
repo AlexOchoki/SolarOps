@@ -1,0 +1,96 @@
+table dim_geography
+	lineageTag: 52655630-4141-438d-86e7-9e378929475d
+
+	column geo_id
+		dataType: int64
+		formatString: 0
+		lineageTag: f91ac6fc-4daa-422a-ab4b-2a441b7d0566
+		summarizeBy: none
+		sourceColumn: geo_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column region
+		dataType: string
+		lineageTag: 0cf5d9eb-f0f4-458b-8be4-1a1d33cc9834
+		summarizeBy: none
+		sourceColumn: region
+
+		annotation SummarizationSetBy = Automatic
+
+	column county
+		dataType: string
+		lineageTag: fd59844e-eb23-4807-a671-fa1e5f9197a3
+		summarizeBy: none
+		sourceColumn: county
+
+		annotation SummarizationSetBy = Automatic
+
+	column sub_county
+		dataType: string
+		lineageTag: e07b6b92-131b-49d5-b813-9423cbe72f20
+		summarizeBy: none
+		sourceColumn: sub_county
+
+		annotation SummarizationSetBy = Automatic
+
+	column ward
+		dataType: string
+		lineageTag: 2157bc0c-c2f3-4d6c-8663-dd42140957b6
+		summarizeBy: none
+		sourceColumn: ward
+
+		annotation SummarizationSetBy = Automatic
+
+	column latitude_center
+		dataType: double
+		lineageTag: e29d58d9-ecbf-48de-a134-7c71bf8322b4
+		summarizeBy: sum
+		sourceColumn: latitude_center
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column longitude_center
+		dataType: double
+		lineageTag: cb451fdb-8662-4f8f-a53f-0bdb8b16d90d
+		summarizeBy: sum
+		sourceColumn: longitude_center
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column agro_zone
+		dataType: string
+		lineageTag: 92edc756-dbfa-4be4-a9f2-4b55f3feeeef
+		summarizeBy: none
+		sourceColumn: agro_zone
+
+		annotation SummarizationSetBy = Automatic
+
+	column distance_to_depot_km
+		dataType: double
+		lineageTag: 0e2e3292-3b9a-48f3-9ae2-2d2c17fcd7f7
+		summarizeBy: sum
+		sourceColumn: distance_to_depot_km
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition dim_geography = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("C:\Users\AlexOchokiMogengo\Projects\SC\data\dim_geography.csv"),[Delimiter=",", Columns=9, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"geo_id", Int64.Type}, {"region", type text}, {"county", type text}, {"sub_county", type text}, {"ward", type text}, {"latitude_center", type number}, {"longitude_center", type number}, {"agro_zone", type text}, {"distance_to_depot_km", type number}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

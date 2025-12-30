@@ -1,0 +1,69 @@
+table dim_installer_team
+	lineageTag: 3000e5a8-e6bb-4102-b29f-efc2307002c2
+
+	column installer_team_sk
+		dataType: int64
+		formatString: 0
+		lineageTag: 5c78fdcd-d32e-432b-bcf2-c0f2a17e1ef8
+		summarizeBy: sum
+		sourceColumn: installer_team_sk
+
+		annotation SummarizationSetBy = Automatic
+
+	column installer_team_id
+		dataType: string
+		lineageTag: 354f39f2-75b9-48cb-bf93-aea133eb3272
+		summarizeBy: none
+		sourceColumn: installer_team_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column geo_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 4de40dca-d74c-4b4e-8a56-cce720e04bf4
+		summarizeBy: none
+		sourceColumn: geo_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column team_lead_name
+		dataType: string
+		lineageTag: c7d40be6-9dee-4718-bd18-767ff1d9ffde
+		summarizeBy: none
+		sourceColumn: team_lead_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column capacity_per_week
+		dataType: int64
+		formatString: 0
+		lineageTag: 4a33fb22-6b17-4a8e-93ea-87f96001774d
+		summarizeBy: sum
+		sourceColumn: capacity_per_week
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_active
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 34b8030f-b743-4490-9180-409691ea67b0
+		summarizeBy: none
+		sourceColumn: is_active
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_installer_team = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("C:\Users\AlexOchokiMogengo\Projects\SC\data\dim_installer_team.csv"),[Delimiter=",", Columns=6, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"installer_team_sk", Int64.Type}, {"installer_team_id", type text}, {"geo_id", Int64.Type}, {"team_lead_name", type text}, {"capacity_per_week", Int64.Type}, {"is_active", type logical}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

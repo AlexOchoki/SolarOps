@@ -1,0 +1,141 @@
+table fact_service_tickets
+	lineageTag: f56e72a5-8962-4172-8344-cf16af3a2e07
+
+	column ticket_id
+		dataType: string
+		lineageTag: 5fca3dcc-6d5e-400f-a177-da6b53bec86f
+		summarizeBy: none
+		sourceColumn: ticket_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column ticket_open_date_key
+		dataType: int64
+		formatString: 0
+		lineageTag: 4cfb19e0-a19a-47d2-8b8d-110dd44754f4
+		summarizeBy: sum
+		sourceColumn: ticket_open_date_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column ticket_close_date_key
+		dataType: int64
+		formatString: 0
+		lineageTag: 3a8e5a76-564b-4b40-ac7b-8853ac681d57
+		summarizeBy: sum
+		sourceColumn: ticket_close_date_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column customer_sk
+		dataType: int64
+		formatString: 0
+		lineageTag: 0c263c63-a7bf-4f42-af56-c523f2574a72
+		summarizeBy: none
+		sourceColumn: customer_sk
+
+		annotation SummarizationSetBy = Automatic
+
+	column product_sk
+		dataType: int64
+		formatString: 0
+		lineageTag: 72e8d2dc-8d16-487f-b47b-1e37d2411c95
+		summarizeBy: sum
+		sourceColumn: product_sk
+
+		annotation SummarizationSetBy = Automatic
+
+	column asset_sk
+		dataType: int64
+		formatString: 0
+		lineageTag: 2657a8ac-566f-491e-964a-e37eeca93758
+		summarizeBy: none
+		sourceColumn: asset_sk
+
+		annotation SummarizationSetBy = Automatic
+
+	column service_category_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 8552ab1f-d79b-487b-9a0c-fb0379b1e472
+		summarizeBy: none
+		sourceColumn: service_category_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column geo_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 27f3d34e-8395-4812-ac69-449fdde8c3cf
+		summarizeBy: sum
+		sourceColumn: geo_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column ticket_status
+		dataType: string
+		lineageTag: 59289ec3-bd6c-4d00-a21f-55c8aee78211
+		summarizeBy: none
+		sourceColumn: ticket_status
+
+		annotation SummarizationSetBy = Automatic
+
+	column sla_target_days
+		dataType: int64
+		formatString: 0
+		lineageTag: 9e20ec52-8631-4388-89ba-0cdadabf990f
+		summarizeBy: sum
+		sourceColumn: sla_target_days
+
+		annotation SummarizationSetBy = Automatic
+
+	column actual_resolution_days
+		dataType: int64
+		formatString: 0
+		lineageTag: 98cc9c60-305e-4677-a8ae-d4fd32554d1d
+		summarizeBy: sum
+		sourceColumn: actual_resolution_days
+
+		annotation SummarizationSetBy = Automatic
+
+	column sla_met_flag
+		dataType: int64
+		formatString: 0
+		lineageTag: e410bea3-2cac-4292-a6f0-8b0c93714dab
+		summarizeBy: sum
+		sourceColumn: sla_met_flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column repeat_issue_flag
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 4b575fa7-b977-48ff-baa0-aaaaaa3d801d
+		summarizeBy: none
+		sourceColumn: repeat_issue_flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column warranty_claim_flag
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 4fcbe42d-edb6-4852-bcbc-b0d712acb1b7
+		summarizeBy: none
+		sourceColumn: warranty_claim_flag
+
+		annotation SummarizationSetBy = Automatic
+
+	partition fact_service_tickets = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("C:\Users\AlexOchokiMogengo\Projects\SC\data\fact_service_tickets.csv"),[Delimiter=",", Columns=14, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"ticket_id", type text}, {"ticket_open_date_key", Int64.Type}, {"ticket_close_date_key", Int64.Type}, {"customer_sk", Int64.Type}, {"product_sk", Int64.Type}, {"asset_sk", Int64.Type}, {"service_category_id", Int64.Type}, {"geo_id", Int64.Type}, {"ticket_status", type text}, {"sla_target_days", Int64.Type}, {"actual_resolution_days", Int64.Type}, {"sla_met_flag", Int64.Type}, {"repeat_issue_flag", type logical}, {"warranty_claim_flag", type logical}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

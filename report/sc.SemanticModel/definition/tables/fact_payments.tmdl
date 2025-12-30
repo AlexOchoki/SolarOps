@@ -1,0 +1,131 @@
+table fact_payments
+	lineageTag: 52c9756e-3922-410f-b03a-bc36707b974a
+
+	column payment_id
+		dataType: string
+		lineageTag: 492c922b-b209-45f7-a9f3-e5d3b1640a9a
+		summarizeBy: none
+		sourceColumn: payment_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column payment_date_key
+		dataType: int64
+		formatString: 0
+		lineageTag: 9fa1b867-9267-4be8-b98d-2b17d71d455f
+		summarizeBy: sum
+		sourceColumn: payment_date_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column customer_sk
+		dataType: int64
+		formatString: 0
+		lineageTag: 9b2f784b-94c0-4c2e-b668-0589c4816ce5
+		summarizeBy: none
+		sourceColumn: customer_sk
+
+		annotation SummarizationSetBy = Automatic
+
+	column order_id
+		dataType: string
+		lineageTag: 082c4897-8ad9-477a-ad18-1da069cb2332
+		summarizeBy: none
+		sourceColumn: order_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column plan_id
+		dataType: int64
+		formatString: 0
+		lineageTag: db8e8840-b0ff-4871-bca6-3f857dc53db7
+		summarizeBy: none
+		sourceColumn: plan_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column payment_channel_id
+		dataType: int64
+		formatString: 0
+		lineageTag: da7b8f2e-6d93-4ee5-88dd-499629e734df
+		summarizeBy: none
+		sourceColumn: payment_channel_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column geo_id
+		dataType: int64
+		formatString: 0
+		lineageTag: a175b1b4-770e-4b76-b3b6-5fef6c795912
+		summarizeBy: sum
+		sourceColumn: geo_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column expected_amount_kes
+		dataType: int64
+		formatString: 0
+		lineageTag: ec5f4ab2-6a4c-46b6-afea-deef4041403b
+		summarizeBy: sum
+		sourceColumn: expected_amount_kes
+
+		annotation SummarizationSetBy = Automatic
+
+	column paid_amount_kes
+		dataType: int64
+		formatString: 0
+		lineageTag: 7f913d47-cb82-474b-ad7d-1acff3b4c679
+		summarizeBy: sum
+		sourceColumn: paid_amount_kes
+
+		annotation SummarizationSetBy = Automatic
+
+	column payment_status
+		dataType: string
+		lineageTag: f8c93955-09b5-4348-8922-8b3d372168a0
+		summarizeBy: none
+		sourceColumn: payment_status
+
+		annotation SummarizationSetBy = Automatic
+
+	column days_late
+		dataType: int64
+		formatString: 0
+		lineageTag: 36783532-cd21-4463-ab84-f22cf9bd26ba
+		summarizeBy: sum
+		sourceColumn: days_late
+
+		annotation SummarizationSetBy = Automatic
+
+	column arrears_balance_kes
+		dataType: int64
+		formatString: 0
+		lineageTag: 472d4d7a-cc68-49ab-a715-e7df0f4208fc
+		summarizeBy: sum
+		sourceColumn: arrears_balance_kes
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_reversal_flag
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: df673e8e-dd9b-4839-9679-43751f29f180
+		summarizeBy: none
+		sourceColumn: is_reversal_flag
+
+		annotation SummarizationSetBy = Automatic
+
+	partition fact_payments = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("C:\Users\AlexOchokiMogengo\Projects\SC\data\fact_payments.csv"),[Delimiter=",", Columns=13, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"payment_id", type text}, {"payment_date_key", Int64.Type}, {"customer_sk", Int64.Type}, {"order_id", type text}, {"plan_id", Int64.Type}, {"payment_channel_id", Int64.Type}, {"geo_id", Int64.Type}, {"expected_amount_kes", Int64.Type}, {"paid_amount_kes", Int64.Type}, {"payment_status", type text}, {"days_late", Int64.Type}, {"arrears_balance_kes", Int64.Type}, {"is_reversal_flag", type logical}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

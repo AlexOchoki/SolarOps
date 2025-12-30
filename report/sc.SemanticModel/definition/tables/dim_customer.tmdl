@@ -1,0 +1,231 @@
+table dim_customer
+	lineageTag: c66395ae-e4db-4e46-8fd0-500988edd022
+
+	column customer_sk
+		dataType: int64
+		formatString: 0
+		lineageTag: 267c03c3-297d-45af-9089-fa9639fb7c7b
+		summarizeBy: none
+		sourceColumn: customer_sk
+
+		annotation SummarizationSetBy = Automatic
+
+	column customer_id
+		dataType: string
+		lineageTag: 96943562-baea-48ed-8a4b-75abaaba3d5f
+		summarizeBy: none
+		sourceColumn: customer_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column geo_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 778f7a37-945f-4b43-a952-f98d9537fc76
+		summarizeBy: none
+		sourceColumn: geo_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column gender
+		dataType: string
+		lineageTag: 13d77a26-d0a3-42a9-bdd4-30676ff8b791
+		summarizeBy: none
+		sourceColumn: gender
+
+		annotation SummarizationSetBy = Automatic
+
+	column date_of_birth
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 0117183b-ccf3-4ea3-bd73-bc63d2617c09
+		summarizeBy: none
+		sourceColumn: date_of_birth
+
+		variation Variation
+			isDefault
+			relationship: 5e1b5dc8-e971-4617-981c-f96f4bb30210
+			defaultHierarchy: LocalDateTable_659239c4-bc7c-4926-8aa9-9db846f65d67.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column date_of_signup
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 7a8c80e7-4c46-45c1-907d-6d17ea246fd6
+		summarizeBy: none
+		sourceColumn: date_of_signup
+
+		variation Variation
+			isDefault
+			relationship: 7a2ef7f7-373c-42ce-9687-42a4afbe7042
+			defaultHierarchy: LocalDateTable_1d549c32-a43a-4d1b-989f-05d60b9fb8dc.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column age_at_signup
+		dataType: int64
+		formatString: 0
+		lineageTag: 3cc538ac-5d13-43ca-ae90-5551bfaf06e6
+		summarizeBy: sum
+		sourceColumn: age_at_signup
+
+		annotation SummarizationSetBy = Automatic
+
+	column marital_status
+		dataType: string
+		lineageTag: ea8e5e8b-bd1b-466e-bdff-127a59cd6143
+		summarizeBy: none
+		sourceColumn: marital_status
+
+		annotation SummarizationSetBy = Automatic
+
+	column education_level
+		dataType: string
+		lineageTag: 5d1b86ce-5cfc-43e8-ad56-6ddd69c8ca8e
+		summarizeBy: none
+		sourceColumn: education_level
+
+		annotation SummarizationSetBy = Automatic
+
+	column household_size
+		dataType: int64
+		formatString: 0
+		lineageTag: dc34b96c-ac9b-4ba4-a167-8d50e72b754f
+		summarizeBy: sum
+		sourceColumn: household_size
+
+		annotation SummarizationSetBy = Automatic
+
+	column primary_income_source
+		dataType: string
+		lineageTag: b355b445-f88a-4721-8902-4deb845efc49
+		summarizeBy: none
+		sourceColumn: primary_income_source
+
+		annotation SummarizationSetBy = Automatic
+
+	column estimated_monthly_income_kes
+		dataType: int64
+		formatString: 0
+		lineageTag: 87f457b0-c835-4915-a383-6558cb895db3
+		summarizeBy: sum
+		sourceColumn: estimated_monthly_income_kes
+
+		annotation SummarizationSetBy = Automatic
+
+	column financial_literacy_score
+		dataType: int64
+		formatString: 0
+		lineageTag: 9d2ce8bb-71e8-4afb-bc10-e6e445f773ad
+		summarizeBy: sum
+		sourceColumn: financial_literacy_score
+
+		annotation SummarizationSetBy = Automatic
+
+	column mobile_money_provider
+		dataType: string
+		lineageTag: 1395eb9e-a3fb-4df8-ac2a-fc0446f940d4
+		summarizeBy: none
+		sourceColumn: mobile_money_provider
+
+		annotation SummarizationSetBy = Automatic
+
+	column mobile_money_tenure_years
+		dataType: int64
+		formatString: 0
+		lineageTag: 90dac827-48e1-49ff-8be9-ea471d3a2434
+		summarizeBy: sum
+		sourceColumn: mobile_money_tenure_years
+
+		annotation SummarizationSetBy = Automatic
+
+	column previous_credit_experience_flag
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 9581bde2-dda6-4e9f-8b98-8bb7f7e149c1
+		summarizeBy: none
+		sourceColumn: previous_credit_experience_flag
+
+		annotation SummarizationSetBy = Automatic
+
+	column credit_risk_score_at_signup
+		dataType: int64
+		formatString: 0
+		lineageTag: bc6b0cd5-9aa4-4fce-81a0-8cc03a3d011c
+		summarizeBy: sum
+		sourceColumn: credit_risk_score_at_signup
+
+		annotation SummarizationSetBy = Automatic
+
+	column farm_size_acres
+		dataType: double
+		lineageTag: cb4b7462-9844-40c4-bb70-e61367f94f49
+		summarizeBy: sum
+		sourceColumn: farm_size_acres
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column irrigated_acres
+		dataType: double
+		lineageTag: 83ab4c20-61ef-4d2d-a8e9-2f49a28813ed
+		summarizeBy: sum
+		sourceColumn: irrigated_acres
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column crop_primary
+		dataType: string
+		lineageTag: 00adc340-ea56-41c7-9137-f3445daf525a
+		summarizeBy: none
+		sourceColumn: crop_primary
+
+		annotation SummarizationSetBy = Automatic
+
+	column crop_secondary
+		dataType: string
+		lineageTag: 0870d302-cfd8-4c13-9528-bd7c6a9bbb03
+		summarizeBy: none
+		sourceColumn: crop_secondary
+
+		annotation SummarizationSetBy = Automatic
+
+	column water_source_before
+		dataType: string
+		lineageTag: 9fd0edb6-73aa-4425-a209-e418fb11fa14
+		summarizeBy: none
+		sourceColumn: water_source_before
+
+		annotation SummarizationSetBy = Automatic
+
+	column rainfed_dependency_pct
+		dataType: int64
+		formatString: 0
+		lineageTag: d71055e6-3e01-4447-bcac-7974b90631cb
+		summarizeBy: sum
+		sourceColumn: rainfed_dependency_pct
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_customer = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("C:\Users\AlexOchokiMogengo\Projects\SC\data\dim_customer.csv"),[Delimiter=",", Columns=23, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"customer_sk", Int64.Type}, {"customer_id", type text}, {"geo_id", Int64.Type}, {"gender", type text}, {"date_of_birth", type date}, {"date_of_signup", type date}, {"age_at_signup", Int64.Type}, {"marital_status", type text}, {"education_level", type text}, {"household_size", Int64.Type}, {"primary_income_source", type text}, {"estimated_monthly_income_kes", Int64.Type}, {"financial_literacy_score", Int64.Type}, {"mobile_money_provider", type text}, {"mobile_money_tenure_years", Int64.Type}, {"previous_credit_experience_flag", type logical}, {"credit_risk_score_at_signup", Int64.Type}, {"farm_size_acres", type number}, {"irrigated_acres", type number}, {"crop_primary", type text}, {"crop_secondary", type text}, {"water_source_before", type text}, {"rainfed_dependency_pct", Int64.Type}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
