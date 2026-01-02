@@ -1,0 +1,89 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+  "name": "5a6c77d40cfea170572d",
+  "position": {
+    "x": 29.552669552669553,
+    "y": 116.36363636363637,
+    "z": 0,
+    "height": 291.83261183261186,
+    "width": 610.4473304473305,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "lineChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_date"
+                    }
+                  },
+                  "Property": "month_start_date"
+                }
+              },
+              "queryRef": "dim_date.month_start_date",
+              "nativeQueryRef": "month_start_date",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_asset"
+                    }
+                  },
+                  "Property": "Cash Collected (KES)"
+                }
+              },
+              "queryRef": "dim_asset.Cash Collected (KES)",
+              "nativeQueryRef": "Cash Collected (KES)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_asset"
+                    }
+                  },
+                  "Property": "Expected Amount (KES)"
+                }
+              },
+              "queryRef": "dim_asset.Expected Amount (KES)",
+              "nativeQueryRef": "Expected Amount (KES)"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "dim_date"
+                  }
+                },
+                "Property": "month_start_date"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

@@ -10,24 +10,147 @@ table dim_asset
 		formatString: 0
 		lineageTag: 2120ec81-8f88-452e-85e3-fb57f65acddf
 
-	measure 'New Installs MTD' =
+	measure 'Total Paid' =
+			
+			SUM(fact_payments[paid_amount_kes])
+		formatString: #,0
+		lineageTag: afe9d5a1-b42d-44f0-bb16-6eb63c821a5d
+
+	measure 'Paid Amount (KES)' =
+			
+			CALCULATE(
+			    SUM(fact_payments[paid_amount_kes]),
+			    fact_payments[is_reversal_flag] <> TRUE()
+			)
+		formatString: #,0
+		lineageTag: 08646c8b-836b-4594-98f3-1070d9b8446a
+
+	measure 'Expected Amount (KES)' =
+			
+			SUM(fact_payments[expected_amount_kes])
+		formatString: #,0
+		lineageTag: 7f4a601e-ec3b-46dc-b040-9d448676fa08
+
+	measure 'Cash Collected (KES)' =
+			
+			[Paid Amount (KES)]
+		formatString: 0
+		lineageTag: e1a94542-2f0c-4afe-967a-5ec6ada11a95
+
+	measure 'Portfolio Outstanding Principal (KES)' =
+			
+			SUM(fact_loan_snapshot_monthly[outstanding_principal_kes])
+		formatString: #,0
+		lineageTag: b64c5fe1-0357-4049-acc2-422a07ed7193
+
+	measure 'Arrears Amount (KES)' =
+			
+			SUM(fact_loan_snapshot_monthly[arrears_amount_kes])
+		formatString: #,0
+		lineageTag: d9ddcd73-a02e-462d-96b4-21024d350521
+
+	measure 'New Installs' =
 			
 			CALCULATE(
 			    DISTINCTCOUNT(fact_installations[installation_id]),
-			    DATESMTD(dim_date[date]),
 			    NOT ISBLANK(fact_installations[actual_install_date_key])
 			)
-		formatString: 0
-		lineageTag: b6f276b8-f6a7-4f1f-9596-09d4dfc7f58c
+		formatString: #,0
+		lineageTag: 2c1513aa-f806-4a76-a820-c522e5c07ec6
 
 	measure 'New Installs WTD' =
 			
 			CALCULATE(
-			    DISTINCTCOUNT(fact_installations[installation_id]),
-			    DATESWTD(dim_date[Date]),
-			    NOT ISBLANK(fact_installations[actual_install_date_key])
+			    [New Installs],
+			    DATESWTD(dim_date[date])
 			)
-		lineageTag: 66408fbc-3dc4-4a99-89c6-5e7f9e4c702d
+		lineageTag: b2a3286d-2530-43bc-8e3d-861261439431
+
+	measure 'New Installs MTD' =
+			
+			CALCULATE(
+			    [New Installs],
+			    DATESMTD(dim_date[date])
+			)
+		formatString: #,0
+		lineageTag: 70f57ac1-826e-48c2-b693-cb4da400118f
+
+	measure 'Repayment Rate %' =
+			
+			DIVIDE([Paid Amount (KES)], [Expected Amount (KES)])
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 65eccc8c-3b76-4a2a-9fb8-10be658793ab
+
+	measure 'PAR30 Principal (KES)' =
+			
+			CALCULATE(
+			    [Portfolio Outstanding Principal (KES)],
+			    fact_loan_snapshot_monthly[dpd] >= 30
+			)
+		formatString: #,0
+		lineageTag: a246d4c8-e545-4d15-959c-c50fc81f864d
+
+	measure 'PAR30 %' =
+			
+			DIVIDE([PAR30 Principal (KES)], [Portfolio Outstanding Principal (KES)])
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: f3ac11f5-1873-4112-bebd-e31165a56b75
+
+	measure 'PAR90 Principal (KES)' =
+			
+			CALCULATE(
+			    [Portfolio Outstanding Principal (KES)],
+			    fact_loan_snapshot_monthly[dpd] >= 90
+			)
+		formatString: #,0
+		lineageTag: 325ee7e5-299d-40bd-bf28-5ac2dc75d654
+
+	measure 'PAR90 %' =
+			
+			DIVIDE([PAR90 Principal (KES)], [Portfolio Outstanding Principal (KES)])
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: d03d3f3c-36be-4fd8-8cad-122ba2a8fd24
+
+	measure 'Install Backlog' =
+			
+			CALCULATE(
+			    DISTINCTCOUNT(fact_installations[installation_id]),
+			    ISBLANK(fact_installations[actual_install_date_key])
+			)
+		formatString: #,0
+		lineageTag: 84e18769-fc46-4c0e-8b97-39c0437eb0b5
+
+	measure 'Tickets Closed' =
+			
+			CALCULATE(
+			    COUNTROWS(fact_service_tickets),
+			    NOT ISBLANK(fact_service_tickets[ticket_close_date_key])
+			)
+		formatString: #,0
+		lineageTag: 6c30ff03-5d5c-495d-89c2-2b4df34aca99
+
+	measure 'Tickets Closed Met SLA' =
+			
+			CALCULATE(
+			    [Tickets Closed],
+			    fact_service_tickets[sla_met_flag] = TRUE()
+			)
+		formatString: #,0
+		lineageTag: b0667c8d-2aeb-44b1-b3e6-3450d6254b39
+
+	measure 'Service SLA %' =
+			
+			DIVIDE([Tickets Closed Met SLA], [Tickets Closed])
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 62270c97-93d9-4203-99e2-4dbd03bb16c5
+
+	measure 'Install Backlog MoM %' =
+			
+			VAR Curr = CALCULATE([Install Backlog], DATESMTD(dim_date[date]))
+			VAR Prev = CALCULATE([Install Backlog], PREVIOUSMONTH(dim_date[date]))
+			RETURN DIVIDE(Curr - Prev, Prev)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 0027a81c-cf0f-46a3-a05b-b564605f5d33
 
 	column asset_sk
 		dataType: int64
