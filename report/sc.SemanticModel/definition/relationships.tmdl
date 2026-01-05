@@ -200,3 +200,8 @@ relationship 1dd4b896-f838-0444-687d-ff352257950c
 	fromColumn: fact_asset_usage_daily.usage_date_key
 	toColumn: dim_date.date_key
 
+relationship bdc57ab8-fc13-4300-91e2-9d2e30b2314e
+	joinOnDateBehavior: datePartOnly
+	fromColumn: dim_customer.'Signup Month Start'
+	toColumn: LocalDateTable_e8169847-c5a5-40da-b644-24d11ec1507b.Date
+

@@ -4,8 +4,8 @@
     {
       "ordinal": 0,
       "scrollPosition": {
-        "x": 268.84876185529049,
-        "y": 341.32440860352835
+        "x": 1983.5136297296585,
+        "y": 310
       },
       "nodes": [
         {
@@ -228,6 +228,42 @@
             "width": 234
           },
           "zIndex": 17
+        },
+        {
+          "location": {
+            "x": 2583.5136297296585,
+            "y": 493.66220430176418
+          },
+          "nodeIndex": "Funnel_Stage",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 2817.5136297296585,
+            "y": 493.66220430176418
+          },
+          "nodeIndex": "Stage_Aging",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 3051.5136297296585,
+            "y": 493.66220430176418
+          },
+          "nodeIndex": "ZMeasures",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
         }
       ],
       "name": "All tables",
