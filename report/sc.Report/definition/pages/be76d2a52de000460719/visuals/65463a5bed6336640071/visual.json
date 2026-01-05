@@ -1,19 +1,19 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
-  "name": "afbc1e315853d2d58c85",
+  "name": "65463a5bed6336640071",
   "position": {
-    "x": 29.552669552669553,
-    "y": 426.66666666666669,
-    "z": 1000,
-    "height": 272.43867243867243,
-    "width": 610.4473304473305,
-    "tabOrder": 1000
+    "x": 0,
+    "y": 0,
+    "z": 0,
+    "height": 62.450832072617239,
+    "width": 228.018154311649,
+    "tabOrder": 0
   },
   "visual": {
-    "visualType": "lineChart",
+    "visualType": "slicer",
     "query": {
       "queryState": {
-        "Category": {
+        "Values": {
           "projections": [
             {
               "field": {
@@ -23,30 +23,12 @@
                       "Entity": "dim_date"
                     }
                   },
-                  "Property": "month_start_date"
+                  "Property": "Date"
                 }
               },
-              "queryRef": "dim_date.month_start_date",
-              "nativeQueryRef": "month_start_date",
+              "queryRef": "dim_date.Date",
+              "nativeQueryRef": "Date",
               "active": true
-            }
-          ]
-        },
-        "Y": {
-          "projections": [
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "dim_asset"
-                    }
-                  },
-                  "Property": "Repayment Rate %"
-                }
-              },
-              "queryRef": "dim_asset.Repayment Rate %",
-              "nativeQueryRef": "Repayment Rate %"
             }
           ]
         }
@@ -61,7 +43,7 @@
                     "Entity": "dim_date"
                   }
                 },
-                "Property": "month_start_date"
+                "Property": "Date"
               }
             },
             "direction": "Ascending"
@@ -70,6 +52,22 @@
         "isDefaultSort": true
       }
     },
+    "objects": {
+      "data": [
+        {
+          "properties": {
+            "mode": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Dropdown'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
     "drillFilterOtherVisuals": true
-  }
+  },
+  "parentGroupName": "cecfeb9670c2b894d06c"
 }

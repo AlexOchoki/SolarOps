@@ -1,0 +1,55 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+  "name": "4938abcfa7bcb8c0e7e7",
+  "position": {
+    "x": 727.62481089258677,
+    "y": 0,
+    "z": 3000,
+    "height": 62.450832072617239,
+    "width": 228.018154311649,
+    "tabOrder": 3000
+  },
+  "visual": {
+    "visualType": "slicer",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_installer_team"
+                    }
+                  },
+                  "Property": "installer_team_id"
+                }
+              },
+              "queryRef": "dim_installer_team.installer_team_id",
+              "nativeQueryRef": "installer_team_id",
+              "active": true
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "data": [
+        {
+          "properties": {
+            "mode": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Dropdown'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "parentGroupName": "cecfeb9670c2b894d06c"
+}

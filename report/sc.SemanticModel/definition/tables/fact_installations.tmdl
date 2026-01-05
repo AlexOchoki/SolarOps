@@ -115,6 +115,54 @@ table fact_installations
 
 		annotation SummarizationSetBy = Automatic
 
+	column 'Install Delay Bucket Sort' =
+			
+			SWITCH (
+			    fact_installations[Install Delay Bucket],
+			    "0–7 days", 1,
+			    "8–14 days", 2,
+			    "15–30 days", 3,
+			    "30+ days", 4,
+			    BLANK ()
+			)
+		lineageTag: f38e69eb-e567-417d-a8c1-aba70e180590
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Install Delay Bucket' = ```
+			
+			-- Purpose:
+			-- Categorize completed installs into fixed delay buckets
+			-- used for distribution / histogram visuals.
+			-- Based ONLY on install_delay_days (authoritative field).
+			
+			VAR DelayDays =
+			    fact_installations[install_delay_days]
+			
+			RETURN
+			SWITCH (
+			    TRUE (),
+			
+			    -- Only classify completed installs with a valid delay value
+			    fact_installations[install_status] <> "Completed"
+			        || ISBLANK ( DelayDays ),
+			        BLANK (),
+			
+			    DelayDays <= 7, "0–7 days",
+			    DelayDays <= 14, "8–14 days",
+			    DelayDays <= 30, "15–30 days",
+			
+			    -- Anything beyond 30 days
+			    "30+ days"
+			)
+			
+			```
+		lineageTag: 1fccd79d-9425-44d0-ba45-657afb11cb97
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
 	partition fact_installations = m
 		mode: import
 		source =

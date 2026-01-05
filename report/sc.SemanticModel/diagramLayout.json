@@ -4,7 +4,7 @@
     {
       "ordinal": 0,
       "scrollPosition": {
-        "x": 1983.5136297296585,
+        "x": 2218,
         "y": 310
       },
       "nodes": [
@@ -264,6 +264,18 @@
             "width": 234
           },
           "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 3285.5136297296585,
+            "y": 493.66220430176418
+          },
+          "nodeIndex": "Labels",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
         }
       ],
       "name": "All tables",
@@ -272,8 +284,49 @@
       "showExtraHeaderInfo": false,
       "hideKeyFieldsWhenCollapsed": false,
       "tablesLocked": false
+    },
+    {
+      "ordinal": 1,
+      "scrollPosition": {
+        "x": 0,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 362,
+            "y": 293
+          },
+          "nodeIndex": "dim_date",
+          "nodeLineageTag": "c8c6e947-d967-41de-ac71-297d221f814a",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 701,
+            "y": 354
+          },
+          "nodeIndex": "fact_installations",
+          "nodeLineageTag": "90f8b71f-c323-405c-ae0a-2921b364e5fb",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "Layout 1",
+      "zoomValue": 100,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
     }
   ],
-  "selectedDiagram": "All tables",
+  "selectedDiagram": "Layout 1",
   "defaultDiagram": "All tables"
 }

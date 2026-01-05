@@ -1,0 +1,23 @@
+table Labels
+	lineageTag: 130d2228-4ca7-4fa1-b4d3-895efe516878
+
+	measure 'pg 4' = "Installations & Field Operations"
+		lineageTag: 697ca0ea-bb4f-4b85-bfce-5df9de6cab00
+
+	column Column
+		formatString: 0
+		lineageTag: 59d1f68f-a827-4320-8cb4-e472ceacfb18
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Column]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Labels = calculated
+		mode: import
+		source = Row("Column", BLANK())
+
+	annotation PBI_Id = c15485cae4fa40a3b4331fd4035f7256
+
+	annotation 436ba87b-9c83-4389-a31b-ebd06a36be98 = {"Expression":""}
+

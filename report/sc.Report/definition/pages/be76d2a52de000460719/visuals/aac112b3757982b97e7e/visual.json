@@ -1,0 +1,316 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+  "name": "aac112b3757982b97e7e",
+  "position": {
+    "x": 15.975794251134642,
+    "y": 540.27231467473518,
+    "z": 8000,
+    "height": 265.77912254160361,
+    "width": 779.90922844175486,
+    "tabOrder": 8000
+  },
+  "visual": {
+    "visualType": "scatterChart",
+    "query": {
+      "queryState": {
+        "Series": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_geography"
+                    }
+                  },
+                  "Property": "region"
+                }
+              },
+              "queryRef": "dim_geography.region",
+              "nativeQueryRef": "region"
+            }
+          ]
+        },
+        "Size": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ZMeasures"
+                    }
+                  },
+                  "Property": "Installations Completed"
+                }
+              },
+              "queryRef": "ZMeasures.Installations Completed",
+              "nativeQueryRef": "Installations Completed"
+            }
+          ]
+        },
+        "Tooltips": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ZMeasures"
+                    }
+                  },
+                  "Property": "SLA Breach %"
+                }
+              },
+              "queryRef": "ZMeasures.SLA Breach %",
+              "nativeQueryRef": "SLA Breach %"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ZMeasures"
+                    }
+                  },
+                  "Property": "Avg Time to Install (Days)"
+                }
+              },
+              "queryRef": "ZMeasures.Avg Time to Install (Days)",
+              "nativeQueryRef": "Avg Time to Install (Days)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ZMeasures"
+                    }
+                  },
+                  "Property": "Pending Installs (30+ Days)"
+                }
+              },
+              "queryRef": "ZMeasures.Pending Installs (30+ Days)",
+              "nativeQueryRef": "Pending Installs (30+ Days)"
+            }
+          ]
+        },
+        "X": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "fact_installations"
+                        }
+                      },
+                      "Property": "install_delay_days"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(fact_installations.install_delay_days)",
+              "nativeQueryRef": "Sum of install_delay_days",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ZMeasures"
+                    }
+                  },
+                  "Property": "Early Arrears %"
+                }
+              },
+              "queryRef": "ZMeasures.Early Arrears %",
+              "nativeQueryRef": "Early Arrears %"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "isDefaultSort": true
+      }
+    },
+    "objects": {
+      "categoryLabels": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "dataPoint": [
+        {
+          "properties": {}
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Install Backlog Trend'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "subTitle": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Is operations keeping up with demand?'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "5fd9976cb37680ac500c",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "fact_installations"
+                  }
+                },
+                "Property": "install_delay_days"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "05b6cb36c32bb8b61cbd",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "ZMeasures"
+              }
+            },
+            "Property": "Early Arrears %"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "3027de110684e470937a",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dim_geography"
+              }
+            },
+            "Property": "region"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "d32dc70e416d39a65071",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "ZMeasures"
+              }
+            },
+            "Property": "Installations Completed"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "63fbadd80a00de063b35",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "ZMeasures"
+              }
+            },
+            "Property": "SLA Breach %"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "2a285f15905a7c44738c",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "ZMeasures"
+              }
+            },
+            "Property": "Avg Time to Install (Days)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "39bb5f0d52399dab5590",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "ZMeasures"
+              }
+            },
+            "Property": "Pending Installs (30+ Days)"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}
