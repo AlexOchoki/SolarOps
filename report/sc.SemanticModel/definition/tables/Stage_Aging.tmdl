@@ -1,0 +1,254 @@
+table Stage_Aging
+	lineageTag: 07162569-ec3b-4328-9def-9285e068e023
+
+	measure Leads =
+			
+			DISTINCTCOUNT(fact_leads[lead_id])
+		formatString: 0
+		lineageTag: 20923da1-11dc-4428-8e81-2dd0aae8760f
+
+	measure 'Qualified Leads' =
+			
+			CALCULATE(
+			    DISTINCTCOUNT(fact_leads[lead_id]),
+			    fact_leads[lead_status] = "Qualified"
+			)
+		formatString: 0
+		lineageTag: 4f584aa6-d53a-4ccb-b8ab-393465e67ee1
+
+	measure 'Approved Leads' =
+			
+			CALCULATE(
+			    DISTINCTCOUNT(fact_leads[lead_id]),
+			    fact_leads[stage_current] IN {
+			        "Credit check",
+			        "Contract sent",
+			        "Awaiting deposit"
+			    }
+			)
+		formatString: 0
+		lineageTag: d4a892eb-2220-4aca-849c-65f8ef4f21d7
+
+	measure 'Sold Orders' =
+			
+			CALCULATE(
+			    DISTINCTCOUNT(fact_sales_orders[order_id]),
+			    fact_sales_orders[order_status] IN {"signed","activated"}
+			)
+		formatString: 0
+		lineageTag: adf57d33-66ad-4da4-98d9-40d609b6343f
+
+	measure Installed =
+			
+			CALCULATE(
+			    DISTINCTCOUNT(fact_installations[installation_id]),
+			    fact_installations[install_status] = "completed",
+			    NOT ISBLANK(fact_installations[actual_install_date_key])
+			)
+		formatString: 0
+		lineageTag: e39d20ae-d4c6-4a3e-831c-e0702921a9df
+
+	measure 'Funnel Stage Count' =
+			
+			SWITCH(
+			    SELECTEDVALUE(Funnel_Stage[Stage]),
+			    "Leads", [Leads],
+			    "Qualified", [Qualified Leads],
+			    "Approved", [Approved Leads],
+			    "Sold", [Sold Orders],
+			    "Installed", [Installed],
+			    BLANK()
+			)
+		formatString: 0
+		lineageTag: 29f38393-62e9-470f-a0a6-9de0913d6243
+
+	measure 'Lead → Qualified %' =
+			
+			DIVIDE([Qualified Leads], [Leads])
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 685bb01b-7a2b-457b-a53d-46d714af0b07
+
+	measure 'Qualified → Approved %' =
+			
+			DIVIDE([Approved Leads], [Qualified Leads])
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: f392815c-1caa-4a9e-8ab9-716d5e4cdc0a
+
+	measure 'Approved → Sold %' =
+			
+			DIVIDE([Sold Orders], [Approved Leads])
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 6ad0d10e-7438-4e14-b885-4d9399cfdd5e
+
+	measure 'Sold → Installed %' =
+			
+			DIVIDE([Installed], [Sold Orders])
+		lineageTag: bff60159-6d1e-40ef-bde1-8eb9b2777ec2
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Lead → Installed %' =
+			
+			DIVIDE([Installed], [Leads])
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 13804cb8-650a-48f0-b75d-31fcadac5f67
+
+	measure 'Sales - Installs Gap' =
+			
+			[Sold Orders] - [Installed]
+		formatString: 0
+		lineageTag: 4af28e9b-ea45-48c5-8b8f-a1783801cc94
+
+	measure 'Sales - Installs Gap %' =
+			
+			DIVIDE([Sales - Installs Gap], [Sold Orders])
+		lineageTag: a9ded55a-cc11-44d6-a54e-c41523113b76
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Agent Leads' =
+			
+			DISTINCTCOUNT(fact_leads[lead_id])
+		formatString: 0
+		lineageTag: bc6c79e9-9903-48e3-8837-2b24d382de42
+
+	measure 'Agent Approved Leads' =
+			
+			CALCULATE(
+			    DISTINCTCOUNT(fact_leads[lead_id]),
+			    fact_leads[stage_current] IN {
+			        "Credit check",
+			        "Contract sent",
+			        "Awaiting deposit"
+			    }
+			)
+		formatString: 0
+		lineageTag: d737ade9-5d13-41a7-b5fc-9de0ace22064
+
+	measure 'Agent Lead → Approved %' =
+			
+			DIVIDE([Agent Approved Leads], [Agent Leads])
+		lineageTag: 04a9a163-7e5e-43a4-8dc3-6bde11f21152
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Agent Sold Orders' =
+			
+			[Sold Orders]
+		formatString: 0
+		lineageTag: 57c8006e-eedf-47c0-adfc-7e1d4285db07
+
+	measure 'Agent Lead → Sold %' =
+			
+			DIVIDE([Agent Sold Orders], [Agent Leads])
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 20ecd80f-7245-450a-8384-57ece9f4e2ec
+
+	measure 'Agent Installed' =
+			
+			CALCULATE(
+			    DISTINCTCOUNT(fact_installations[installation_id]),
+			    fact_installations[install_status] = "completed",
+			    NOT ISBLANK(fact_installations[actual_install_date_key])
+			)
+		formatString: 0
+		lineageTag: d65b74b7-79c5-4e41-b211-1c24d0a96257
+
+	measure 'Agent Sold → Installed %' =
+			
+			DIVIDE([Agent Installed], [Agent Sold Orders])
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 57037324-d7da-4b0a-8515-81cc72fafd56
+
+	measure 'Early Arrears Flag' = ```
+			
+			VAR OrdersInScope =
+			    VALUES(fact_sales_orders[order_id])
+			
+			VAR FlagCount =
+			    SUMX(
+			        OrdersInScope,
+			        VAR ThisOrder = fact_sales_orders[order_id]
+			        VAR ActKey =
+			            CALCULATE(
+			                MAX(fact_sales_orders[activation_date_key]),
+			                fact_sales_orders[order_id] = ThisOrder
+			            )
+			        VAR ActDate =
+			            LOOKUPVALUE(dim_date[date], dim_date[date_key], ActKey)
+			
+			        RETURN
+			            CALCULATE(
+			                COUNTROWS(fact_payments),
+			                fact_payments[order_id] = ThisOrder,
+			                ( fact_payments[days_late] > 0
+			                    || fact_payments[payment_status] IN {"late","missed"} ),
+			                FILTER(
+			                    ALL(dim_date),
+			                    dim_date[date] >= ActDate &&
+			                    dim_date[date] <= ActDate + 30
+			                )
+			            )
+			    )
+			RETURN
+			IF(FlagCount > 0, 1, 0)
+			
+			```
+		formatString: 0
+		lineageTag: cd8e648e-a2ff-476a-8bde-da34fa605a44
+
+	measure 'Avg Stage Age (Days)' =
+			
+			AVERAGE(fact_leads[stage_age_days])
+		lineageTag: 4a0b1ae5-85af-4f3c-bb12-26402d4c918a
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Avg Stage Age (Days - Controlled)' =
+			
+			VAR StageName = SELECTEDVALUE(Stage_Aging[Stage])
+			RETURN
+			CALCULATE(
+			    AVERAGE(fact_leads[stage_age_days]),
+			    fact_leads[stage_current] = StageName
+			)
+		lineageTag: 08319cfa-c762-4857-ad4c-6546a7cf78ba
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Stage
+		lineageTag: e4e595c2-dbb7-4598-a427-95c239c84c19
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Stage]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Sort
+		formatString: 0
+		lineageTag: bc42443e-414f-4867-b3e7-1b62c6f0abef
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Sort]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Stage_Aging = calculated
+		mode: import
+		source =
+				
+				DATATABLE(
+				    "Stage", STRING,
+				    "Sort", INTEGER,
+				    {
+				        {"Demo scheduled", 1},
+				        {"Contacted", 2},
+				        {"Demo done", 3},
+				        {"Credit check", 4},
+				        {"Contract sent", 5},
+				        {"Awaiting deposit", 6}
+				    }
+				)
+
+	annotation PBI_Id = 616d8091d67b45efb79c399227886d4b
+

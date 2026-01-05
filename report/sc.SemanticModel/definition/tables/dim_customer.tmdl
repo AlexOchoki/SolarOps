@@ -1,6 +1,51 @@
 table dim_customer
 	lineageTag: c66395ae-e4db-4e46-8fd0-500988edd022
 
+	measure 'Cohort Customers' =
+			
+			DISTINCTCOUNT(dim_customer[customer_sk])
+		formatString: 0
+		lineageTag: 43683102-cff7-4987-afbf-0df6b1047c97
+
+	measure 'Cohort Installed Customers' =
+			
+			CALCULATE(
+			    DISTINCTCOUNT(fact_installations[customer_sk]),
+			    fact_installations[install_status] = "completed",
+			    NOT ISBLANK(fact_installations[actual_install_date_key])
+			)
+		formatString: 0
+		lineageTag: 4e6cf69c-fde6-453c-ab86-cefb63c8220a
+
+	measure 'Cohort Install Rate %' =
+			
+			DIVIDE([Cohort Installed Customers], [Cohort Customers])
+		lineageTag: 87e0b5d1-9b54-4f12-9e1c-cd4c88ff314b
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Lost Leads' =
+			
+			CALCULATE(
+			    DISTINCTCOUNT(fact_leads[lead_id]),
+			    fact_leads[lead_status] = "Lost"
+			)
+		formatString: 0
+		lineageTag: c2bac627-b3c1-4cab-b008-8b09729dbde5
+
+	measure 'Lead → Lost %' =
+			
+			DIVIDE([Lost Leads], [Leads])
+		lineageTag: 86f05ae3-0352-44c7-be9f-cf5a08a23a45
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Lost Leads (by Reason)' =
+			
+			[Lost Leads]
+		formatString: 0
+		lineageTag: 3a3daa5f-712a-4d30-b170-67b4ca1b6f56
+
 	column customer_sk
 		dataType: int64
 		formatString: 0
@@ -212,6 +257,24 @@ table dim_customer
 		lineageTag: d71055e6-3e01-4447-bcac-7974b90631cb
 		summarizeBy: sum
 		sourceColumn: rainfed_dependency_pct
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Signup Month Start' =
+			
+			DATE(
+			    YEAR(dim_customer[date_of_signup]),
+			    MONTH(dim_customer[date_of_signup]),
+			    1
+			)
+		formatString: General Date
+		lineageTag: 63c3f16d-315e-4c91-8011-14585e3772ff
+		summarizeBy: none
+
+		variation Variation
+			isDefault
+			relationship: bdc57ab8-fc13-4300-91e2-9d2e30b2314e
+			defaultHierarchy: LocalDateTable_e8169847-c5a5-40da-b644-24d11ec1507b.'Date Hierarchy'
 
 		annotation SummarizationSetBy = Automatic
 

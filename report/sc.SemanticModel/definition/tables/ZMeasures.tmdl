@@ -1,0 +1,1057 @@
+table ZMeasures
+	lineageTag: bd14c660-66fb-4784-b6e1-8ac071b11421
+
+	measure 'Latest Snapshot Date Key' = ```
+			
+			/*
+			Returns the latest snapshot date key visible in current filter context.
+			Useful when you want "as-of" behavior in cards.
+			*/
+			MAX ( fact_loan_snapshot_monthly[snapshot_month_end_date_key] )
+			
+			```
+		formatString: 0
+		lineageTag: 00d27f04-2b9c-4ab6-9c15-ee51c177d4ae
+
+	measure 'Outstanding Principal (KES)' =
+			
+			/* Total remaining principal outstanding at snapshot month-end */
+			SUM ( fact_loan_snapshot_monthly[outstanding_principal_kes] )
+		formatString: 0
+		lineageTag: 849dba46-6dd7-4497-9b3a-9ff3dcc1a6dd
+
+	measure 'Expected to Date (KES)' = ```
+			
+			/* Total expected repayments up to the snapshot date */
+			SUM ( fact_loan_snapshot_monthly[expected_to_date_kes] )
+			
+			```
+		formatString: 0
+		lineageTag: 8134c217-3603-4997-a6b7-c21aaf08aedc
+
+	measure 'Paid to Date (KES)' = ```
+			
+			/* Total collected repayments up to the snapshot date */
+			SUM ( fact_loan_snapshot_monthly[paid_to_date_kes] )
+			
+			```
+		formatString: 0
+		lineageTag: 74504ab7-34bb-4562-a5b4-ca05e3f1ff38
+
+	measure 'Active Credit Accounts' = ```
+			
+			/*
+			Count of credit accounts in the snapshot context.
+			Uses DISTINCTCOUNT of order_id, since order_id is the credit contract unit here.
+			*/
+			DISTINCTCOUNT ( fact_loan_snapshot_monthly[order_id] )
+			
+			```
+		formatString: 0
+		lineageTag: 27303481-be28-487d-911a-f9fbbd185aae
+
+	measure 'Repayment Rate % (Actual)' = ```
+			
+			/*
+			Actual repayment performance = Paid_to_date / Expected_to_date
+			This is the cleanest portfolio-level adherence metric.
+			*/
+			DIVIDE ( [Paid to Date (KES)], [Expected to Date (KES)] )
+			
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: b09e33b2-baa5-4fdb-a7bb-81c000c125ee
+
+	measure 'Repayment Rate % (Expected)' = ```
+			
+			/*
+			Expected performance baseline.
+			If you later add targets (e.g., dim_targets), replace this with that target measure.
+			*/
+			1
+			
+			```
+		formatString: 0%;-0%;0%
+		lineageTag: 856e15f7-1010-41d4-88f3-44f0fcfb213d
+
+	measure 'Repayment Gap %' = ```
+			
+			/*
+			Gap = Actual - Expected.
+			Negative means we're under-collecting relative to plan/schedule.
+			*/
+			[Repayment Rate % (Actual)] - [Repayment Rate % (Expected)]
+			
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 640c203a-fac1-47bf-9d1c-2ccb99a6597b
+
+	measure 'Portfolio at Risk (KES) PAR30' =
+			
+			/*
+			Exposure at risk: outstanding principal where dpd >= 30.
+			This aligns with common credit definitions for PAR30.
+			*/
+			CALCULATE (
+			    [Outstanding Principal (KES)],
+			    FILTER ( fact_loan_snapshot_monthly, fact_loan_snapshot_monthly[dpd] >= 30 )
+			)
+		formatString: 0
+		lineageTag: e532cec8-e810-4760-a8f1-23096bbaa604
+
+	measure 'PAR30 % pg3' = ```
+			
+			/*
+			PAR30 ratio = (Outstanding principal with dpd >= 30) / (Total outstanding principal)
+			*/
+			DIVIDE (
+			    [Portfolio at Risk (KES) PAR30],
+			    [Outstanding Principal (KES)]
+			)
+			
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: b2303ceb-8075-45ac-8626-2de01cbba4f8
+
+	measure Measure
+		lineageTag: 6f7744a8-b400-48f7-b076-7900a07304e0
+
+		annotation 43dbc3e8-3a1c-4b6f-9923-b49ff7d6691c = True
+
+	measure 'Portfolio at Risk (KES) PAR90+ pg3' = ```
+			
+			/* Exposure at severe risk: outstanding principal where dpd >= 90 */
+			CALCULATE (
+			    [Outstanding Principal (KES)],
+			    FILTER ( fact_loan_snapshot_monthly, fact_loan_snapshot_monthly[dpd] >= 90 )
+			)
+			
+			```
+		formatString: 0%;-0%;0%
+		lineageTag: 40f6aa6d-e3f6-481d-b096-b1e6dd71f13a
+
+	measure 'PAR90 % pg3' = ```
+			
+			/* PAR90 ratio = (Outstanding principal with dpd >= 90) / (Total outstanding principal) */
+			DIVIDE ( [Portfolio at Risk (KES) PAR90], [Outstanding Principal (KES)] )
+			
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: d271459f-6ff1-471b-84f0-5f72ac951a24
+
+	measure 'Portfolio at Risk (KES) PAR90' = ```
+			
+			/* Exposure at severe risk: outstanding principal where dpd >= 90 */
+			CALCULATE (
+			    [Outstanding Principal (KES)],
+			    FILTER ( fact_loan_snapshot_monthly, fact_loan_snapshot_monthly[dpd] >= 90 )
+			)
+			
+			
+			
+			```
+		formatString: 0
+		lineageTag: 0690f8e9-71e1-42ef-b980-3701b66bdad5
+
+	measure 'Repayment Rate % (Actual - Trend)' = ```
+			
+			/*
+			Same as Repayment Rate % (Actual) but kept separate for clarity in visuals.
+			Use on line chart with dim_date as axis (snapshot month-end).
+			*/
+			[Repayment Rate % (Actual)]
+			
+			```
+		lineageTag: 961d92b8-431a-413c-8955-c53a82af26c8
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Repayment Rate % (Expected - Trend)' = ```
+			
+			/*
+			Expected line: a constant 100% baseline.
+			Replace with target table later if you have expected curves by product/plan.
+			*/
+			[Repayment Rate % (Expected)]
+			
+			```
+		formatString: 0
+		lineageTag: d094c2f2-24ee-453d-bef0-f58748a9c205
+
+	measure 'Repayment Gap % (Trend)' = ```
+			
+			/* Gap line (optional) */
+			[Repayment Gap %]
+			
+			```
+		lineageTag: 3a14aa94-17f6-45b5-a61d-eb3b25958475
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'PAR0 Exposure (KES)' =
+			
+			/* Outstanding principal where dpd = 0 */
+			CALCULATE (
+			    [Outstanding Principal (KES)],
+			    FILTER ( fact_loan_snapshot_monthly, fact_loan_snapshot_monthly[dpd] = 0 )
+			)
+		formatString: 0
+		lineageTag: 2ba72a24-7bf3-41b0-88bc-042b7ed98458
+
+	measure 'PAR30 Exposure (KES)' =
+			
+			/* Outstanding principal where dpd between 1 and 30 */
+			CALCULATE (
+			    [Outstanding Principal (KES)],
+			    FILTER (
+			        fact_loan_snapshot_monthly,
+			        fact_loan_snapshot_monthly[dpd] >= 1
+			            && fact_loan_snapshot_monthly[dpd] <= 30
+			    )
+			)
+		formatString: 0
+		lineageTag: 50c46212-c34c-4aa5-8d66-2e0617c8b3c1
+
+	measure 'PAR60 Exposure (KES)' =
+			
+			/* Outstanding principal where dpd between 31 and 60 */
+			CALCULATE (
+			    [Outstanding Principal (KES)],
+			    FILTER (
+			        fact_loan_snapshot_monthly,
+			        fact_loan_snapshot_monthly[dpd] >= 31
+			            && fact_loan_snapshot_monthly[dpd] <= 60
+			    )
+			)
+		formatString: 0
+		lineageTag: e5864472-91d7-471b-a8f8-5e73a0a6667f
+
+	measure 'PAR90 Exposure (KES)' =
+			
+			/* Outstanding principal where dpd between 61 and 90 */
+			CALCULATE (
+			    [Outstanding Principal (KES)],
+			    FILTER (
+			        fact_loan_snapshot_monthly,
+			        fact_loan_snapshot_monthly[dpd] >= 61
+			            && fact_loan_snapshot_monthly[dpd] <= 90
+			    )
+			)
+		formatString: 0
+		lineageTag: 5cd5760a-40bd-4f6b-8506-a64195b90461
+
+	measure 'PAR90+ Exposure (KES)' = ```
+			
+			/* Outstanding principal where dpd > 90 */
+			CALCULATE (
+			    [Outstanding Principal (KES)],
+			    FILTER ( fact_loan_snapshot_monthly, fact_loan_snapshot_monthly[dpd] > 90 )
+			)
+			
+			```
+		formatString: 0
+		lineageTag: ab6dd465-f4f7-4dcd-a67e-84e2a10bb2ba
+
+	measure 'PAR30 Exposure %' = ```
+			
+			DIVIDE ( [PAR30 Exposure (KES)], [Outstanding Principal (KES)] )
+			
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 2c834897-83d9-4318-bf93-2d58c6592c25
+
+	measure 'PAR60 Exposure %' = ```
+			
+			DIVIDE ( [PAR60 Exposure (KES)], [Outstanding Principal (KES)] )
+			
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 29680bfd-257b-4c67-9e2c-cd4636ec7269
+
+	measure 'PAR90 Exposure %' = ```
+			
+			DIVIDE ( [PAR90 Exposure (KES)], [Outstanding Principal (KES)] )
+			
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 0f78a0cf-7c88-437f-856c-c78d4afdf5f8
+
+	measure 'PAR90+ Exposure %' = ```
+			
+			DIVIDE ( [PAR90+ Exposure (KES)], [Outstanding Principal (KES)] )
+			
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: b1375e1a-26f6-4a85-a194-566cad054f4c
+
+	measure 'Activation Date Key' = ```
+			
+			/*
+			Bring activation_date_key from fact_sales_orders into the snapshot table.
+			Requires fact_sales_orders[order_id] to match snapshot[order_id].
+			*/
+			LOOKUPVALUE (
+			    fact_sales_orders[activation_date_key],
+			    fact_sales_orders[order_id], fact_loan_snapshot_monthly[order_id]
+			)
+			
+			```
+		lineageTag: b569bdd1-d613-4a1e-97b4-d56e879a4f51
+
+	measure 'Activation Month' = ```
+			
+			/*
+			Cohort label: month of activation.
+			Uses dim_date to convert the activation date key to a real date.
+			*/
+			VAR ActDate =
+			    LOOKUPVALUE ( dim_date[date], dim_date[date_key], fact_loan_snapshot_monthly[Activation Date Key] )
+			RETURN
+			DATE ( YEAR ( ActDate ), MONTH ( ActDate ), 1 )
+			
+			```
+		lineageTag: 7330ff42-b63a-4904-a214-6249d100f919
+
+	measure 'Months Since Activation' = ```
+			
+			/*
+			Column for heatmap axis:
+			Months between activation month and snapshot month-end.
+			*/
+			VAR ActDate =
+			    LOOKUPVALUE ( dim_date[date], dim_date[date_key], fact_loan_snapshot_monthly[Activation Date Key] )
+			VAR SnapDate =
+			    LOOKUPVALUE ( dim_date[date], dim_date[date_key], fact_loan_snapshot_monthly[snapshot_month_end_date_key] )
+			RETURN
+			DATEDIFF ( DATE ( YEAR ( ActDate ), MONTH ( ActDate ), 1 ), DATE ( YEAR ( SnapDate ), MONTH ( SnapDate ), 1 ), MONTH )
+			
+			```
+		lineageTag: a39d83b5-05be-411f-9393-b633813c7ed4
+
+	measure 'Vintage Repayment %' = ```
+			
+			/*
+			This is the value for the cohort heatmap cells.
+			Within each cell, filters will constrain:
+			- Activation Month (row)
+			- Months Since Activation (column)
+			*/
+			DIVIDE ( [Paid to Date (KES)], [Expected to Date (KES)] )
+			
+			```
+		lineageTag: ecc4a946-5eed-4cd8-b18a-2a47e28f9aac
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Risk Concentration (PAR90 %)' = ```
+			
+			/*
+			Shows how concentrated severe risk is across region x product.
+			Best used in a heatmap/matrix.
+			*/
+			[PAR90 %]
+			
+			```
+		lineageTag: 06cb340d-b103-4ad5-b0ff-53f7815a9f6e
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Risk Concentration (PAR90+ Exposure KES)' = ```
+			
+			/*
+			Absolute exposure view (toggleable with bookmarks if desired).
+			*/
+			[Portfolio at Risk (KES) [PAR90+]]
+			
+			```
+		lineageTag: c2f23a36-254c-403a-8833-fb6605cc0362
+
+	measure 'Last Payment Date' = ```
+			
+			/*
+			Latest payment date for the selected customer/order context.
+			Excludes reversals.
+			*/
+			VAR LastKey =
+			    CALCULATE (
+			        MAX ( fact_payments[payment_date_key] ),
+			        fact_payments[is_reversal_flag] = FALSE ()
+			    )
+			RETURN
+			LOOKUPVALUE ( dim_date[date], dim_date[date_key], LastKey )
+			
+			```
+		formatString: General Date
+		lineageTag: 215482ce-c226-4ea4-a8d5-212e00054674
+
+	measure 'Total Paid (KES) Payments' = ```
+			
+			/*
+			Sum of paid_amount_kes from payment events (transactional),
+			excluding reversals. Useful for drillthrough payment history pages.
+			*/
+			CALCULATE (
+			    SUM ( fact_payments[paid_amount_kes] ),
+			    fact_payments[is_reversal_flag] = FALSE ()
+			)
+			
+			```
+		formatString: 0
+		lineageTag: de404fb9-590e-43f2-afb5-1fcf2f2e0273
+
+	measure 'Total Expected (KES) Payments' = ```
+			
+			/*
+			Sum of expected_amount_kes from payment events.
+			This supports “expected vs paid” at payment-event granularity.
+			*/
+			CALCULATE (
+			    SUM ( fact_payments[expected_amount_kes] ),
+			    fact_payments[is_reversal_flag] = FALSE ()
+			)
+			
+			```
+		formatString: 0
+		lineageTag: 68df8be4-e3d2-4bdc-a2d2-c592c40bf227
+
+	measure 'Payment Adherence % Payments' =
+			
+			/*
+			Event-level adherence based on payment events table.
+			Useful in drillthrough to inspect customer behavior vs schedule.
+			*/
+			DIVIDE ( [Total Paid (KES) [Payments]], [Total Expected (KES) [Payments]] ))
+		lineageTag: 8c93f9f9-81c1-45c7-9463-0d325699df93
+
+	measure 'Installations Pending' =
+			
+			CALCULATE (
+			    COUNTROWS ( fact_installations ),
+			    fact_installations[install_status] IN { "Scheduled", "Rescheduled" }
+			)
+		formatString: 0
+		lineageTag: 30bdc0fa-8c51-440b-91e6-444ef5f4d492
+
+	measure 'DPD (Current)' = ```
+			
+			/*
+			Max dpd in current context.
+			If you’re slicing by snapshot month-end, this becomes the DPD for that month.
+			*/
+			MAX ( fact_loan_snapshot_monthly[dpd] )
+			
+			```
+		formatString: 0
+		lineageTag: 4ebc4e32-67f5-4e12-805d-c365ba17cd66
+
+	measure 'Install SLA Days' =
+			
+			7
+		formatString: 0
+		lineageTag: 95f32070-30fa-4841-9c23-c3f3722bad55
+
+	measure 'Installations Scheduled' =
+			
+			COUNTROWS ( fact_installations )
+		formatString: 0
+		lineageTag: 8125fa79-d814-4860-b67a-d457442e3b4f
+
+	measure 'Installations Completed' =
+			
+			CALCULATE (
+			    COUNTROWS ( fact_installations ),
+			    fact_installations[install_status] = "Completed"
+			)
+		formatString: 0
+		lineageTag: f85bafda-9b1f-4011-a4a2-81b2eb16658c
+
+	measure 'Install Backlog (As Of Date)' = ```
+			
+			VAR AsOfDateKey =
+			    MAX ( dim_date[date_key] )
+			RETURN
+			CALCULATE (
+			    COUNTROWS ( fact_installations ),
+			    fact_installations[install_status] IN { "Scheduled", "Rescheduled" },
+			    fact_installations[scheduled_install_date_key] <= AsOfDateKey
+			)
+			
+			```
+		formatString: 0
+		lineageTag: 8f988d67-b18f-488a-96aa-ba354c6b72e4
+
+	measure 'Install Backlog WoW %' =
+			
+			VAR CurrentBacklog = [Install Backlog (As Of Date)]
+			VAR PrevBacklog =
+			    CALCULATE (
+			        [Install Backlog (As Of Date)],
+			        DATEADD ( dim_date[date], -7, DAY )
+			    )
+			RETURN
+			DIVIDE ( CurrentBacklog - PrevBacklog, PrevBacklog )
+		lineageTag: 0c55d462-c207-49d2-94a8-8f59aa500be1
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Avg Time to Install (Days)' =
+			
+			AVERAGEX (
+			    FILTER (
+			        fact_installations,
+			        fact_installations[install_status] = "Completed"
+			            && NOT ISBLANK ( fact_installations[install_delay_days] )
+			    ),
+			    fact_installations[install_delay_days]
+			)
+		lineageTag: e585a7a9-4e64-48e4-b5db-b187c50a06ca
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Median Time to Install (Days)' = ```
+			
+			MEDIANX (
+			    FILTER (
+			        fact_installations,
+			        fact_installations[install_status] = "Completed"
+			            && NOT ISBLANK ( fact_installations[install_delay_days] )
+			    ),
+			    fact_installations[install_delay_days]
+			)
+			
+			```
+		lineageTag: 340de272-284a-4d4d-8f63-ce67446da7c4
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'P90 Time to Install (Days)' =
+			
+			PERCENTILEX.INC (
+			    FILTER (
+			        fact_installations,
+			        fact_installations[install_status] = "Completed"
+			            && NOT ISBLANK ( fact_installations[install_delay_days] )
+			    ),
+			    fact_installations[install_delay_days],
+			    0.9
+			)
+		lineageTag: b408a5ec-dfd2-440c-bb01-f2c67efd2fa0
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Install Completion Rate %' =
+			
+			DIVIDE (
+			    [Installations Completed],
+			    [Installations Scheduled]
+			)
+		lineageTag: 55bdef23-1df0-4963-8314-f8060d001979
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'SLA Breach Count' =
+			
+			VAR SLA = [Install SLA Days]
+			VAR AsOfDate =
+			    MAX ( dim_date[date] )
+			RETURN
+			CALCULATE (
+			    COUNTROWS ( fact_installations ),
+			    FILTER (
+			        fact_installations,
+			        VAR ScheduledDate =
+			            LOOKUPVALUE ( dim_date[date], dim_date[date_key], fact_installations[scheduled_install_date_key] )
+			        VAR DaysOver =
+			            IF (
+			                NOT ISBLANK ( fact_installations[actual_install_date_key] ),
+			                -- completed: use recorded delay if present, else compute
+			                COALESCE ( fact_installations[install_delay_days], DATEDIFF ( ScheduledDate, LOOKUPVALUE ( dim_date[date], dim_date[date_key], fact_installations[actual_install_date_key] ), DAY ) ),
+			                -- pending: age as-of date context
+			                DATEDIFF ( ScheduledDate, AsOfDate, DAY )
+			            )
+			        RETURN
+			            DaysOver > SLA
+			    )
+			)
+		formatString: 0
+		lineageTag: a8b1e394-157e-4695-a13e-c5e5ffe02577
+
+	measure 'SLA Breach %' =
+			
+			DIVIDE ( [SLA Breach Count], [Installations Scheduled] )
+		lineageTag: 160121dc-1203-4128-87c4-1d7a820807c4
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Pending Installs (As Of Date)' =
+			
+			[Install Backlog (As Of Date)]
+		formatString: 0
+		lineageTag: 7fc3853c-fda8-4d06-b833-fea151bcf93e
+
+	measure 'Avg Days Pending' = ```
+			
+			VAR AsOfDate =
+			    MAX ( dim_date[date] )
+			RETURN
+			AVERAGEX (
+			    FILTER (
+			        fact_installations,
+			        fact_installations[install_status] IN { "Scheduled", "Rescheduled" }
+			    ),
+			    VAR ScheduledDate =
+			        LOOKUPVALUE (
+			            dim_date[date],
+			            dim_date[date_key], fact_installations[scheduled_install_date_key]
+			        )
+			    RETURN
+			        DATEDIFF ( ScheduledDate, AsOfDate, DAY )
+			)
+			
+			```
+		lineageTag: c65c64b5-71a4-4a89-8795-7e4a9d03261f
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Open Installs (Team)' = ```
+			
+			CALCULATE (
+			    COUNTROWS ( fact_installations ),
+			    fact_installations[install_status] IN { "Scheduled", "Rescheduled" }
+			)
+			
+			```
+		formatString: 0
+		lineageTag: ca3edddb-cac7-4d3b-9b07-575187af5031
+
+	measure 'Team Capacity Per Week' = ```
+			
+			MAX ( dim_installer_team[capacity_per_week] )
+			
+			```
+		formatString: 0
+		lineageTag: 59f596cf-55f0-435a-a5dd-a7f330e5dc26
+
+	measure 'Over Capacity Flag' =
+			
+			IF (
+			    [Open Installs (Team)] > [Team Capacity Per Week],
+			    1,
+			    0
+			)
+		formatString: 0
+		lineageTag: 929dabb0-32da-423a-906e-ef877a75d0cf
+
+	measure 'Overloaded Installer Teams' =
+			
+			COUNTROWS (
+			    FILTER (
+			        VALUES ( dim_installer_team[installer_team_sk] ),
+			        [Over Capacity Flag] = 1
+			    )
+			)
+		formatString: 0
+		lineageTag: 01ca0168-8bfa-4eb8-b784-8db69a182692
+
+	measure 'Early Arrears % (60D After Install)' = ```
+			
+			VAR InstalledOrders =
+			    FILTER (
+			        fact_installations,
+			        NOT ISBLANK ( fact_installations[actual_install_date_key] )
+			    )
+			VAR OrderList =
+			    SELECTCOLUMNS ( InstalledOrders, "order_id", fact_installations[order_id] )
+			VAR ArrearsOrders =
+			    CALCULATETABLE (
+			        DISTINCT ( fact_loan_snapshot_monthly[order_id] ),
+			        TREATAS ( OrderList, fact_loan_snapshot_monthly[order_id] ),
+			        FILTER (
+			            fact_loan_snapshot_monthly,
+			            fact_loan_snapshot_monthly[dpd] > 0
+			        )
+			    )
+			VAR TotalInstalled = COUNTROWS ( DISTINCT ( OrderList ) )
+			VAR TotalArrears = COUNTROWS ( ArrearsOrders )
+			RETURN
+			DIVIDE ( TotalArrears, TotalInstalled )
+			
+			```
+		lineageTag: 66c32aab-f568-4216-8ee6-480a193a6648
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Service Tickets Count' = ```
+			
+			COUNTROWS ( fact_service_tickets )
+			
+			```
+		formatString: 0
+		lineageTag: 9cae5128-2e9e-4c31-9987-e27378fd1ea2
+
+	measure 'Service Tickets per Install Context' = ```
+			
+			VAR InstCustProd =
+			    SUMMARIZE (
+			        FILTER ( fact_installations, NOT ISBLANK ( fact_installations[actual_install_date_key] ) ),
+			        fact_installations[customer_sk],
+			        fact_installations[product_sk]
+			    )
+			RETURN
+			CALCULATE (
+			    [Service Tickets Count],
+			    TREATAS ( InstCustProd, fact_service_tickets[customer_sk], fact_service_tickets[product_sk] )
+			)
+			
+			```
+		formatString: 0
+		lineageTag: 3f734fb6-64d4-406e-9877-baa0893594f2
+
+	measure 'Measure 2'
+		lineageTag: 636bad24-48ac-4dfb-8453-a2c5e390b682
+
+		annotation 43dbc3e8-3a1c-4b6f-9923-b49ff7d6691c = True
+
+	measure 'Measure 3'
+		lineageTag: ec393e09-3086-47b9-8731-095b6d23f5a1
+
+		annotation 43dbc3e8-3a1c-4b6f-9923-b49ff7d6691c = True
+
+	measure 'Installations Failed' =
+			
+			CALCULATE (
+			    COUNTROWS ( fact_installations ),
+			    fact_installations[install_status] = "Failed"
+			)
+		formatString: 0
+		lineageTag: 43ab1860-2f0e-4c96-a29b-cf28ac682041
+
+	measure 'Measure 4'
+		lineageTag: 017e9807-20a2-4f9b-a0c3-831e8b46291b
+
+		annotation 43dbc3e8-3a1c-4b6f-9923-b49ff7d6691c = True
+
+	measure 'Measure 5'
+		lineageTag: 9b66167c-14cf-46f7-bdb8-1602d6d19bbf
+
+		annotation 43dbc3e8-3a1c-4b6f-9923-b49ff7d6691c = True
+
+	measure 'Measure 6'
+		lineageTag: 72017f44-943a-4543-876d-907c00276232
+
+		annotation 43dbc3e8-3a1c-4b6f-9923-b49ff7d6691c = True
+
+	measure 'Early Arrears %' =
+			
+			VAR InstalledOrders =
+			    CALCULATETABLE (
+			        DISTINCT ( fact_installations[order_id] ),
+			        fact_installations[install_status] = "Completed"
+			    )
+			VAR ArrearsOrders =
+			    CALCULATETABLE (
+			        DISTINCT ( fact_loan_snapshot_monthly[order_id] ),
+			        TREATAS ( InstalledOrders, fact_loan_snapshot_monthly[order_id] ),
+			        fact_loan_snapshot_monthly[dpd] > 0
+			    )
+			RETURN
+			DIVIDE (
+			    COUNTROWS ( ArrearsOrders ),
+			    COUNTROWS ( InstalledOrders )
+			)
+		lineageTag: d6481983-3b42-4db5-9045-e1c57f80b6d7
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Service Tickets per Install' =
+			
+			VAR InstalledPairs =
+			    SUMMARIZE (
+			        FILTER (
+			            fact_installations,
+			            fact_installations[install_status] = "Completed"
+			        ),
+			        fact_installations[customer_sk],
+			        fact_installations[product_sk]
+			    )
+			RETURN
+			CALCULATE (
+			    COUNTROWS ( fact_service_tickets ),
+			    TREATAS (
+			        InstalledPairs,
+			        fact_service_tickets[customer_sk],
+			        fact_service_tickets[product_sk]
+			    )
+			)
+		formatString: 0
+		lineageTag: f4314f9c-5d54-4262-be38-5323e47cd0b2
+
+	measure 'Pending Age (Days)' = ```
+			
+			-- Purpose:
+			-- Average number of days pending (Scheduled/Rescheduled) as at the current date context.
+			-- Good for a KPI or tooltip. Not used directly to build aging buckets.
+			
+			VAR AsOfDate =
+			    -- "As of" date is the max date in the current filter context
+			    MAX ( dim_date[date] )
+			
+			RETURN
+			AVERAGEX (
+			    -- Iterate only pending installs (Scheduled + Rescheduled)
+			    FILTER (
+			        fact_installations,
+			        fact_installations[install_status] IN { "Scheduled", "Rescheduled" }
+			    ),
+			    VAR ScheduledDate =
+			        -- Convert scheduled date key to actual date using the date dimension
+			        LOOKUPVALUE (
+			            dim_date[date],
+			            dim_date[date_key], fact_installations[scheduled_install_date_key]
+			        )
+			    RETURN
+			        -- Pending age = difference between scheduled date and as-of date
+			        DATEDIFF ( ScheduledDate, AsOfDate, DAY )
+			)
+			
+			```
+		lineageTag: 90cdfe1b-2157-474b-8f75-5217dd9631a6
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Pending Installs (0-7 Days)' = ```
+			
+			-- Purpose:
+			-- Count of pending installs whose scheduled date is 0 to 7 days old,
+			-- relative to the current "as-of" date in the filter context.
+			
+			VAR AsOfDate =
+			    MAX ( dim_date[date] )
+			
+			RETURN
+			CALCULATE (
+			    COUNTROWS ( fact_installations ),
+			    FILTER (
+			        fact_installations,
+			        -- Pending = Scheduled or Rescheduled only
+			        fact_installations[install_status] IN { "Scheduled", "Rescheduled" }
+			            &&
+			            VAR ScheduledDate =
+			                LOOKUPVALUE (
+			                    dim_date[date],
+			                    dim_date[date_key], fact_installations[scheduled_install_date_key]
+			                )
+			            VAR AgeDays =
+			                -- Age = how many days have passed since scheduled date (as-of context)
+			                DATEDIFF ( ScheduledDate, AsOfDate, DAY )
+			            RETURN
+			                -- Bucket definition: inclusive bounds 0 to 7
+			                AgeDays >= 0 && AgeDays <= 7
+			    )
+			)
+			
+			```
+		formatString: 0
+		lineageTag: 266dae75-56c6-4fce-b579-233f11d67e94
+
+	measure 'Pending Installs (8-14 Days)' = ```
+			
+			-- Purpose:
+			-- Count of pending installs aged 8 to 14 days (inclusive), as at the current context date.
+			
+			VAR AsOfDate =
+			    MAX ( dim_date[date] )
+			
+			RETURN
+			CALCULATE (
+			    COUNTROWS ( fact_installations ),
+			    FILTER (
+			        fact_installations,
+			        fact_installations[install_status] IN { "Scheduled", "Rescheduled" }
+			            &&
+			            VAR ScheduledDate =
+			                LOOKUPVALUE (
+			                    dim_date[date],
+			                    dim_date[date_key], fact_installations[scheduled_install_date_key]
+			                )
+			            VAR AgeDays =
+			                DATEDIFF ( ScheduledDate, AsOfDate, DAY )
+			            RETURN
+			                AgeDays >= 8 && AgeDays <= 14
+			    )
+			)
+			
+			```
+		formatString: 0
+		lineageTag: bb4577a9-34d4-4c53-8a73-c17d4cfc8e6e
+
+	measure 'Pending Installs (15-30 Days)' = ```
+			
+			-- Purpose:
+			-- Count of pending installs aged 15 to 30 days (inclusive), as at the current context date.
+			
+			VAR AsOfDate =
+			    MAX ( dim_date[date] )
+			
+			RETURN
+			CALCULATE (
+			    COUNTROWS ( fact_installations ),
+			    FILTER (
+			        fact_installations,
+			        fact_installations[install_status] IN { "Scheduled", "Rescheduled" }
+			            &&
+			            VAR ScheduledDate =
+			                LOOKUPVALUE (
+			                    dim_date[date],
+			                    dim_date[date_key], fact_installations[scheduled_install_date_key]
+			                )
+			            VAR AgeDays =
+			                DATEDIFF ( ScheduledDate, AsOfDate, DAY )
+			            RETURN
+			                AgeDays >= 15 && AgeDays <= 30
+			    )
+			)
+			
+			```
+		formatString: 0
+		lineageTag: 1bc4a2fe-6bbd-4675-a815-0c8ced94cf4c
+
+	measure 'Pending Installs (30+ Days)' = ```
+			
+			-- Purpose:
+			-- Count of pending installs aged more than 30 days, as at the current context date.
+			
+			VAR AsOfDate =
+			    MAX ( dim_date[date] )
+			
+			RETURN
+			CALCULATE (
+			    COUNTROWS ( fact_installations ),
+			    FILTER (
+			        fact_installations,
+			        fact_installations[install_status] IN { "Scheduled", "Rescheduled" }
+			            &&
+			            VAR ScheduledDate =
+			                LOOKUPVALUE (
+			                    dim_date[date],
+			                    dim_date[date_key], fact_installations[scheduled_install_date_key]
+			                )
+			            VAR AgeDays =
+			                DATEDIFF ( ScheduledDate, AsOfDate, DAY )
+			            RETURN
+			                -- Bucket definition: strictly greater than 30
+			                AgeDays > 30
+			    )
+			)
+			
+			```
+		formatString: 0
+		lineageTag: f3254138-140b-45be-a302-f5f871c216f4
+
+	measure 'Pending Installs Total' = ```
+			
+			-- Purpose:
+			-- Total pending installs in current filter context.
+			-- Depends on your earlier measure: [Installations Pending]
+			[Installations Pending]
+			
+			```
+		formatString: 0
+		lineageTag: 4614e922-3cbe-4e1a-800d-3611ed1706f5
+
+	measure 'Pending Share (0-7)' = ```
+			
+			-- Purpose:
+			-- Share of total pending installs that fall in 0–7 bucket.
+			DIVIDE ( [Pending Installs (0-7 Days)], [Pending Installs Total] )
+			
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 961b3ffd-6f59-4137-8d0e-d9d6d0344b07
+
+	measure 'Pending Share (8-14)' = ```
+			
+			-- Purpose:
+			-- Share of total pending installs that fall in 8–14 bucket.
+			DIVIDE ( [Pending Installs (8-14 Days)], [Pending Installs Total] )
+			
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 8c97fe3d-41b2-4132-ac8c-79e793b7d5f0
+
+	measure 'Pending Share (15-30)' = ```
+			
+			-- Purpose:
+			-- Share of total pending installs that fall in 15–30 bucket.
+			DIVIDE ( [Pending Installs (15-30 Days)], [Pending Installs Total] )
+			
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: d97310a6-acef-45e8-8e0b-0ee6cb08c040
+
+	measure 'Pending Share (30+)' = ```
+			
+			-- Purpose:
+			-- Share of total pending installs that fall in 30+ bucket.
+			DIVIDE ( [Pending Installs (30+ Days)], [Pending Installs Total] )
+			
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 18a76bae-589b-4aaf-95bc-ea1fda29cb79
+
+	measure 'Backlog Aging Score' = ```
+			
+			-- Purpose:
+			-- Weighted score summarizing backlog aging severity.
+			-- Useful for:
+			-- - A single KPI “how bad is backlog aging?”
+			-- - Conditional formatting in tables/matrices
+			-- - Ranking regions/installers by operational pain
+			--
+			-- Weighting logic (tunable):
+			-- 0–7  days -> weight 1 (normal)
+			-- 8–14 days -> weight 2 (needs attention)
+			-- 15–30 days -> weight 3 (high risk)
+			-- 30+  days -> weight 5 (critical / likely to drive arrears & churn)
+			
+			VAR B0_7 =
+			    [Pending Installs (0-7 Days)] * 1
+			
+			VAR B8_14 =
+			    [Pending Installs (8-14 Days)] * 2
+			
+			VAR B15_30 =
+			    [Pending Installs (15-30 Days)] * 3
+			
+			VAR B30 =
+			    [Pending Installs (30+ Days)] * 5
+			
+			VAR Total =
+			    [Pending Installs Total]
+			
+			RETURN
+			-- Divide by total to normalize score across regions/installers
+			DIVIDE ( B0_7 + B8_14 + B15_30 + B30, Total )
+			
+			```
+		lineageTag: 31ede8bc-f146-4440-85d7-ce3ff07da570
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Column
+		formatString: 0
+		lineageTag: 2ac38dbb-ff94-47de-8734-0671d9028c52
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Column]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition ZMeasures = calculated
+		mode: import
+		source = Row("Column", BLANK())
+
+	annotation PBI_Id = a88a2b4d386e4f6cadea2d9ca2a820fb
+
+	annotation 436ba87b-9c83-4389-a31b-ebd06a36be98 = {"Expression":""}
+
