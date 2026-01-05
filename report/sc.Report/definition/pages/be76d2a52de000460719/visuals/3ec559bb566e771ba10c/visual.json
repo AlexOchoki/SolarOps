@@ -1,0 +1,102 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+  "name": "3ec559bb566e771ba10c",
+  "position": {
+    "x": 15.975794251134642,
+    "y": 283.20726172465959,
+    "z": 3000,
+    "height": 257.0650529500756,
+    "width": 779.90922844175486,
+    "tabOrder": 3000
+  },
+  "visual": {
+    "visualType": "pivotTable",
+    "query": {
+      "queryState": {
+        "Rows": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_installations"
+                    }
+                  },
+                  "Property": "actual_install_date_key"
+                }
+              },
+              "queryRef": "fact_installations.actual_install_date_key",
+              "nativeQueryRef": "actual_install_date_key",
+              "active": true
+            }
+          ]
+        },
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ZMeasures"
+                    }
+                  },
+                  "Property": "Install Backlog (As Of Date)"
+                }
+              },
+              "queryRef": "ZMeasures.Install Backlog (As Of Date)",
+              "nativeQueryRef": "Install Backlog (As Of Date)"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "isDefaultSort": true
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Install Backlog Trend'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "subTitle": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Is operations keeping up with demand?'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

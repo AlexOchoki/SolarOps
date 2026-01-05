@@ -545,9 +545,8 @@ table ZMeasures
 			    [Installations Completed],
 			    [Installations Scheduled]
 			)
+		formatString: 0.00%;-0.00%;0.00%
 		lineageTag: 55bdef23-1df0-4963-8314-f8060d001979
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure 'SLA Breach Count' =
 			
@@ -579,9 +578,8 @@ table ZMeasures
 	measure 'SLA Breach %' =
 			
 			DIVIDE ( [SLA Breach Count], [Installations Scheduled] )
+		formatString: 0.00%;-0.00%;0.00%
 		lineageTag: 160121dc-1203-4128-87c4-1d7a820807c4
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure 'Pending Installs (As Of Date)' =
 			
@@ -736,10 +734,13 @@ table ZMeasures
 
 		annotation 43dbc3e8-3a1c-4b6f-9923-b49ff7d6691c = True
 
-	measure 'Measure 6'
+	measure 'SLA On-Time Count' = ```
+			
+			[Installations Scheduled] - [SLA Breach Count]
+			
+			```
+		formatString: 0
 		lineageTag: 72017f44-943a-4543-876d-907c00276232
-
-		annotation 43dbc3e8-3a1c-4b6f-9923-b49ff7d6691c = True
 
 	measure 'Early Arrears %' =
 			

@@ -39,6 +39,7 @@ ref table Funnel_Stage
 ref table Stage_Aging
 ref table LocalDateTable_e8169847-c5a5-40da-b644-24d11ec1507b
 ref table ZMeasures
+ref table Labels
 
 ref cultureInfo en-US
 

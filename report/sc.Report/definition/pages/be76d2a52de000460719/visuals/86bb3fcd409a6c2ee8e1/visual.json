@@ -1,0 +1,141 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+  "name": "86bb3fcd409a6c2ee8e1",
+  "position": {
+    "x": 15.975794251134642,
+    "y": 117.63993948562782,
+    "z": 2000,
+    "height": 165.56732223903177,
+    "width": 1876.42965204236,
+    "tabOrder": 2000
+  },
+  "visual": {
+    "visualType": "cardVisual",
+    "query": {
+      "queryState": {
+        "Data": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ZMeasures"
+                    }
+                  },
+                  "Property": "Installations Pending"
+                }
+              },
+              "queryRef": "ZMeasures.Installations Pending",
+              "nativeQueryRef": "Installations Pending"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ZMeasures"
+                    }
+                  },
+                  "Property": "Install Backlog WoW %"
+                }
+              },
+              "queryRef": "ZMeasures.Install Backlog WoW %",
+              "nativeQueryRef": "Install Backlog WoW %"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ZMeasures"
+                    }
+                  },
+                  "Property": "Avg Time to Install (Days)"
+                }
+              },
+              "queryRef": "ZMeasures.Avg Time to Install (Days)",
+              "nativeQueryRef": "Avg Time to Install (Days)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ZMeasures"
+                    }
+                  },
+                  "Property": "Install Completion Rate %"
+                }
+              },
+              "queryRef": "ZMeasures.Install Completion Rate %",
+              "nativeQueryRef": "Install Completion Rate %"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ZMeasures"
+                    }
+                  },
+                  "Property": "SLA Breach %"
+                }
+              },
+              "queryRef": "ZMeasures.SLA Breach %",
+              "nativeQueryRef": "SLA Breach %"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ZMeasures"
+                    }
+                  },
+                  "Property": "Overloaded Installer Teams"
+                }
+              },
+              "queryRef": "ZMeasures.Overloaded Installer Teams",
+              "nativeQueryRef": "Overloaded Installer Teams"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "ZMeasures"
+                  }
+                },
+                "Property": "Installations Pending"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "objects": {
+      "layout": [
+        {
+          "properties": {
+            "columnCount": {
+              "expr": {
+                "Literal": {
+                  "Value": "6L"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}
