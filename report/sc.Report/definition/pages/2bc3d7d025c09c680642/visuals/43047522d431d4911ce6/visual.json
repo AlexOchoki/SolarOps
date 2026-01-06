@@ -1,0 +1,354 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+  "name": "43047522d431d4911ce6",
+  "position": {
+    "x": 1211.25,
+    "y": 406.25,
+    "z": 4003,
+    "height": 543.75,
+    "width": 597.5,
+    "tabOrder": 4003
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_sales_agent"
+                    }
+                  },
+                  "Property": "agent_name"
+                }
+              },
+              "queryRef": "dim_sales_agent.agent_name",
+              "nativeQueryRef": "agent_name"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_geography"
+                    }
+                  },
+                  "Property": "region"
+                }
+              },
+              "queryRef": "dim_geography.region",
+              "nativeQueryRef": "region"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Stage_Aging"
+                    }
+                  },
+                  "Property": "Agent Sold Orders"
+                }
+              },
+              "queryRef": "Stage_Aging.Agent Sold Orders",
+              "nativeQueryRef": "Agent Sold Orders"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Stage_Aging"
+                    }
+                  },
+                  "Property": "Agent Lead → Sold %"
+                }
+              },
+              "queryRef": "Stage_Aging.Agent Lead → Sold %",
+              "nativeQueryRef": "Agent Lead → Sold %"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Stage_Aging"
+                    }
+                  },
+                  "Property": "Agent Sold → Installed %"
+                }
+              },
+              "queryRef": "Stage_Aging.Agent Sold → Installed %",
+              "nativeQueryRef": "Agent Sold → Installed %"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Stage_Aging"
+                    }
+                  },
+                  "Property": "Early Arrears Flag"
+                }
+              },
+              "queryRef": "Stage_Aging.Early Arrears Flag",
+              "nativeQueryRef": "Early Arrears Flag"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Stage_Aging"
+                  }
+                },
+                "Property": "Agent Sold → Installed %"
+              }
+            },
+            "direction": "Descending"
+          }
+        ]
+      }
+    },
+    "objects": {
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "77.5D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Stage_Aging.Agent Sold Orders"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "95.74999081131111D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Stage_Aging.Agent Lead → Sold %"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "92.5D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Stage_Aging.Agent Sold → Installed %"
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Agent Performance (Quality-Weighted)'"
+                }
+              }
+            },
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "a10ff16b658a838d9204",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dim_sales_agent"
+              }
+            },
+            "Property": "agent_name"
+          }
+        },
+        "type": "TopN",
+        "howCreated": "User"
+      },
+      {
+        "name": "ffc8c623091c40780105",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dim_sales_agent"
+              }
+            },
+            "Property": "agent_name"
+          }
+        },
+        "type": "Categorical",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "d",
+              "Entity": "dim_sales_agent",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "Not": {
+                  "Expression": {
+                    "In": {
+                      "Expressions": [
+                        {
+                          "Column": {
+                            "Expression": {
+                              "SourceRef": {
+                                "Source": "d"
+                              }
+                            },
+                            "Property": "agent_name"
+                          }
+                        }
+                      ],
+                      "Values": [
+                        [
+                          {
+                            "Literal": {
+                              "Value": "null"
+                            }
+                          }
+                        ]
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "objects": {
+          "general": [
+            {
+              "properties": {
+                "isInvertedSelectionMode": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "true"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "c9aefffbb2e75b86ec35",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dim_geography"
+              }
+            },
+            "Property": "region"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "67742cdf0538a15d1d58",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Stage_Aging"
+              }
+            },
+            "Property": "Agent Sold Orders"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "e1777952072bc532c645",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Stage_Aging"
+              }
+            },
+            "Property": "Agent Lead → Sold %"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "eff9d2b724a0cb59608e",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Stage_Aging"
+              }
+            },
+            "Property": "Agent Sold → Installed %"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "0bc6e1f1c058ad9d5e08",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Stage_Aging"
+              }
+            },
+            "Property": "Early Arrears Flag"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

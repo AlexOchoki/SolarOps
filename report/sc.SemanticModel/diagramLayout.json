@@ -325,8 +325,49 @@
       "showExtraHeaderInfo": false,
       "hideKeyFieldsWhenCollapsed": false,
       "tablesLocked": false
+    },
+    {
+      "ordinal": 2,
+      "scrollPosition": {
+        "x": 0,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 777,
+            "y": 264
+          },
+          "nodeIndex": "dim_sales_agent",
+          "nodeLineageTag": "2b3c1f44-4baf-495a-b947-cff2db574f05",
+          "size": {
+            "height": 334,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 235,
+            "y": 245
+          },
+          "nodeIndex": "fact_installations",
+          "nodeLineageTag": "90f8b71f-c323-405c-ae0a-2921b364e5fb",
+          "size": {
+            "height": 463,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "Layout 2",
+      "zoomValue": 100,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
     }
   ],
-  "selectedDiagram": "Layout 1",
+  "selectedDiagram": "Layout 2",
   "defaultDiagram": "All tables"
 }

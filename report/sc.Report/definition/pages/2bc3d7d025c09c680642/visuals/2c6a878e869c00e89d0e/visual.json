@@ -1,0 +1,90 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+  "name": "2c6a878e869c00e89d0e",
+  "position": {
+    "x": 647.5,
+    "y": 540,
+    "z": 4002,
+    "height": 420,
+    "width": 555,
+    "tabOrder": 4002
+  },
+  "visual": {
+    "visualType": "clusteredBarChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_leads"
+                    }
+                  },
+                  "Property": "stage_current"
+                }
+              },
+              "queryRef": "fact_leads.stage_current",
+              "nativeQueryRef": "stage_current",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Stage_Aging"
+                    }
+                  },
+                  "Property": "Avg Stage Age (Days)"
+                }
+              },
+              "queryRef": "Stage_Aging.Avg Stage Age (Days)",
+              "nativeQueryRef": "Avg Stage Age (Days)"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Stage_Aging"
+                  }
+                },
+                "Property": "Avg Stage Age (Days)"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Stage Aging (Days)'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}
