@@ -7,6 +7,20 @@ table Labels
 	measure commercial = "Commercial & Growth Performance"
 		lineageTag: 5506ce46-2728-4256-881d-6dd83a13cb25
 
+	measure 'Credit page' = "Credit, Repayment & Portfolio Risk"
+		lineageTag: d0eec399-2387-49ff-b15b-5e66e87edee4
+
+	measure 'Page Context Label' =
+			
+			VAR AsOfDate =
+			    MAX ( dim_date[date] )
+			RETURN
+			"As of: " & FORMAT ( AsOfDate, "dd-MMM-yyyy" )
+		lineageTag: 8ce49a88-cb81-4280-b1a8-675746c828d7
+
+	measure Summary = "Executive Summary"
+		lineageTag: 3d379c4f-6442-4b5c-9d78-81838eec7a6a
+
 	column Column
 		formatString: 0
 		lineageTag: 59d1f68f-a827-4320-8cb4-e472ceacfb18

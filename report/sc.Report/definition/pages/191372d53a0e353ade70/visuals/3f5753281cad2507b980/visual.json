@@ -1,0 +1,225 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+  "name": "3f5753281cad2507b980",
+  "position": {
+    "x": 27.931034482758619,
+    "y": 101.08374384236453,
+    "z": 1001,
+    "height": 140.98522167487684,
+    "width": 1874.039408866995,
+    "tabOrder": 3001
+  },
+  "visual": {
+    "visualType": "cardVisual",
+    "query": {
+      "queryState": {
+        "Data": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ZMeasures"
+                    }
+                  },
+                  "Property": "Active Credit Accounts"
+                }
+              },
+              "queryRef": "ZMeasures.Active Credit Accounts",
+              "nativeQueryRef": "Active Credit Accounts"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ZMeasures"
+                    }
+                  },
+                  "Property": "Repayment Rate % (Expected)"
+                }
+              },
+              "queryRef": "ZMeasures.Repayment Rate % (Expected)",
+              "nativeQueryRef": "Repayment Rate % (Expected)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ZMeasures"
+                    }
+                  },
+                  "Property": "Repayment Rate % (Actual)"
+                }
+              },
+              "queryRef": "ZMeasures.Repayment Rate % (Actual)",
+              "nativeQueryRef": "Repayment Rate % (Actual)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ZMeasures"
+                    }
+                  },
+                  "Property": "Repayment Gap %"
+                }
+              },
+              "queryRef": "ZMeasures.Repayment Gap %",
+              "nativeQueryRef": "Repayment Gap %"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ZMeasures"
+                    }
+                  },
+                  "Property": "PAR30 % pg3"
+                }
+              },
+              "queryRef": "ZMeasures.PAR30 % pg3",
+              "nativeQueryRef": "PAR30 % pg3"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ZMeasures"
+                    }
+                  },
+                  "Property": "PAR90 Exposure %"
+                }
+              },
+              "queryRef": "ZMeasures.PAR90 Exposure %",
+              "nativeQueryRef": "PAR90 Exposure %"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ZMeasures"
+                    }
+                  },
+                  "Property": "Portfolio at Risk (KES) PAR30"
+                }
+              },
+              "queryRef": "ZMeasures.Portfolio at Risk (KES) PAR30",
+              "nativeQueryRef": "Portfolio at Risk (KES) PAR30"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "ZMeasures"
+                  }
+                },
+                "Property": "Active Credit Accounts"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "objects": {
+      "layout": [
+        {
+          "properties": {
+            "columnCount": {
+              "expr": {
+                "Literal": {
+                  "Value": "8L"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "value": [
+        {
+          "properties": {
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#252423'"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "default"
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "background": [
+        {
+          "properties": {
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#111F33'"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#20324D'"
+                    }
+                  }
+                }
+              }
+            },
+            "radius": {
+              "expr": {
+                "Literal": {
+                  "Value": "12D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}
