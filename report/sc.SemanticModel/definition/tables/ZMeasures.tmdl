@@ -162,9 +162,8 @@ table ZMeasures
 			[Repayment Rate % (Actual)]
 			
 			```
+		formatString: 0.00%;-0.00%;0.00%
 		lineageTag: 961d92b8-431a-413c-8955-c53a82af26c8
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure 'Repayment Rate % (Expected - Trend)' = ```
 			
@@ -237,7 +236,7 @@ table ZMeasures
 			            && fact_loan_snapshot_monthly[dpd] <= 90
 			    )
 			)
-		formatString: 0
+		formatString: #,0
 		lineageTag: 5cd5760a-40bd-4f6b-8506-a64195b90461
 
 	measure 'PAR90+ Exposure (KES)' = ```
