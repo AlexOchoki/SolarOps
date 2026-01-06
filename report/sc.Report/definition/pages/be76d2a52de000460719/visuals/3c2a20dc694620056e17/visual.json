@@ -215,39 +215,6 @@
   "filterConfig": {
     "filters": [
       {
-        "name": "476a55ba3c01108e1222",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "fact_installations"
-              }
-            },
-            "Property": "Install Delay Bucket"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "dc01911eaa0520006959",
-        "field": {
-          "Aggregation": {
-            "Expression": {
-              "Column": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "fact_installations"
-                  }
-                },
-                "Property": "installation_id"
-              }
-            },
-            "Function": 5
-          }
-        },
-        "type": "Advanced"
-      },
-      {
         "name": "e954bf84eb36939ea236",
         "field": {
           "Column": {

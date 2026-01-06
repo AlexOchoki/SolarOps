@@ -1,0 +1,150 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+  "name": "b32f850be53c9c3b93c7",
+  "position": {
+    "x": 12.5,
+    "y": 538.75,
+    "z": 4001,
+    "height": 420,
+    "width": 623.75,
+    "tabOrder": 4001
+  },
+  "visual": {
+    "visualType": "clusteredColumnChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_date"
+                    }
+                  },
+                  "Property": "month_short"
+                }
+              },
+              "queryRef": "dim_date.month_short",
+              "nativeQueryRef": "month_short",
+              "active": true
+            }
+          ]
+        },
+        "Tooltips": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Stage_Aging"
+                    }
+                  },
+                  "Property": "Sales - Installs Gap %"
+                }
+              },
+              "queryRef": "Stage_Aging.Sales - Installs Gap %",
+              "nativeQueryRef": "Sales - Installs Gap %"
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Stage_Aging"
+                    }
+                  },
+                  "Property": "Sold Orders"
+                }
+              },
+              "queryRef": "Stage_Aging.Sold Orders",
+              "nativeQueryRef": "Sold Orders"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Stage_Aging"
+                    }
+                  },
+                  "Property": "Installed"
+                }
+              },
+              "queryRef": "Stage_Aging.Installed",
+              "nativeQueryRef": "Installed"
+            }
+          ]
+        }
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Sales vs Install Completion'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "0bf418ecd21382607502",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dim_date"
+              }
+            },
+            "Property": "month_short"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "a7df293fcd6785a00858",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Stage_Aging"
+              }
+            },
+            "Property": "Sold Orders"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "b69051b0017b0e68d000",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Stage_Aging"
+              }
+            },
+            "Property": "Installed"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

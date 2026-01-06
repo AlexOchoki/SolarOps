@@ -81,6 +81,7 @@ table dim_date
 		summarizeBy: none
 		isNameInferred
 		sourceColumn: [month_short]
+		sortByColumn: month_number
 
 		annotation SummarizationSetBy = Automatic
 

@@ -83,9 +83,8 @@ table Stage_Aging
 	measure 'Sold → Installed %' =
 			
 			DIVIDE([Installed], [Sold Orders])
+		formatString: 0.00%;-0.00%;0.00%
 		lineageTag: bff60159-6d1e-40ef-bde1-8eb9b2777ec2
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure 'Lead → Installed %' =
 			
@@ -102,9 +101,8 @@ table Stage_Aging
 	measure 'Sales - Installs Gap %' =
 			
 			DIVIDE([Sales - Installs Gap], [Sold Orders])
+		formatString: 0.00%;-0.00%;0.00%
 		lineageTag: a9ded55a-cc11-44d6-a54e-c41523113b76
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure 'Agent Leads' =
 			
@@ -135,7 +133,7 @@ table Stage_Aging
 	measure 'Agent Sold Orders' =
 			
 			[Sold Orders]
-		formatString: 0
+		formatString: #,0
 		lineageTag: 57c8006e-eedf-47c0-adfc-7e1d4285db07
 
 	measure 'Agent Lead → Sold %' =

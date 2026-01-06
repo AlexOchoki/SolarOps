@@ -4,6 +4,9 @@ table Labels
 	measure 'pg 4' = "Installations & Field Operations"
 		lineageTag: 697ca0ea-bb4f-4b85-bfce-5df9de6cab00
 
+	measure commercial = "Commercial & Growth Performance"
+		lineageTag: 5506ce46-2728-4256-881d-6dd83a13cb25
+
 	column Column
 		formatString: 0
 		lineageTag: 59d1f68f-a827-4320-8cb4-e472ceacfb18
