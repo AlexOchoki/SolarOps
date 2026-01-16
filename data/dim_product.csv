@@ -1,0 +1,25 @@
+product_sk,product_id,product_name,product_family,pump_type,max_head_meters,max_flow_rate_lph,panel_wattage_total,battery_capacity_wh,recommended_farm_size_min_acres,recommended_farm_size_max_acres,warranty_months,expected_lifespan_years
+2001,SKU2001,Irrigation Bundle Submersible V1,Irrigation Bundle,Submersible,48,3038,690,0,0.45,4.4,18,7
+2002,SKU2002,Irrigation Bundle Surface V2,Irrigation Bundle,Surface,23,4606,582,0,0.33,2.49,12,5
+2003,SKU2003,Irrigation Bundle Submersible V3,Irrigation Bundle,Submersible,50,3485,686,0,0.73,4.37,18,8
+2004,SKU2004,Battery Add-on  V4,Battery Add-on,N/A,0,0,0,1395,0.1,0.2,12,4
+2005,SKU2005,Irrigation Bundle Submersible V5,Irrigation Bundle,Submersible,50,3083,715,0,0.71,4.52,18,8
+2006,SKU2006,Solar Pump Kit Submersible V6,Solar Pump Kit,Submersible,47,2246,494,0,0.67,5.17,24,11
+2007,SKU2007,Irrigation Bundle Submersible V1,Irrigation Bundle,Submersible,52,2688,584,0,0.78,4.35,18,9
+2008,SKU2008,Irrigation Bundle Submersible V2,Irrigation Bundle,Submersible,52,3418,539,0,0.54,4.27,18,9
+2009,SKU2009,Solar Pump Kit Submersible V3,Solar Pump Kit,Submersible,46,2474,317,0,0.44,5.07,24,11
+2010,SKU2010,Irrigation Bundle Surface V4,Irrigation Bundle,Surface,21,5376,424,0,0.47,2.04,12,5
+2011,SKU2011,Battery Add-on  V5,Battery Add-on,N/A,1,480,20,1354,0.1,0.39,12,4
+2012,SKU2012,Irrigation Bundle Surface V6,Irrigation Bundle,Surface,19,4735,552,0,0.41,2.45,12,7
+2013,SKU2013,Solar Pump Kit Submersible V1,Solar Pump Kit,Submersible,42,2455,355,0,0.68,5.21,24,10
+2014,SKU2014,Irrigation Bundle Surface V2,Irrigation Bundle,Surface,20,4974,413,0,0.29,2.48,12,7
+2015,SKU2015,Irrigation Bundle Surface V3,Irrigation Bundle,Surface,17,5342,499,0,0.53,1.75,12,6
+2016,SKU2016,Battery Add-on  V4,Battery Add-on,N/A,2,39,0,1210,0.2,0.5,12,6
+2017,SKU2017,Irrigation Bundle Submersible V5,Irrigation Bundle,Submersible,49,2716,637,0,0.71,3.92,18,8
+2018,SKU2018,Battery Add-on  V6,Battery Add-on,N/A,2,0,2,1010,0.28,0.34,12,4
+2019,SKU2019,Solar Pump Kit Submersible V1,Solar Pump Kit,Submersible,46,2371,486,0,0.61,5.13,24,9
+2020,SKU2020,Solar Pump Kit Submersible V2,Solar Pump Kit,Submersible,45,2061,460,0,0.48,5.5,24,11
+2021,SKU2021,Battery Add-on  V3,Battery Add-on,N/A,2,0,0,1389,0.1,0.58,12,5
+2022,SKU2022,Irrigation Bundle Submersible V4,Irrigation Bundle,Submersible,48,3403,670,0,0.53,3.85,18,9
+2023,SKU2023,Irrigation Bundle Submersible V5,Irrigation Bundle,Submersible,49,2711,533,0,0.45,3.76,18,7
+2024,SKU2024,Irrigation Bundle Surface V6,Irrigation Bundle,Surface,17,5490,422,0,0.2,2.44,12,5

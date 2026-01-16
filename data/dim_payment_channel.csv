@@ -1,0 +1,6 @@
+payment_channel_id,payment_channel_name,channel_type,fees_pct
+1,M-Pesa,MobileMoney,1.0
+2,Airtel Money,MobileMoney,1.2
+3,Bank Transfer,Bank,0.5
+4,Agent Cash,Cash,0.0
+5,Card,Card,2.0

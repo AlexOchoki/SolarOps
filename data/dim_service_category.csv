@@ -1,0 +1,8 @@
+service_category_id,issue_category,root_cause_group,severity_level,is_warranty_eligible_default
+1,Pump not starting,Electrical,High,True
+2,Low water flow,Hydraulic,Medium,True
+3,Panel damage,Hardware,Medium,True
+4,Battery issue,Electrical,High,True
+5,Payment lockout,PAYG,High,False
+6,Installation quality,Operations,Low,True
+7,App/USSD access,Digital,Low,False

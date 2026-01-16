@@ -1,0 +1,528 @@
+geo_id,region,county,sub_county,ward,latitude_center,longitude_center,agro_zone,distance_to_depot_km
+1001,Central,Kiambu,Kiambu SC 01,Ward 01,-0.574543,40.782924,Lake basin,127.04
+1002,Central,Kiambu,Kiambu SC 01,Ward 02,-3.814733,41.707417,Arid,138.2
+1003,Central,Kiambu,Kiambu SC 01,Ward 03,2.689004,35.012098,Humid,83.82
+1004,Central,Kiambu,Kiambu SC 01,Ward 04,-1.214499,41.321443,Highland,117.68
+1005,Central,Kiambu,Kiambu SC 01,Ward 05,3.033959,37.502972,Arid,44.77
+1006,Central,Kiambu,Kiambu SC 02,Ward 01,-4.100118,40.538286,Lake basin,115.54
+1007,Central,Kiambu,Kiambu SC 02,Ward 02,2.426025,36.800755,Arid,174.87
+1008,Central,Kiambu,Kiambu SC 03,Ward 01,3.695339,40.14923,Humid,39.06
+1009,Central,Kiambu,Kiambu SC 03,Ward 02,-0.312823,34.34605,Arid,32.0
+1010,Central,Kiambu,Kiambu SC 03,Ward 03,1.72066,39.883621,Arid,174.31
+1011,Central,Kiambu,Kiambu SC 03,Ward 04,-1.637242,36.926632,Sub-humid,87.17
+1012,Central,Murang'a,Murang'a SC 01,Ward 01,-3.478738,37.758069,Semi-arid,44.71
+1013,Central,Murang'a,Murang'a SC 01,Ward 02,1.596252,37.4535,Lake basin,150.72
+1014,Central,Murang'a,Murang'a SC 02,Ward 01,-1.763754,40.574852,Arid,145.83
+1015,Central,Murang'a,Murang'a SC 02,Ward 02,-1.057703,36.277792,Semi-arid,124.44
+1016,Central,Murang'a,Murang'a SC 02,Ward 03,-3.386327,35.579275,Arid,6.29
+1017,Central,Murang'a,Murang'a SC 02,Ward 04,2.697089,39.252322,Arid,128.4
+1018,Central,Murang'a,Murang'a SC 03,Ward 01,2.638853,37.625435,Highland,104.53
+1019,Central,Murang'a,Murang'a SC 03,Ward 02,-3.385908,34.904788,Semi-arid,121.97
+1020,Central,Murang'a,Murang'a SC 03,Ward 03,-0.271696,38.465365,Sub-humid,138.87
+1021,Central,Murang'a,Murang'a SC 03,Ward 04,1.266352,38.373277,Arid,102.86
+1022,Central,Murang'a,Murang'a SC 04,Ward 01,-4.410312,37.450067,Semi-arid,42.55
+1023,Central,Murang'a,Murang'a SC 04,Ward 02,-0.859831,40.741884,Highland,45.94
+1024,Central,Murang'a,Murang'a SC 04,Ward 03,-4.151954,36.222933,Humid,56.38
+1025,Central,Murang'a,Murang'a SC 04,Ward 04,1.522015,38.400554,Lake basin,142.18
+1026,Central,Murang'a,Murang'a SC 04,Ward 05,1.544547,37.210456,Semi-arid,147.45
+1027,Central,Murang'a,Murang'a SC 05,Ward 01,-3.130455,34.179425,Semi-arid,20.76
+1028,Central,Murang'a,Murang'a SC 05,Ward 02,2.090178,37.64883,Humid,33.22
+1029,Central,Murang'a,Murang'a SC 05,Ward 03,0.009821,35.203266,Lake basin,126.86
+1030,Central,Murang'a,Murang'a SC 06,Ward 01,-1.1184,36.381946,Lake basin,115.3
+1031,Central,Murang'a,Murang'a SC 06,Ward 02,-1.298961,34.692434,Highland,25.65
+1032,Central,Murang'a,Murang'a SC 06,Ward 03,4.341838,41.177787,Lake basin,127.45
+1033,Central,Nyeri,Nyeri SC 01,Ward 01,4.410258,40.152132,Highland,130.46
+1034,Central,Nyeri,Nyeri SC 01,Ward 02,-0.476002,36.150708,Arid,21.87
+1035,Central,Nyeri,Nyeri SC 01,Ward 03,3.784463,37.600633,Highland,40.41
+1036,Central,Nyeri,Nyeri SC 02,Ward 01,-1.824008,38.575835,Humid,35.94
+1037,Central,Nyeri,Nyeri SC 02,Ward 02,3.352174,39.992304,Arid,130.91
+1038,Central,Nyeri,Nyeri SC 02,Ward 03,-0.638325,38.95574,Sub-humid,107.22
+1039,Central,Nyeri,Nyeri SC 03,Ward 01,-3.906223,37.284878,Humid,12.28
+1040,Central,Nyeri,Nyeri SC 03,Ward 02,-0.056486,36.605904,Semi-arid,30.29
+1041,Central,Nyeri,Nyeri SC 04,Ward 01,-3.728012,38.642392,Humid,34.85
+1042,Central,Nyeri,Nyeri SC 04,Ward 02,3.996129,38.590383,Arid,65.7
+1043,Central,Nyeri,Nyeri SC 04,Ward 03,0.854606,34.180151,Sub-humid,172.75
+1044,Central,Nyeri,Nyeri SC 04,Ward 04,-0.166348,40.183608,Semi-arid,19.48
+1045,Central,Nyeri,Nyeri SC 05,Ward 01,-0.087354,41.408829,Arid,105.05
+1046,Central,Nyeri,Nyeri SC 05,Ward 02,-0.2492,36.109108,Sub-humid,63.02
+1047,Central,Nyeri,Nyeri SC 05,Ward 03,0.194321,37.467401,Arid,8.78
+1048,Central,Kirinyaga,Kirinyaga SC 01,Ward 01,3.723911,35.107968,Highland,101.96
+1049,Central,Kirinyaga,Kirinyaga SC 01,Ward 02,-3.679388,39.310697,Semi-arid,54.22
+1050,Central,Kirinyaga,Kirinyaga SC 01,Ward 03,1.498573,39.743257,Arid,139.51
+1051,Central,Kirinyaga,Kirinyaga SC 02,Ward 01,-3.687235,41.236494,Lake basin,45.29
+1052,Central,Kirinyaga,Kirinyaga SC 02,Ward 02,-4.348322,38.383335,Sub-humid,69.91
+1053,Central,Kirinyaga,Kirinyaga SC 02,Ward 03,3.100024,40.385187,Semi-arid,60.5
+1054,Central,Kirinyaga,Kirinyaga SC 02,Ward 04,4.257254,36.298251,Sub-humid,95.13
+1055,Central,Kirinyaga,Kirinyaga SC 02,Ward 05,-2.293928,41.394744,Sub-humid,33.81
+1056,Central,Kirinyaga,Kirinyaga SC 03,Ward 01,-0.610088,41.839767,Sub-humid,161.04
+1057,Central,Kirinyaga,Kirinyaga SC 03,Ward 02,2.336915,41.037261,Sub-humid,161.35
+1058,Central,Kirinyaga,Kirinyaga SC 03,Ward 03,0.177269,36.49584,Highland,140.1
+1059,Central,Kirinyaga,Kirinyaga SC 03,Ward 04,1.519616,36.951896,Humid,21.53
+1060,Central,Kirinyaga,Kirinyaga SC 04,Ward 01,2.319822,36.073438,Humid,168.94
+1061,Central,Kirinyaga,Kirinyaga SC 04,Ward 02,-2.434877,34.969788,Sub-humid,150.44
+1062,Central,Kirinyaga,Kirinyaga SC 05,Ward 01,-3.014878,38.735124,Lake basin,158.05
+1063,Central,Kirinyaga,Kirinyaga SC 05,Ward 02,-2.853514,36.451557,Lake basin,141.05
+1064,Central,Kirinyaga,Kirinyaga SC 05,Ward 03,4.435168,37.955855,Arid,30.18
+1065,Central,Kirinyaga,Kirinyaga SC 05,Ward 04,-4.568999,35.814283,Semi-arid,28.07
+1066,Central,Kirinyaga,Kirinyaga SC 05,Ward 05,1.669992,34.962477,Sub-humid,93.61
+1067,Central,Nyandarua,Nyandarua SC 01,Ward 01,0.762496,35.578228,Sub-humid,145.72
+1068,Central,Nyandarua,Nyandarua SC 01,Ward 02,2.024827,39.837974,Lake basin,27.94
+1069,Central,Nyandarua,Nyandarua SC 01,Ward 03,-3.536714,41.327744,Sub-humid,74.58
+1070,Central,Nyandarua,Nyandarua SC 01,Ward 04,-1.871082,37.859814,Arid,121.0
+1071,Central,Nyandarua,Nyandarua SC 01,Ward 05,4.282859,36.262925,Lake basin,166.84
+1072,Central,Nyandarua,Nyandarua SC 02,Ward 01,-4.466321,38.386065,Humid,115.95
+1073,Central,Nyandarua,Nyandarua SC 02,Ward 02,-3.704564,35.108683,Lake basin,78.35
+1074,Central,Nyandarua,Nyandarua SC 02,Ward 03,4.38258,38.708736,Humid,168.28
+1075,Central,Nyandarua,Nyandarua SC 02,Ward 04,2.860993,37.692315,Lake basin,142.33
+1076,Central,Nyandarua,Nyandarua SC 03,Ward 01,-3.674046,40.552486,Semi-arid,144.44
+1077,Central,Nyandarua,Nyandarua SC 03,Ward 02,-2.513177,38.19308,Lake basin,111.05
+1078,Central,Nyandarua,Nyandarua SC 03,Ward 03,3.456746,38.764547,Semi-arid,77.2
+1079,Central,Nyandarua,Nyandarua SC 03,Ward 04,-1.18267,37.364468,Lake basin,119.09
+1080,Central,Nyandarua,Nyandarua SC 03,Ward 05,3.454412,37.585785,Sub-humid,48.37
+1081,Rift Valley,Nakuru,Nakuru SC 01,Ward 01,2.312534,40.450893,Humid,23.42
+1082,Rift Valley,Nakuru,Nakuru SC 01,Ward 02,-4.074347,38.696026,Arid,30.58
+1083,Rift Valley,Nakuru,Nakuru SC 01,Ward 03,3.051843,36.451644,Highland,30.18
+1084,Rift Valley,Nakuru,Nakuru SC 02,Ward 01,3.957122,35.307701,Lake basin,54.83
+1085,Rift Valley,Nakuru,Nakuru SC 02,Ward 02,-3.256034,34.912372,Lake basin,8.7
+1086,Rift Valley,Nakuru,Nakuru SC 03,Ward 01,-3.05837,34.421717,Semi-arid,108.45
+1087,Rift Valley,Nakuru,Nakuru SC 03,Ward 02,1.698717,37.109681,Humid,60.65
+1088,Rift Valley,Nakuru,Nakuru SC 03,Ward 03,0.042547,40.912539,Highland,153.95
+1089,Rift Valley,Nakuru,Nakuru SC 03,Ward 04,-4.291334,35.433837,Lake basin,46.43
+1090,Rift Valley,Uasin Gishu,Uasin Gishu SC 01,Ward 01,0.669587,37.288473,Semi-arid,13.62
+1091,Rift Valley,Uasin Gishu,Uasin Gishu SC 01,Ward 02,-1.188027,38.137648,Humid,22.79
+1092,Rift Valley,Uasin Gishu,Uasin Gishu SC 02,Ward 01,3.13451,34.410499,Sub-humid,166.85
+1093,Rift Valley,Uasin Gishu,Uasin Gishu SC 02,Ward 02,-3.768336,40.664242,Semi-arid,162.96
+1094,Rift Valley,Uasin Gishu,Uasin Gishu SC 03,Ward 01,2.839043,40.157873,Semi-arid,117.43
+1095,Rift Valley,Uasin Gishu,Uasin Gishu SC 03,Ward 02,2.622566,35.062962,Lake basin,98.81
+1096,Rift Valley,Narok,Narok SC 01,Ward 01,3.361178,37.656115,Semi-arid,72.39
+1097,Rift Valley,Narok,Narok SC 01,Ward 02,1.311895,36.10506,Arid,29.46
+1098,Rift Valley,Narok,Narok SC 01,Ward 03,-0.207954,37.293426,Arid,45.7
+1099,Rift Valley,Narok,Narok SC 02,Ward 01,-1.245389,36.8945,Lake basin,62.31
+1100,Rift Valley,Narok,Narok SC 02,Ward 02,-1.133038,39.417372,Sub-humid,56.95
+1101,Rift Valley,Narok,Narok SC 02,Ward 03,4.219265,41.239149,Lake basin,89.16
+1102,Rift Valley,Narok,Narok SC 02,Ward 04,-1.613405,38.229935,Arid,153.5
+1103,Rift Valley,Narok,Narok SC 03,Ward 01,2.861283,38.208506,Semi-arid,115.76
+1104,Rift Valley,Narok,Narok SC 03,Ward 02,-1.991337,39.805656,Arid,40.42
+1105,Rift Valley,Narok,Narok SC 03,Ward 03,1.831102,40.799681,Sub-humid,28.12
+1106,Rift Valley,Narok,Narok SC 04,Ward 01,1.07517,34.751256,Humid,132.0
+1107,Rift Valley,Narok,Narok SC 04,Ward 02,-3.905764,41.393925,Humid,29.05
+1108,Rift Valley,Narok,Narok SC 04,Ward 03,4.313474,40.326985,Sub-humid,108.89
+1109,Rift Valley,Narok,Narok SC 04,Ward 04,2.656667,40.281407,Highland,170.55
+1110,Rift Valley,Narok,Narok SC 05,Ward 01,0.846713,34.750889,Semi-arid,112.83
+1111,Rift Valley,Narok,Narok SC 05,Ward 02,-3.089862,38.46311,Sub-humid,105.18
+1112,Rift Valley,Narok,Narok SC 06,Ward 01,-0.31974,38.128791,Humid,138.69
+1113,Rift Valley,Narok,Narok SC 06,Ward 02,2.8129,37.88801,Humid,109.93
+1114,Rift Valley,Narok,Narok SC 06,Ward 03,4.053621,34.945895,Lake basin,25.49
+1115,Rift Valley,Narok,Narok SC 07,Ward 01,1.483915,37.307006,Highland,140.51
+1116,Rift Valley,Narok,Narok SC 07,Ward 02,1.609575,36.635738,Highland,162.21
+1117,Rift Valley,Narok,Narok SC 07,Ward 03,2.467802,36.137226,Lake basin,68.73
+1118,Rift Valley,Narok,Narok SC 07,Ward 04,-1.744264,35.245132,Lake basin,30.86
+1119,Rift Valley,Baringo,Baringo SC 01,Ward 01,-0.583702,37.028227,Humid,132.69
+1120,Rift Valley,Baringo,Baringo SC 01,Ward 02,0.498135,41.395506,Sub-humid,141.55
+1121,Rift Valley,Baringo,Baringo SC 02,Ward 01,-0.193926,36.97324,Lake basin,177.66
+1122,Rift Valley,Baringo,Baringo SC 02,Ward 02,2.046946,41.514438,Humid,25.73
+1123,Rift Valley,Baringo,Baringo SC 02,Ward 03,3.295017,39.032884,Highland,26.34
+1124,Rift Valley,Baringo,Baringo SC 02,Ward 04,0.829625,39.420161,Highland,7.15
+1125,Rift Valley,Baringo,Baringo SC 02,Ward 05,-0.429411,40.520656,Highland,56.69
+1126,Rift Valley,Baringo,Baringo SC 03,Ward 01,-0.542247,36.385226,Arid,165.73
+1127,Rift Valley,Baringo,Baringo SC 03,Ward 02,2.644164,34.873648,Highland,179.48
+1128,Rift Valley,Baringo,Baringo SC 03,Ward 03,3.56448,36.242877,Lake basin,151.46
+1129,Rift Valley,Baringo,Baringo SC 03,Ward 04,-3.699656,41.892927,Highland,121.49
+1130,Rift Valley,Baringo,Baringo SC 03,Ward 05,1.411175,34.714482,Highland,161.98
+1131,Rift Valley,Kajiado,Kajiado SC 01,Ward 01,-2.436216,35.129873,Highland,140.93
+1132,Rift Valley,Kajiado,Kajiado SC 01,Ward 02,-2.83688,41.194042,Semi-arid,119.85
+1133,Rift Valley,Kajiado,Kajiado SC 01,Ward 03,-4.360071,34.042896,Humid,14.04
+1134,Rift Valley,Kajiado,Kajiado SC 01,Ward 04,0.995697,40.331706,Humid,46.75
+1135,Rift Valley,Kajiado,Kajiado SC 01,Ward 05,3.284443,34.452132,Humid,145.17
+1136,Rift Valley,Kajiado,Kajiado SC 02,Ward 01,4.021277,40.099656,Sub-humid,127.17
+1137,Rift Valley,Kajiado,Kajiado SC 02,Ward 02,3.177014,34.317195,Sub-humid,40.31
+1138,Rift Valley,Kajiado,Kajiado SC 03,Ward 01,0.042591,39.886986,Lake basin,115.25
+1139,Rift Valley,Kajiado,Kajiado SC 03,Ward 02,3.300632,35.226183,Lake basin,133.56
+1140,Rift Valley,Kajiado,Kajiado SC 04,Ward 01,-2.88541,36.138994,Arid,129.23
+1141,Rift Valley,Kajiado,Kajiado SC 04,Ward 02,4.513925,38.831194,Highland,14.54
+1142,Rift Valley,Kajiado,Kajiado SC 05,Ward 01,-4.301905,40.984751,Humid,129.18
+1143,Rift Valley,Kajiado,Kajiado SC 05,Ward 02,-3.072598,34.724596,Arid,37.12
+1144,Eastern,Machakos,Machakos SC 01,Ward 01,-0.38953,40.194239,Arid,116.37
+1145,Eastern,Machakos,Machakos SC 01,Ward 02,0.680684,35.146529,Highland,170.55
+1146,Eastern,Machakos,Machakos SC 01,Ward 03,-1.867379,38.566336,Arid,127.46
+1147,Eastern,Machakos,Machakos SC 02,Ward 01,1.402792,41.430696,Sub-humid,30.98
+1148,Eastern,Machakos,Machakos SC 02,Ward 02,0.078516,37.191872,Humid,87.98
+1149,Eastern,Machakos,Machakos SC 02,Ward 03,-3.579355,35.059347,Lake basin,53.66
+1150,Eastern,Machakos,Machakos SC 02,Ward 04,-1.835777,37.380435,Humid,111.92
+1151,Eastern,Machakos,Machakos SC 02,Ward 05,1.265514,37.253306,Humid,76.54
+1152,Eastern,Machakos,Machakos SC 03,Ward 01,0.830079,36.504623,Humid,11.31
+1153,Eastern,Machakos,Machakos SC 03,Ward 02,-0.76704,37.745648,Sub-humid,44.48
+1154,Eastern,Machakos,Machakos SC 03,Ward 03,0.681105,38.469598,Highland,127.85
+1155,Eastern,Machakos,Machakos SC 03,Ward 04,1.390716,39.154221,Highland,60.34
+1156,Eastern,Machakos,Machakos SC 03,Ward 05,2.701863,38.338241,Humid,80.5
+1157,Eastern,Machakos,Machakos SC 04,Ward 01,1.184517,36.849193,Semi-arid,94.73
+1158,Eastern,Machakos,Machakos SC 04,Ward 02,2.225033,41.002583,Arid,166.19
+1159,Eastern,Machakos,Machakos SC 05,Ward 01,0.190586,40.318976,Semi-arid,60.03
+1160,Eastern,Machakos,Machakos SC 05,Ward 02,3.171394,37.903719,Sub-humid,25.27
+1161,Eastern,Machakos,Machakos SC 05,Ward 03,-4.022644,40.651746,Humid,14.72
+1162,Eastern,Machakos,Machakos SC 05,Ward 04,-2.062253,36.639627,Lake basin,35.27
+1163,Eastern,Machakos,Machakos SC 05,Ward 05,-1.749402,39.867271,Sub-humid,7.57
+1164,Eastern,Machakos,Machakos SC 06,Ward 01,3.07543,40.766729,Humid,70.15
+1165,Eastern,Machakos,Machakos SC 06,Ward 02,-3.256039,38.746639,Lake basin,25.94
+1166,Eastern,Machakos,Machakos SC 06,Ward 03,-1.269758,41.571591,Sub-humid,179.21
+1167,Eastern,Machakos,Machakos SC 06,Ward 04,2.557786,36.456596,Lake basin,125.34
+1168,Eastern,Meru,Meru SC 01,Ward 01,-1.054288,39.06302,Semi-arid,6.88
+1169,Eastern,Meru,Meru SC 01,Ward 02,-2.734858,38.148198,Semi-arid,33.66
+1170,Eastern,Meru,Meru SC 01,Ward 03,-3.140475,40.606804,Humid,178.1
+1171,Eastern,Meru,Meru SC 01,Ward 04,0.526113,40.628651,Highland,178.31
+1172,Eastern,Meru,Meru SC 02,Ward 01,-0.486491,37.101324,Semi-arid,19.01
+1173,Eastern,Meru,Meru SC 02,Ward 02,2.400104,37.426854,Arid,87.13
+1174,Eastern,Meru,Meru SC 02,Ward 03,-3.283674,35.429321,Humid,163.74
+1175,Eastern,Meru,Meru SC 02,Ward 04,-4.280299,35.839533,Highland,56.11
+1176,Eastern,Meru,Meru SC 03,Ward 01,-0.092143,38.632917,Humid,91.33
+1177,Eastern,Meru,Meru SC 03,Ward 02,-3.909316,35.924973,Arid,152.63
+1178,Eastern,Embu,Embu SC 01,Ward 01,1.402001,39.294606,Semi-arid,138.51
+1179,Eastern,Embu,Embu SC 01,Ward 02,-4.15378,36.896206,Sub-humid,99.42
+1180,Eastern,Embu,Embu SC 01,Ward 03,-1.518509,40.671383,Humid,89.45
+1181,Eastern,Embu,Embu SC 01,Ward 04,2.525099,40.730923,Highland,93.34
+1182,Eastern,Embu,Embu SC 02,Ward 01,0.818965,40.717167,Semi-arid,64.6
+1183,Eastern,Embu,Embu SC 02,Ward 02,-0.011121,38.198147,Arid,23.37
+1184,Eastern,Embu,Embu SC 02,Ward 03,-0.953606,41.246968,Semi-arid,115.4
+1185,Eastern,Embu,Embu SC 03,Ward 01,-3.031438,36.67696,Arid,38.53
+1186,Eastern,Embu,Embu SC 03,Ward 02,-4.466663,41.326938,Sub-humid,83.44
+1187,Eastern,Embu,Embu SC 03,Ward 03,-1.80917,38.72797,Highland,6.28
+1188,Eastern,Embu,Embu SC 03,Ward 04,-2.086592,39.553964,Humid,115.91
+1189,Eastern,Embu,Embu SC 03,Ward 05,4.528976,38.900826,Highland,88.56
+1190,Eastern,Embu,Embu SC 04,Ward 01,3.791282,39.693498,Humid,173.56
+1191,Eastern,Embu,Embu SC 04,Ward 02,2.650849,40.847731,Lake basin,24.97
+1192,Eastern,Embu,Embu SC 04,Ward 03,2.184687,37.476701,Lake basin,101.79
+1193,Eastern,Embu,Embu SC 04,Ward 04,1.448563,41.661539,Lake basin,177.3
+1194,Eastern,Embu,Embu SC 04,Ward 05,-1.990654,39.796653,Semi-arid,136.25
+1195,Eastern,Embu,Embu SC 05,Ward 01,-1.442967,34.978571,Semi-arid,12.17
+1196,Eastern,Embu,Embu SC 05,Ward 02,2.607025,37.868628,Sub-humid,177.47
+1197,Eastern,Embu,Embu SC 05,Ward 03,-0.32925,41.725544,Lake basin,77.03
+1198,Eastern,Embu,Embu SC 05,Ward 04,2.760612,34.670072,Humid,102.21
+1199,Eastern,Embu,Embu SC 05,Ward 05,2.839362,41.305143,Highland,148.95
+1200,Eastern,Embu,Embu SC 06,Ward 01,-1.196598,34.384718,Highland,24.12
+1201,Eastern,Embu,Embu SC 06,Ward 02,1.647873,39.63474,Highland,140.4
+1202,Eastern,Embu,Embu SC 07,Ward 01,3.435292,39.841509,Arid,145.15
+1203,Eastern,Embu,Embu SC 07,Ward 02,-4.239741,35.852828,Semi-arid,113.83
+1204,Eastern,Kitui,Kitui SC 01,Ward 01,-4.657699,38.065572,Sub-humid,123.53
+1205,Eastern,Kitui,Kitui SC 01,Ward 02,-4.421691,37.170709,Highland,161.74
+1206,Eastern,Kitui,Kitui SC 01,Ward 03,1.61316,35.877501,Semi-arid,154.24
+1207,Eastern,Kitui,Kitui SC 01,Ward 04,-1.428505,40.741423,Sub-humid,57.32
+1208,Eastern,Kitui,Kitui SC 01,Ward 05,0.84901,37.135827,Humid,53.09
+1209,Eastern,Kitui,Kitui SC 02,Ward 01,-2.936619,34.670012,Lake basin,64.84
+1210,Eastern,Kitui,Kitui SC 02,Ward 02,2.045808,40.37871,Humid,179.78
+1211,Eastern,Kitui,Kitui SC 02,Ward 03,-1.914197,37.222741,Highland,28.94
+1212,Eastern,Kitui,Kitui SC 02,Ward 04,0.703796,41.880882,Sub-humid,127.65
+1213,Eastern,Kitui,Kitui SC 03,Ward 01,0.895001,37.099716,Semi-arid,165.18
+1214,Eastern,Kitui,Kitui SC 03,Ward 02,-0.028984,35.061499,Arid,68.94
+1215,Eastern,Kitui,Kitui SC 03,Ward 03,-4.068633,35.595634,Semi-arid,8.09
+1216,Eastern,Kitui,Kitui SC 03,Ward 04,-0.439169,39.012868,Sub-humid,65.08
+1217,Eastern,Kitui,Kitui SC 03,Ward 05,-0.748411,41.577753,Lake basin,136.59
+1218,Eastern,Kitui,Kitui SC 04,Ward 01,-2.025316,41.086275,Semi-arid,46.14
+1219,Eastern,Kitui,Kitui SC 04,Ward 02,-1.641778,41.181612,Lake basin,97.67
+1220,Eastern,Kitui,Kitui SC 04,Ward 03,2.277789,38.666884,Semi-arid,119.35
+1221,Eastern,Kitui,Kitui SC 04,Ward 04,-1.885797,35.906839,Semi-arid,61.44
+1222,Eastern,Tharaka-Nithi,Tharaka-Nithi SC 01,Ward 01,3.518555,36.237651,Arid,103.26
+1223,Eastern,Tharaka-Nithi,Tharaka-Nithi SC 01,Ward 02,2.74456,40.19221,Arid,81.72
+1224,Eastern,Tharaka-Nithi,Tharaka-Nithi SC 02,Ward 01,-0.223181,41.858144,Lake basin,123.05
+1225,Eastern,Tharaka-Nithi,Tharaka-Nithi SC 02,Ward 02,2.957601,41.130176,Humid,142.83
+1226,Eastern,Tharaka-Nithi,Tharaka-Nithi SC 03,Ward 01,0.584405,34.804964,Semi-arid,119.26
+1227,Eastern,Tharaka-Nithi,Tharaka-Nithi SC 03,Ward 02,4.280285,38.050583,Highland,80.77
+1228,Eastern,Tharaka-Nithi,Tharaka-Nithi SC 03,Ward 03,-4.363078,41.582219,Sub-humid,23.03
+1229,Eastern,Tharaka-Nithi,Tharaka-Nithi SC 04,Ward 01,-4.313857,35.943926,Lake basin,16.47
+1230,Eastern,Tharaka-Nithi,Tharaka-Nithi SC 04,Ward 02,-0.421892,38.077094,Semi-arid,59.7
+1231,Eastern,Tharaka-Nithi,Tharaka-Nithi SC 05,Ward 01,-3.650957,37.037585,Lake basin,15.59
+1232,Eastern,Tharaka-Nithi,Tharaka-Nithi SC 05,Ward 02,1.862983,35.635462,Humid,57.86
+1233,Coast,Mombasa,Mombasa SC 01,Ward 01,-0.783869,34.01312,Humid,24.61
+1234,Coast,Mombasa,Mombasa SC 01,Ward 02,3.409987,34.009741,Arid,93.93
+1235,Coast,Mombasa,Mombasa SC 01,Ward 03,-0.098681,36.631444,Highland,80.48
+1236,Coast,Mombasa,Mombasa SC 02,Ward 01,2.637463,40.645509,Arid,50.56
+1237,Coast,Mombasa,Mombasa SC 02,Ward 02,-1.66859,35.915615,Arid,88.98
+1238,Coast,Mombasa,Mombasa SC 02,Ward 03,1.722629,35.803198,Semi-arid,62.88
+1239,Coast,Mombasa,Mombasa SC 03,Ward 01,-4.243449,37.64008,Sub-humid,129.52
+1240,Coast,Mombasa,Mombasa SC 03,Ward 02,-3.285732,34.374255,Arid,29.19
+1241,Coast,Kilifi,Kilifi SC 01,Ward 01,-4.612958,35.487744,Arid,10.47
+1242,Coast,Kilifi,Kilifi SC 01,Ward 02,-3.660083,38.899179,Highland,47.29
+1243,Coast,Kilifi,Kilifi SC 02,Ward 01,0.650593,38.662544,Highland,153.65
+1244,Coast,Kilifi,Kilifi SC 02,Ward 02,-4.655431,40.741619,Semi-arid,113.35
+1245,Coast,Kilifi,Kilifi SC 02,Ward 03,-3.170211,40.106205,Highland,154.71
+1246,Coast,Kilifi,Kilifi SC 02,Ward 04,-2.309923,41.25847,Highland,84.53
+1247,Coast,Kilifi,Kilifi SC 02,Ward 05,0.97219,41.778731,Humid,68.27
+1248,Coast,Kilifi,Kilifi SC 03,Ward 01,-1.707048,40.313787,Lake basin,110.13
+1249,Coast,Kilifi,Kilifi SC 03,Ward 02,-2.666256,37.270806,Sub-humid,60.59
+1250,Coast,Kilifi,Kilifi SC 03,Ward 03,-3.965781,34.235695,Lake basin,65.63
+1251,Coast,Kilifi,Kilifi SC 03,Ward 04,-4.521079,35.307353,Lake basin,131.91
+1252,Coast,Kilifi,Kilifi SC 04,Ward 01,1.956058,39.834785,Highland,60.5
+1253,Coast,Kilifi,Kilifi SC 04,Ward 02,3.666183,38.691261,Sub-humid,27.05
+1254,Coast,Kilifi,Kilifi SC 04,Ward 03,-3.349045,39.475454,Highland,35.27
+1255,Coast,Kilifi,Kilifi SC 04,Ward 04,0.068551,41.835018,Semi-arid,5.7
+1256,Coast,Kilifi,Kilifi SC 04,Ward 05,-4.54415,41.845368,Highland,107.31
+1257,Coast,Kilifi,Kilifi SC 05,Ward 01,3.734641,40.955004,Sub-humid,98.84
+1258,Coast,Kilifi,Kilifi SC 05,Ward 02,1.144845,36.158179,Lake basin,13.84
+1259,Coast,Kilifi,Kilifi SC 05,Ward 03,0.888936,36.328566,Humid,121.13
+1260,Coast,Kilifi,Kilifi SC 06,Ward 01,3.160705,34.143468,Lake basin,109.25
+1261,Coast,Kilifi,Kilifi SC 06,Ward 02,-2.525963,40.903719,Semi-arid,49.39
+1262,Coast,Kilifi,Kilifi SC 07,Ward 01,0.503284,37.129715,Humid,123.58
+1263,Coast,Kilifi,Kilifi SC 07,Ward 02,2.122235,38.478809,Lake basin,137.72
+1264,Coast,Kilifi,Kilifi SC 07,Ward 03,4.544121,37.312252,Sub-humid,95.05
+1265,Coast,Kilifi,Kilifi SC 07,Ward 04,-4.582783,40.288626,Semi-arid,96.04
+1266,Coast,Kwale,Kwale SC 01,Ward 01,-3.815724,41.028286,Lake basin,74.13
+1267,Coast,Kwale,Kwale SC 01,Ward 02,1.716267,35.180056,Highland,173.27
+1268,Coast,Kwale,Kwale SC 01,Ward 03,-3.022647,35.576382,Lake basin,155.32
+1269,Coast,Kwale,Kwale SC 02,Ward 01,3.878278,35.675965,Lake basin,87.22
+1270,Coast,Kwale,Kwale SC 02,Ward 02,2.194852,40.939089,Sub-humid,71.33
+1271,Coast,Kwale,Kwale SC 02,Ward 03,0.159983,39.85956,Arid,132.95
+1272,Coast,Kwale,Kwale SC 03,Ward 01,0.657378,34.826459,Highland,163.2
+1273,Coast,Kwale,Kwale SC 03,Ward 02,3.436382,40.30497,Arid,22.48
+1274,Coast,Kwale,Kwale SC 03,Ward 03,-2.778665,39.874443,Highland,9.05
+1275,Coast,Kwale,Kwale SC 03,Ward 04,4.504712,36.979443,Semi-arid,130.88
+1276,Coast,Kwale,Kwale SC 04,Ward 01,3.643168,37.117576,Humid,60.85
+1277,Coast,Kwale,Kwale SC 04,Ward 02,1.022167,38.589816,Semi-arid,76.6
+1278,Coast,Kwale,Kwale SC 04,Ward 03,0.956683,41.389513,Highland,86.84
+1279,Coast,Kwale,Kwale SC 04,Ward 04,-2.850624,36.979927,Sub-humid,73.97
+1280,Coast,Kwale,Kwale SC 04,Ward 05,-3.467578,35.286685,Lake basin,124.8
+1281,Coast,Kwale,Kwale SC 05,Ward 01,4.276045,35.924414,Highland,22.31
+1282,Coast,Kwale,Kwale SC 05,Ward 02,2.382943,40.960185,Sub-humid,53.67
+1283,Coast,Kwale,Kwale SC 06,Ward 01,-2.800372,35.467552,Sub-humid,96.35
+1284,Coast,Kwale,Kwale SC 06,Ward 02,-0.296884,36.049575,Highland,12.91
+1285,Coast,Kwale,Kwale SC 06,Ward 03,-0.173981,41.578726,Sub-humid,119.19
+1286,Coast,Tana River,Tana River SC 01,Ward 01,-3.659495,35.994247,Semi-arid,56.59
+1287,Coast,Tana River,Tana River SC 01,Ward 02,2.489153,40.926015,Lake basin,162.79
+1288,Coast,Tana River,Tana River SC 01,Ward 03,4.554945,41.760697,Highland,171.77
+1289,Coast,Tana River,Tana River SC 02,Ward 01,-3.404741,36.405286,Highland,101.76
+1290,Coast,Tana River,Tana River SC 02,Ward 02,-3.788408,40.681796,Sub-humid,112.93
+1291,Coast,Tana River,Tana River SC 02,Ward 03,0.398225,35.305959,Semi-arid,49.32
+1292,Coast,Tana River,Tana River SC 02,Ward 04,-3.193067,40.730272,Arid,107.24
+1293,Coast,Tana River,Tana River SC 03,Ward 01,2.210217,36.33866,Lake basin,69.97
+1294,Coast,Tana River,Tana River SC 03,Ward 02,-0.894363,40.004118,Arid,140.16
+1295,Coast,Tana River,Tana River SC 04,Ward 01,4.150465,34.953177,Humid,161.82
+1296,Coast,Tana River,Tana River SC 04,Ward 02,-3.756281,36.089865,Sub-humid,153.13
+1297,Coast,Tana River,Tana River SC 05,Ward 01,-3.012775,37.267187,Humid,83.73
+1298,Coast,Tana River,Tana River SC 05,Ward 02,-2.394566,39.610937,Arid,153.98
+1299,Coast,Tana River,Tana River SC 06,Ward 01,-1.510372,38.193718,Sub-humid,48.47
+1300,Coast,Tana River,Tana River SC 06,Ward 02,-2.398913,35.273907,Highland,169.5
+1301,Coast,Tana River,Tana River SC 06,Ward 03,3.647095,40.141134,Humid,95.59
+1302,Coast,Tana River,Tana River SC 06,Ward 04,-0.088286,38.184991,Lake basin,98.9
+1303,Coast,Lamu,Lamu SC 01,Ward 01,-3.461505,34.992744,Lake basin,171.64
+1304,Coast,Lamu,Lamu SC 01,Ward 02,-0.168911,41.530324,Highland,33.63
+1305,Coast,Lamu,Lamu SC 01,Ward 03,0.511516,35.640966,Lake basin,49.31
+1306,Coast,Lamu,Lamu SC 01,Ward 04,-4.417487,34.939731,Lake basin,165.45
+1307,Coast,Lamu,Lamu SC 01,Ward 05,-1.67759,38.804221,Arid,86.38
+1308,Coast,Lamu,Lamu SC 02,Ward 01,-0.935758,38.2019,Sub-humid,37.77
+1309,Coast,Lamu,Lamu SC 02,Ward 02,4.592877,40.464632,Semi-arid,134.78
+1310,Coast,Lamu,Lamu SC 02,Ward 03,-0.293663,35.207729,Humid,166.12
+1311,Coast,Lamu,Lamu SC 03,Ward 01,-4.228997,36.704989,Sub-humid,144.03
+1312,Coast,Lamu,Lamu SC 03,Ward 02,1.153462,39.931625,Sub-humid,143.89
+1313,Coast,Lamu,Lamu SC 03,Ward 03,-2.707627,41.297888,Lake basin,81.65
+1314,Coast,Lamu,Lamu SC 03,Ward 04,1.306728,34.018239,Lake basin,178.84
+1315,Coast,Lamu,Lamu SC 04,Ward 01,-2.059574,34.490299,Lake basin,85.2
+1316,Coast,Lamu,Lamu SC 04,Ward 02,-3.487117,35.203381,Arid,115.65
+1317,Coast,Lamu,Lamu SC 04,Ward 03,-1.006483,41.282634,Lake basin,60.85
+1318,Coast,Lamu,Lamu SC 05,Ward 01,-0.365665,39.213615,Sub-humid,109.95
+1319,Coast,Lamu,Lamu SC 05,Ward 02,-0.255831,41.505483,Humid,64.97
+1320,Coast,Lamu,Lamu SC 05,Ward 03,-3.033986,39.356943,Lake basin,153.05
+1321,Coast,Lamu,Lamu SC 06,Ward 01,-4.321615,37.552098,Arid,161.19
+1322,Coast,Lamu,Lamu SC 06,Ward 02,2.346415,41.835281,Semi-arid,98.0
+1323,Coast,Lamu,Lamu SC 06,Ward 03,1.50396,36.389594,Semi-arid,170.82
+1324,Coast,Lamu,Lamu SC 06,Ward 04,-1.256446,39.834235,Sub-humid,75.55
+1325,Coast,Lamu,Lamu SC 07,Ward 01,2.065956,38.02058,Lake basin,163.74
+1326,Coast,Lamu,Lamu SC 07,Ward 02,-0.758571,39.111867,Highland,64.91
+1327,Coast,Lamu,Lamu SC 07,Ward 03,-0.863327,37.476396,Highland,27.02
+1328,Coast,Lamu,Lamu SC 07,Ward 04,-3.837797,39.27317,Arid,119.72
+1329,Coast,Lamu,Lamu SC 07,Ward 05,1.531351,34.156155,Sub-humid,62.15
+1330,Nyanza,Kisumu,Kisumu SC 01,Ward 01,2.614623,40.79898,Humid,48.17
+1331,Nyanza,Kisumu,Kisumu SC 01,Ward 02,1.577782,35.021966,Arid,53.15
+1332,Nyanza,Kisumu,Kisumu SC 01,Ward 03,-3.396648,36.239814,Highland,123.08
+1333,Nyanza,Kisumu,Kisumu SC 01,Ward 04,3.857073,35.599927,Lake basin,99.86
+1334,Nyanza,Kisumu,Kisumu SC 01,Ward 05,1.893076,41.528088,Arid,111.76
+1335,Nyanza,Kisumu,Kisumu SC 02,Ward 01,-2.301995,38.941277,Semi-arid,61.09
+1336,Nyanza,Kisumu,Kisumu SC 02,Ward 02,4.475607,37.157441,Arid,124.95
+1337,Nyanza,Kisumu,Kisumu SC 03,Ward 01,-0.939422,40.91335,Humid,111.79
+1338,Nyanza,Kisumu,Kisumu SC 03,Ward 02,-0.526937,41.393906,Humid,154.45
+1339,Nyanza,Kisumu,Kisumu SC 03,Ward 03,-1.671173,38.301932,Highland,90.72
+1340,Nyanza,Kisumu,Kisumu SC 03,Ward 04,1.242704,36.639479,Semi-arid,47.74
+1341,Nyanza,Kisumu,Kisumu SC 04,Ward 01,3.879115,41.298609,Semi-arid,152.58
+1342,Nyanza,Kisumu,Kisumu SC 04,Ward 02,4.495122,39.885433,Semi-arid,138.82
+1343,Nyanza,Kisumu,Kisumu SC 05,Ward 01,-0.182288,37.605972,Humid,47.04
+1344,Nyanza,Kisumu,Kisumu SC 05,Ward 02,1.3613,36.285629,Semi-arid,50.12
+1345,Nyanza,Siaya,Siaya SC 01,Ward 01,-0.846166,35.728967,Highland,147.81
+1346,Nyanza,Siaya,Siaya SC 01,Ward 02,3.389357,35.324826,Sub-humid,6.31
+1347,Nyanza,Siaya,Siaya SC 01,Ward 03,-1.540378,40.300336,Humid,151.86
+1348,Nyanza,Siaya,Siaya SC 02,Ward 01,-3.399707,40.117254,Highland,25.25
+1349,Nyanza,Siaya,Siaya SC 02,Ward 02,-1.033412,41.889015,Semi-arid,38.7
+1350,Nyanza,Siaya,Siaya SC 02,Ward 03,-3.252742,37.340123,Semi-arid,113.44
+1351,Nyanza,Siaya,Siaya SC 02,Ward 04,4.069267,41.748487,Sub-humid,17.19
+1352,Nyanza,Siaya,Siaya SC 03,Ward 01,2.732937,36.137994,Highland,159.85
+1353,Nyanza,Siaya,Siaya SC 03,Ward 02,1.536461,34.883574,Semi-arid,150.69
+1354,Nyanza,Siaya,Siaya SC 03,Ward 03,-3.04225,37.345614,Sub-humid,101.63
+1355,Nyanza,Siaya,Siaya SC 03,Ward 04,0.007202,39.420687,Highland,119.22
+1356,Nyanza,Siaya,Siaya SC 03,Ward 05,4.625195,41.895433,Arid,95.38
+1357,Nyanza,Siaya,Siaya SC 04,Ward 01,-3.805129,39.749962,Arid,175.92
+1358,Nyanza,Siaya,Siaya SC 04,Ward 02,-1.707732,37.64355,Sub-humid,79.34
+1359,Nyanza,Siaya,Siaya SC 05,Ward 01,1.619286,36.791368,Arid,142.81
+1360,Nyanza,Siaya,Siaya SC 05,Ward 02,3.121929,40.487723,Semi-arid,77.92
+1361,Nyanza,Siaya,Siaya SC 06,Ward 01,-1.677471,39.915684,Sub-humid,145.24
+1362,Nyanza,Siaya,Siaya SC 06,Ward 02,-0.08218,41.054945,Arid,30.18
+1363,Nyanza,Homa Bay,Homa Bay SC 01,Ward 01,-3.796705,35.212852,Arid,98.42
+1364,Nyanza,Homa Bay,Homa Bay SC 01,Ward 02,-4.065326,34.417176,Arid,5.09
+1365,Nyanza,Homa Bay,Homa Bay SC 01,Ward 03,-0.598623,40.119529,Sub-humid,11.1
+1366,Nyanza,Homa Bay,Homa Bay SC 01,Ward 04,1.431222,40.502706,Sub-humid,34.4
+1367,Nyanza,Homa Bay,Homa Bay SC 01,Ward 05,-3.319481,40.800328,Lake basin,149.05
+1368,Nyanza,Homa Bay,Homa Bay SC 02,Ward 01,3.000479,34.732773,Arid,74.03
+1369,Nyanza,Homa Bay,Homa Bay SC 02,Ward 02,2.235297,36.03387,Humid,136.66
+1370,Nyanza,Homa Bay,Homa Bay SC 02,Ward 03,0.039279,39.927101,Lake basin,86.32
+1371,Nyanza,Homa Bay,Homa Bay SC 02,Ward 04,-1.241699,35.731595,Humid,41.47
+1372,Nyanza,Homa Bay,Homa Bay SC 03,Ward 01,2.364014,34.939392,Lake basin,20.05
+1373,Nyanza,Homa Bay,Homa Bay SC 03,Ward 02,-3.042861,35.385237,Semi-arid,149.04
+1374,Nyanza,Homa Bay,Homa Bay SC 03,Ward 03,-0.954038,41.824069,Semi-arid,29.01
+1375,Nyanza,Homa Bay,Homa Bay SC 03,Ward 04,1.443274,37.544963,Sub-humid,73.76
+1376,Nyanza,Homa Bay,Homa Bay SC 04,Ward 01,4.470599,40.895586,Humid,38.65
+1377,Nyanza,Homa Bay,Homa Bay SC 04,Ward 02,-2.6245,39.182984,Humid,55.59
+1378,Nyanza,Homa Bay,Homa Bay SC 05,Ward 01,2.206416,38.474723,Sub-humid,101.41
+1379,Nyanza,Homa Bay,Homa Bay SC 05,Ward 02,3.088341,39.613209,Sub-humid,9.65
+1380,Nyanza,Homa Bay,Homa Bay SC 05,Ward 03,-4.235084,38.752312,Humid,90.08
+1381,Nyanza,Homa Bay,Homa Bay SC 05,Ward 04,-2.254264,37.307383,Sub-humid,137.63
+1382,Nyanza,Homa Bay,Homa Bay SC 05,Ward 05,3.070148,38.433662,Arid,72.44
+1383,Nyanza,Migori,Migori SC 01,Ward 01,0.206034,36.486522,Humid,103.72
+1384,Nyanza,Migori,Migori SC 01,Ward 02,1.660532,34.522026,Arid,5.19
+1385,Nyanza,Migori,Migori SC 01,Ward 03,-2.704595,41.066641,Lake basin,118.1
+1386,Nyanza,Migori,Migori SC 02,Ward 01,3.668481,37.712652,Sub-humid,88.32
+1387,Nyanza,Migori,Migori SC 02,Ward 02,4.094094,34.469945,Highland,42.66
+1388,Nyanza,Migori,Migori SC 02,Ward 03,0.80625,35.544343,Highland,123.92
+1389,Nyanza,Migori,Migori SC 02,Ward 04,-2.687532,34.78334,Lake basin,41.22
+1390,Nyanza,Migori,Migori SC 02,Ward 05,-0.7263,35.391493,Sub-humid,28.57
+1391,Nyanza,Migori,Migori SC 03,Ward 01,3.38665,36.531138,Arid,68.13
+1392,Nyanza,Migori,Migori SC 03,Ward 02,-4.180458,36.82322,Highland,51.34
+1393,Nyanza,Migori,Migori SC 04,Ward 01,-2.769331,41.018087,Lake basin,167.69
+1394,Nyanza,Migori,Migori SC 04,Ward 02,-3.761588,34.848483,Humid,25.18
+1395,Nyanza,Migori,Migori SC 04,Ward 03,1.123951,34.963555,Highland,154.17
+1396,Nyanza,Migori,Migori SC 04,Ward 04,2.390152,40.47649,Arid,97.06
+1397,Nyanza,Migori,Migori SC 04,Ward 05,4.668766,34.348983,Lake basin,75.22
+1398,Nyanza,Migori,Migori SC 05,Ward 01,-1.654995,41.494299,Highland,105.95
+1399,Nyanza,Migori,Migori SC 05,Ward 02,2.878195,35.345695,Highland,176.26
+1400,Nyanza,Migori,Migori SC 05,Ward 03,-0.012788,37.900009,Lake basin,174.9
+1401,Nyanza,Migori,Migori SC 05,Ward 04,-1.121116,37.140448,Humid,107.33
+1402,Nyanza,Migori,Migori SC 06,Ward 01,-1.681795,35.526346,Sub-humid,23.07
+1403,Nyanza,Migori,Migori SC 06,Ward 02,3.441759,38.655716,Semi-arid,67.77
+1404,Nyanza,Migori,Migori SC 06,Ward 03,-0.858508,37.409,Sub-humid,115.8
+1405,Nyanza,Kisii,Kisii SC 01,Ward 01,4.068128,37.092787,Humid,62.62
+1406,Nyanza,Kisii,Kisii SC 01,Ward 02,-0.460163,38.48668,Lake basin,85.82
+1407,Nyanza,Kisii,Kisii SC 01,Ward 03,1.492282,38.379752,Lake basin,61.13
+1408,Nyanza,Kisii,Kisii SC 02,Ward 01,-1.45013,36.990883,Semi-arid,21.56
+1409,Nyanza,Kisii,Kisii SC 02,Ward 02,-3.139011,39.712599,Semi-arid,73.09
+1410,Nyanza,Kisii,Kisii SC 02,Ward 03,-2.683334,38.445112,Semi-arid,137.22
+1411,Nyanza,Kisii,Kisii SC 02,Ward 04,-2.28023,40.53164,Arid,167.31
+1412,Nyanza,Kisii,Kisii SC 02,Ward 05,0.915509,39.284687,Arid,14.2
+1413,Nyanza,Kisii,Kisii SC 03,Ward 01,-1.010643,41.298813,Arid,106.32
+1414,Nyanza,Kisii,Kisii SC 03,Ward 02,-4.656583,34.304482,Highland,124.07
+1415,Nyanza,Kisii,Kisii SC 03,Ward 03,0.589079,34.209606,Humid,135.11
+1416,Nyanza,Kisii,Kisii SC 03,Ward 04,3.310166,37.921698,Semi-arid,86.51
+1417,Western,Kakamega,Kakamega SC 01,Ward 01,2.694507,36.612657,Sub-humid,158.78
+1418,Western,Kakamega,Kakamega SC 01,Ward 02,-1.19323,38.464115,Highland,52.31
+1419,Western,Kakamega,Kakamega SC 01,Ward 03,-3.19047,40.121772,Lake basin,91.9
+1420,Western,Kakamega,Kakamega SC 02,Ward 01,0.342986,41.626786,Sub-humid,173.63
+1421,Western,Kakamega,Kakamega SC 02,Ward 02,3.343036,35.482113,Sub-humid,109.0
+1422,Western,Kakamega,Kakamega SC 03,Ward 01,-1.180039,34.798739,Highland,146.92
+1423,Western,Kakamega,Kakamega SC 03,Ward 02,-0.171423,38.458702,Highland,176.88
+1424,Western,Kakamega,Kakamega SC 03,Ward 03,1.007787,37.357337,Lake basin,69.75
+1425,Western,Kakamega,Kakamega SC 03,Ward 04,-0.774379,34.935353,Arid,144.08
+1426,Western,Kakamega,Kakamega SC 03,Ward 05,3.174538,36.246737,Lake basin,58.16
+1427,Western,Kakamega,Kakamega SC 04,Ward 01,3.518742,34.189366,Sub-humid,96.08
+1428,Western,Kakamega,Kakamega SC 04,Ward 02,-0.341448,39.452001,Humid,33.59
+1429,Western,Kakamega,Kakamega SC 04,Ward 03,1.582309,36.976199,Arid,113.28
+1430,Western,Kakamega,Kakamega SC 04,Ward 04,-4.323107,37.647645,Arid,96.39
+1431,Western,Kakamega,Kakamega SC 04,Ward 05,-2.685332,35.103027,Sub-humid,37.98
+1432,Western,Kakamega,Kakamega SC 05,Ward 01,-3.789985,41.483826,Arid,75.87
+1433,Western,Kakamega,Kakamega SC 05,Ward 02,2.904314,41.697895,Semi-arid,19.13
+1434,Western,Kakamega,Kakamega SC 05,Ward 03,1.425693,40.884132,Arid,115.99
+1435,Western,Kakamega,Kakamega SC 06,Ward 01,-0.667154,37.405503,Lake basin,11.28
+1436,Western,Kakamega,Kakamega SC 06,Ward 02,0.325247,41.84899,Semi-arid,172.77
+1437,Western,Kakamega,Kakamega SC 06,Ward 03,-4.320247,39.575796,Lake basin,57.81
+1438,Western,Kakamega,Kakamega SC 07,Ward 01,-4.275921,41.393405,Humid,151.56
+1439,Western,Kakamega,Kakamega SC 07,Ward 02,-3.595459,34.472612,Highland,151.07
+1440,Western,Kakamega,Kakamega SC 07,Ward 03,-3.235878,38.225695,Humid,165.26
+1441,Western,Kakamega,Kakamega SC 07,Ward 04,0.634012,37.138143,Semi-arid,82.88
+1442,Western,Bungoma,Bungoma SC 01,Ward 01,4.406272,36.454168,Highland,38.14
+1443,Western,Bungoma,Bungoma SC 01,Ward 02,-2.011155,41.618548,Lake basin,21.5
+1444,Western,Bungoma,Bungoma SC 01,Ward 03,3.452649,39.591967,Arid,150.25
+1445,Western,Bungoma,Bungoma SC 01,Ward 04,4.473437,40.653022,Arid,170.09
+1446,Western,Bungoma,Bungoma SC 01,Ward 05,-3.506809,40.28673,Arid,100.49
+1447,Western,Bungoma,Bungoma SC 02,Ward 01,0.408859,41.10148,Arid,175.07
+1448,Western,Bungoma,Bungoma SC 02,Ward 02,1.92548,37.815213,Highland,84.87
+1449,Western,Bungoma,Bungoma SC 03,Ward 01,-1.300969,37.092904,Highland,20.71
+1450,Western,Bungoma,Bungoma SC 03,Ward 02,-3.972101,40.160972,Sub-humid,83.06
+1451,Western,Bungoma,Bungoma SC 03,Ward 03,4.048434,38.836546,Humid,11.16
+1452,Western,Bungoma,Bungoma SC 03,Ward 04,-3.219281,35.625976,Arid,175.75
+1453,Western,Bungoma,Bungoma SC 03,Ward 05,-2.64418,38.07447,Semi-arid,168.83
+1454,Western,Bungoma,Bungoma SC 04,Ward 01,4.485612,35.867247,Sub-humid,13.6
+1455,Western,Bungoma,Bungoma SC 04,Ward 02,-3.256143,34.500295,Arid,39.15
+1456,Western,Bungoma,Bungoma SC 04,Ward 03,0.644555,41.208345,Sub-humid,99.01
+1457,Western,Bungoma,Bungoma SC 05,Ward 01,-2.802448,40.324611,Highland,113.11
+1458,Western,Bungoma,Bungoma SC 05,Ward 02,3.422886,41.495861,Highland,65.88
+1459,Western,Bungoma,Bungoma SC 05,Ward 03,-3.848557,35.784839,Humid,81.62
+1460,Western,Bungoma,Bungoma SC 05,Ward 04,4.18952,36.988648,Sub-humid,139.89
+1461,Western,Bungoma,Bungoma SC 06,Ward 01,0.380481,35.444189,Lake basin,61.13
+1462,Western,Bungoma,Bungoma SC 06,Ward 02,1.440004,39.315542,Lake basin,81.08
+1463,Western,Bungoma,Bungoma SC 06,Ward 03,-2.550731,39.703064,Lake basin,34.55
+1464,Western,Bungoma,Bungoma SC 06,Ward 04,4.104695,35.484438,Humid,23.78
+1465,Western,Bungoma,Bungoma SC 07,Ward 01,0.183766,38.014724,Lake basin,81.42
+1466,Western,Bungoma,Bungoma SC 07,Ward 02,4.65126,37.841617,Highland,88.64
+1467,Western,Bungoma,Bungoma SC 07,Ward 03,-0.735399,34.527923,Humid,108.77
+1468,Western,Bungoma,Bungoma SC 07,Ward 04,-2.557103,39.037111,Lake basin,13.9
+1469,Western,Busia,Busia SC 01,Ward 01,-0.291352,41.084367,Sub-humid,88.22
+1470,Western,Busia,Busia SC 01,Ward 02,-4.13289,40.495487,Semi-arid,118.43
+1471,Western,Busia,Busia SC 01,Ward 03,2.648516,37.382542,Highland,116.64
+1472,Western,Busia,Busia SC 01,Ward 04,3.348553,38.985417,Lake basin,65.84
+1473,Western,Busia,Busia SC 02,Ward 01,1.527778,39.307648,Arid,173.1
+1474,Western,Busia,Busia SC 02,Ward 02,-1.213424,37.358146,Semi-arid,147.12
+1475,Western,Busia,Busia SC 02,Ward 03,0.054166,39.818927,Semi-arid,85.45
+1476,Western,Busia,Busia SC 02,Ward 04,-2.674346,39.88711,Semi-arid,27.95
+1477,Western,Busia,Busia SC 02,Ward 05,-2.833314,38.951917,Semi-arid,135.77
+1478,Western,Busia,Busia SC 03,Ward 01,-2.137687,34.874722,Humid,172.31
+1479,Western,Busia,Busia SC 03,Ward 02,-3.248423,35.561569,Semi-arid,55.98
+1480,Western,Busia,Busia SC 04,Ward 01,0.276279,40.974322,Semi-arid,138.1
+1481,Western,Busia,Busia SC 04,Ward 02,1.956681,35.383926,Arid,67.59
+1482,Western,Busia,Busia SC 04,Ward 03,-0.202994,35.164665,Arid,52.85
+1483,Western,Busia,Busia SC 04,Ward 04,-1.801668,35.005482,Arid,101.29
+1484,Western,Busia,Busia SC 04,Ward 05,1.927265,34.55246,Lake basin,89.2
+1485,Western,Busia,Busia SC 05,Ward 01,2.331107,40.439077,Arid,83.44
+1486,Western,Busia,Busia SC 05,Ward 02,3.013237,35.901949,Lake basin,68.14
+1487,Western,Vihiga,Vihiga SC 01,Ward 01,-0.305645,37.097274,Lake basin,47.16
+1488,Western,Vihiga,Vihiga SC 01,Ward 02,2.366739,36.479389,Semi-arid,52.74
+1489,Western,Vihiga,Vihiga SC 02,Ward 01,-3.469631,37.466691,Humid,58.02
+1490,Western,Vihiga,Vihiga SC 02,Ward 02,-1.228835,35.864378,Humid,138.55
+1491,Western,Vihiga,Vihiga SC 03,Ward 01,-0.019441,39.079688,Semi-arid,156.76
+1492,Western,Vihiga,Vihiga SC 03,Ward 02,4.688999,38.84678,Sub-humid,160.71
+1493,Western,Vihiga,Vihiga SC 04,Ward 01,3.840918,40.252467,Arid,85.66
+1494,Western,Vihiga,Vihiga SC 04,Ward 02,-3.937152,34.124864,Sub-humid,88.51
+1495,Western,Vihiga,Vihiga SC 04,Ward 03,-0.053443,37.218163,Arid,104.43
+1496,Western,Vihiga,Vihiga SC 04,Ward 04,0.490329,40.609243,Sub-humid,24.01
+1497,Western,Vihiga,Vihiga SC 04,Ward 05,-2.58333,40.264739,Humid,153.37
+1498,Western,Vihiga,Vihiga SC 05,Ward 01,3.505373,41.030202,Highland,60.01
+1499,Western,Vihiga,Vihiga SC 05,Ward 02,-0.924381,36.117872,Lake basin,111.1
+1500,Western,Vihiga,Vihiga SC 05,Ward 03,4.12477,36.722663,Lake basin,102.48
+1501,Western,Vihiga,Vihiga SC 05,Ward 04,-1.914783,35.34142,Semi-arid,39.16
+1502,Western,Vihiga,Vihiga SC 05,Ward 05,-4.155314,41.499419,Sub-humid,75.5
+1503,Western,Vihiga,Vihiga SC 06,Ward 01,3.140736,39.382503,Lake basin,38.59
+1504,Western,Vihiga,Vihiga SC 06,Ward 02,-3.050655,40.414707,Semi-arid,51.32
+1505,Western,Vihiga,Vihiga SC 06,Ward 03,3.884881,35.106438,Sub-humid,123.6
+1506,Western,Vihiga,Vihiga SC 06,Ward 04,2.956054,35.858525,Sub-humid,53.34
+1507,Western,Vihiga,Vihiga SC 06,Ward 05,4.366478,36.090321,Sub-humid,80.24
+1508,Nairobi,Nairobi,Nairobi SC 01,Ward 01,-2.321473,40.12875,Arid,140.07
+1509,Nairobi,Nairobi,Nairobi SC 01,Ward 02,-1.143811,40.597494,Humid,42.29
+1510,Nairobi,Nairobi,Nairobi SC 01,Ward 03,-4.659526,38.512222,Highland,178.96
+1511,Nairobi,Nairobi,Nairobi SC 01,Ward 04,-4.336743,35.643185,Highland,95.81
+1512,Nairobi,Nairobi,Nairobi SC 01,Ward 05,2.913443,34.703432,Humid,74.17
+1513,Nairobi,Nairobi,Nairobi SC 02,Ward 01,2.322513,36.935191,Semi-arid,38.05
+1514,Nairobi,Nairobi,Nairobi SC 02,Ward 02,-2.862339,37.239385,Sub-humid,88.9
+1515,Nairobi,Nairobi,Nairobi SC 02,Ward 03,3.401056,39.073794,Arid,125.82
+1516,Nairobi,Nairobi,Nairobi SC 03,Ward 01,-0.828672,37.1865,Humid,166.59
+1517,Nairobi,Nairobi,Nairobi SC 03,Ward 02,-2.388769,39.76554,Highland,137.05
+1518,Nairobi,Nairobi,Nairobi SC 04,Ward 01,-3.780793,37.699028,Sub-humid,40.1
+1519,Nairobi,Nairobi,Nairobi SC 04,Ward 02,-2.957472,37.664242,Lake basin,55.65
+1520,Nairobi,Nairobi,Nairobi SC 04,Ward 03,2.782968,41.170079,Semi-arid,145.48
+1521,Nairobi,Nairobi,Nairobi SC 04,Ward 04,-2.19931,36.165662,Semi-arid,49.58
+1522,Nairobi,Nairobi,Nairobi SC 04,Ward 05,-3.430642,41.456007,Humid,75.36
+1523,Nairobi,Nairobi,Nairobi SC 05,Ward 01,3.258708,37.153643,Sub-humid,11.15
+1524,Nairobi,Nairobi,Nairobi SC 05,Ward 02,-3.177749,39.050078,Semi-arid,142.01
+1525,Nairobi,Nairobi,Nairobi SC 05,Ward 03,-2.717217,41.247425,Sub-humid,153.92
+1526,Nairobi,Nairobi,Nairobi SC 05,Ward 04,3.274779,35.798523,Highland,13.84
+1527,Nairobi,Nairobi,Nairobi SC 05,Ward 05,3.453781,36.415822,Semi-arid,113.31

@@ -1,0 +1,7 @@
+plan_id,plan_name,tenor_months,deposit_pct,interest_rate_annual_pct,payment_frequency,grace_period_days
+1,Cash,0,100.0,0.0,One-off,0
+12,12-month PAYG,12,30.0,10.0,Monthly,7
+18,18-month PAYG,18,25.0,11.0,Monthly,7
+24,24-month PAYG,24,20.0,12.0,Monthly,7
+36,36-month PAYG,36,15.0,13.0,Monthly,10
+52,Weekly PAYG (52w),12,25.0,12.0,Weekly,3
